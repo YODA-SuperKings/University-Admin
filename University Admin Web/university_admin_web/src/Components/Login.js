@@ -20,51 +20,56 @@ function Login(){
     }
 
     const handleSubmit  = (e) => {
-        e.preventDefault()
-        localStorage.setItem('LoggedInEmail', email);
-        fetch('https://localhost:44342/api/Users/AuthenticateUser?email='+email+'&password=' + password, 
-        { 
-            method: 'GET',
-            withCredentials: true, 
-            crossorigin: true,
-            headers: {
-            Accept: 'application/json','Content-Type': 'application/json'
-            },
-        }) 
-        .then((res) => res.json())
-        .then((data) => {
-            if (data) {
-                toast(<><b style={{ color: 'Green' }}>Login Succesfully.</b></>, { position: 'top-right' });
-                setauthenticated(true)
-                localStorage.setItem("authenticated", true);
-                if(data.registrationType === 1)
-                    navigate("/CollegeDashboard");
-                else if(data.registrationType === 2)
-                    navigate("/CompanyDashboard");
-            }
-            else
-            {
-                toast(<><b style={{ color: 'Red' }}>Invalid login credentials.</b></>, { position: 'top-right' });
-            }
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+        navigate("/Sidebar");
+        // e.preventDefault()
+        // localStorage.setItem('LoggedInEmail', email);
+        // fetch('https://localhost:44342/api/Users/AuthenticateUser?email='+email+'&password=' + password, 
+        // { 
+        //     method: 'GET',
+        //     withCredentials: true, 
+        //     crossorigin: true,
+        //     headers: {
+        //     Accept: 'application/json','Content-Type': 'application/json'
+        //     },
+        // }) 
+        // .then((res) => res.json())
+        // .then((data) => {
+        //     if (data) {
+        //         toast(<><b style={{ color: 'Green' }}>Login Succesfully.</b></>, { position: 'top-right' });
+        //         setauthenticated(true)
+        //         localStorage.setItem("authenticated", true);
+        //         if(data.registrationType === 1)
+        //             navigate("/CollegeDashboard");
+        //         else if(data.registrationType === 2)
+        //             navigate("/CompanyDashboard");
+        //     }
+        //     else
+        //     {
+        //         toast(<><b style={{ color: 'Red' }}>Invalid login credentials.</b></>, { position: 'top-right' });
+        //     }
+        // })
+        // .catch((error) => {
+        //     console.error(error);
+        // });
     }
 
     return(
-        <div className="login-box">
-          <h1>Login</h1>
-           <form>
-            <div>
-               <label for="email">Email </label><br></br>
-               <input  type="email" id="email" value={email} onChange = {(e) => handleInputChange(e)} placeholder="Email"/>
-               <label for="password">Password </label><br></br>
-               <input type="password"  id="password" value={password} onChange = {(e) => handleInputChange(e)} placeholder="Password"/>
+        <div className="form-login">
+            <h1 className='header'>Sign In To Your Account</h1>
+            <div className="form-login-body">
+                <div className="email">
+                    <label className="form_label" for="email">Email </label><br></br>
+                    <input  type="email" id="email" className="form_input" value={email} onChange = {(e) => handleInputChange(e)} placeholder="Email"/>
+                </div>
+                <div className="password">
+                    <label className="form_label" for="password">Password </label><br></br>
+                    <input className="form_input" type="password"  id="password" value={password} onChange = {(e) => handleInputChange(e)} placeholder="Password"/>
+                </div>
             </div>
-                <button onClick={(e)=>handleSubmit(e)} className="loginbutton" type="submit">SIGN IN</button>
-                <p className="para-2"><Link to="/Registration">Sign Up</Link><span style={{paddingLeft: "32%"}}></span><Link>Forgot Password ?</Link></p>
-          </form>
+            <div class="footer">
+                <button onClick={(e)=>handleSubmit(e)} type="submit" class="btn">SIGN IN</button>
+                <div><Link to="/Registration">Sign Up</Link><span style={{paddingLeft: "52%"}}></span><Link>Forgot Password ?</Link></div>
+            </div>
         </div>
     )
 } 

@@ -1,75 +1,293 @@
 body{
-    background-color: #344a72;
-    font-family: "Roboto", sans-serif;
+  background: #bdc3c7;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #785fa0, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #785fa0, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.signup-box {
-    width: 358px;
-    height: 802px;
-    margin: auto;
-    background-color: white;
-    border-radius: 3px;
-  }
-  
-  .login-box {
-    top: 30%;
-    right: 40%;
-    position: absolute;
-    width: 360px;
-    margin: auto;
-    border-radius: 3px;
-    background-color: white;
-  }
-  
-  h1 {
-    text-align: center;
-    padding-top: 15px;
-  }
-  
-  h4 {
-    text-align: center;
-  }
-  
-  form {
-    width: 300px;
-    margin-left: 20px;
-    border-radius: 2px;;
-  }
-  
-  form label {
-    display: flex;
-    margin-top: 20px;
-    font-size: 18px;
-  }
-  
-  form input,select {
-    width: 100%;
-    padding: 7px;
-    border: none;
-    border: 1px solid gray;
-    border-radius: 6px;
-    outline: none;
-  }
-  .loginbutton {
-    width: 320px;
-    height: 35px;
-    margin-top: 20px;
-    border: none;
-    background-color: #49c1a2;
-    color: white;
-    font-size: 18px;
-    border-radius: 6px;
-  }
-  p {
-    text-align: center;
-    padding-top: 20px;
-    font-size: 15px;
-  }
-  .para-2 {
-    text-align: center;
-    font-size: 15px;
-    margin-top: -10px;
-  }
-  .para-2 a {
-    color: #49c1a2;
-  }
+.form_label{
+  width: 40%;
+  color: #785fa0;
+  font-size: large;
+  font-weight: bolder;
+}
+
+.form_input{
+  height: 30px;;
+  width: 90%;
+}
+
+/*Registration CSS - Start*/
+.form-registration{
+  background-color: white;
+  border-radius: 5px;
+  width: 500px;
+  margin: 130px auto;
+  padding: 20px;
+  padding-left: 50px;
+}
+
+.form-registration-body{
+  text-align: left;
+  padding: 20px 10px;
+}
+
+.form-registration-body > *{
+  padding: 5px;
+}
+
+.header{
+  text-align: center;
+  border-radius: 5px;
+  border: solid black 2px;
+  color: white;
+  background-color: #785fa0;
+  padding: 7px 5px;
+  width: 90%;
+}
+
+.footer{
+  text-align: left;
+  padding: 20px 10px;
+}
+
+.btn{
+  height: 40px;
+  width: 90%;
+  background-color: #785fa0;
+  color: white;
+  font-size: large;
+}
+
+.already-account{
+  color: cadetblue;
+  font-weight: bold;
+  padding-top: 10px;
+}
+/*Registration CSS - End*/
+
+/*Login CSS - Start*/
+.form-login{
+  background-color: white;
+  border-radius: 5px;
+  width: 500px;
+  margin: 130px auto;
+  padding: 20px;
+  padding-left: 50px;
+}
+
+.form-login-body{
+  text-align: left;
+  padding: 20px 10px;
+}
+
+.form-login-body > *{
+  padding: 5px;
+}
+/*Login CSS - End*/
+
+/*Student Registration - Start*/
+.form-student-registration{
+  background-color: white;
+  border-radius: 5px;
+  width: 50%;
+  margin: 130px auto;
+  padding: 20px;
+  padding-left: 50px;
+}
+
+.form-student-registration-body{
+  text-align: left;
+  padding: 20px 10px;
+}
+
+.form-student-registration-body > *{
+  padding: 5px;
+}
+
+.student_registration_header{
+  text-align: center;
+  border-radius: 5px;
+  border: solid black 2px;
+  color: white;
+  background-color: #785fa0;
+  padding: 7px 5px;
+  width: 97%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 47%;
+  padding: 10px;
+}
+
+.btn_student_save, .btn_student_cancel{
+  height: 35px;
+  width: 47%;
+  background-color: #785fa0;
+  color: white;
+  font-size: large;
+}
+
+.img-wrap{
+  position: relative;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.img-upload:hover:before{
+  opacity: 1;
+}
+
+img {
+  width: auto;
+  height: 100%;
+}
+/*Student Registration - End*/
+
+/*College Dashboard - Start*/
+.form-college-dashboard{
+  background-color: white;
+  border-radius: 5px;
+  width: 90%;
+  margin: 130px auto;
+  padding: 20px;
+  padding-left: 50px;
+}
+
+.form-college-dashboard-body{
+  text-align: left;
+  padding: 20px 10px;
+}
+
+.form-college-dashboard-body > *{
+  padding: 5px;
+}
+
+.college_dashboard_header{
+  text-align: center;
+  border-radius: 5px;
+  border: solid black 2px;
+  color: white;
+  background-color: #785fa0;
+  padding: 7px 5px;
+  width: 99%;
+}
+
+.btn_add_student{
+  height: 35px;
+  width: 100%;
+  background-color: #785fa0;
+  color: white;
+  font-size: large;
+}
+
+.studentGrid{
+  width: 100%;
+}
+/*College Dashboard - End*/
+
+/*Company Dashboard - Start*/
+.form-company-dashboard{
+  background-color: white;
+  border-radius: 5px;
+  width: 90%;
+  margin: 130px auto;
+  padding: 20px;
+  padding-left: 50px;
+}
+
+.form-company-dashboard-body{
+  text-align: left;
+  padding: 20px 10px;
+}
+
+.form-company-dashboard-body > *{
+  padding: 5px;
+}
+
+.company_dashboard_header{
+  text-align: center;
+  border-radius: 5px;
+  border: solid black 2px;
+  color: white;
+  background-color: #785fa0;
+  padding: 7px 5px;
+  width: 99%;
+}
+
+.companyGrid{
+  width: 100%;
+}
+/*Company Dashboard - End*/
+
+/*Sidebar - Start*/
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.container{
+  display: flex;
+}
+
+main{
+  width: 100%;
+  padding: 20px;
+}
+
+.sidebar{
+  background: #785fa0;
+  color: antiquewhite;
+  height: 100vh;
+  width: 300px;
+  transition: all 0.5s;
+}
+
+.topSection{
+  display: flex;
+  align-items: center;
+  padding: 20px 15px;
+}
+
+.logo{
+  font-size: 30px;
+}
+
+.bars{
+  display: flex;
+  font-size: 25px;
+  margin-left: 50px;
+}
+
+.link{
+  display: flex;
+  color: antiquewhite;
+  padding: 10px 15px;
+  gap: 15px;
+  transition: all 0.5s;
+}
+
+.link:hover{
+  background: #bdc3c7;
+  color: black;
+  transition: all 0.5s;
+}
+
+.active{
+  background: #bdc3c7;
+  color: black;
+}
+
+.icon .linkText{
+  font-size: 20px;
+}
+/*Sidebar - End*/
