@@ -15,6 +15,7 @@ function Login(){
             setEmail(value);
         }
         if(id === "password"){
+            
             setPassword(value);
         }
     }
