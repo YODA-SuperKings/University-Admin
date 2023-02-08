@@ -234,6 +234,36 @@
         "runtime": {
           "lib/netcoreapp3.1/ZstdSharp.dll": {}
         }
+      },
+      "BusinessLogic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/BusinessLogic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessLogic.dll": {}
+        }
+      },
+      "BusinessLogic.Interface/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/BusinessLogic.Interface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessLogic.Interface.dll": {}
+        }
+      },
+      "BusinessLogic.Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/BusinessLogic.Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessLogic.Model.dll": {}
+        }
       }
     }
   },
@@ -695,10 +725,28 @@
         "zstdsharp.port.0.6.2.nupkg.sha512",
         "zstdsharp.port.nuspec"
       ]
+    },
+    "BusinessLogic/1.0.0": {
+      "type": "project",
+      "path": "../BusinessLogic/BusinessLogic.csproj",
+      "msbuildProject": "../BusinessLogic/BusinessLogic.csproj"
+    },
+    "BusinessLogic.Interface/1.0.0": {
+      "type": "project",
+      "path": "../BusinessLogic.Interface/BusinessLogic.Interface.csproj",
+      "msbuildProject": "../BusinessLogic.Interface/BusinessLogic.Interface.csproj"
+    },
+    "BusinessLogic.Model/1.0.0": {
+      "type": "project",
+      "path": "../BusinessLogic.Model/BusinessLogic.Model.csproj",
+      "msbuildProject": "../BusinessLogic.Model/BusinessLogic.Model.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "BusinessLogic >= 1.0.0",
+      "BusinessLogic.Interface >= 1.0.0",
+      "BusinessLogic.Model >= 1.0.0",
       "MongoDB.Driver >= 2.19.0"
     ]
   },
@@ -728,7 +776,17 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\src\\University-Admin\\University Admin API\\University_Admin_API\\BusinessLogic.Interface\\BusinessLogic.Interface.csproj": {
+              "projectPath": "C:\\src\\University-Admin\\University Admin API\\University_Admin_API\\BusinessLogic.Interface\\BusinessLogic.Interface.csproj"
+            },
+            "C:\\src\\University-Admin\\University Admin API\\University_Admin_API\\BusinessLogic.Model\\BusinessLogic.Model.csproj": {
+              "projectPath": "C:\\src\\University-Admin\\University Admin API\\University_Admin_API\\BusinessLogic.Model\\BusinessLogic.Model.csproj"
+            },
+            "C:\\src\\University-Admin\\University Admin API\\University_Admin_API\\BusinessLogic\\BusinessLogic.csproj": {
+              "projectPath": "C:\\src\\University-Admin\\University Admin API\\University_Admin_API\\BusinessLogic\\BusinessLogic.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

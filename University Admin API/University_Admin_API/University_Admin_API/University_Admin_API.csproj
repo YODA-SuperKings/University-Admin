@@ -9,7 +9,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\BusinessLogic.Interface\BusinessLogic.Interface.csproj" />
+    <ProjectReference Include="..\BusinessLogic.Model\BusinessLogic.Model.csproj" />
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
   </ItemGroup>
 
 
