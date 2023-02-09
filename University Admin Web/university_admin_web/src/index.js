@@ -7,9 +7,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Registration from "./Components/Registration";
 import Sidebar from './Components/Sidebar';
 import AdmissionForm from './Components/AdmissionForm';
-import About from './Components/About';
+import StudentInformation from './Components/StudentInformation';
 import Contact from './Components/Contact';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,7 +20,7 @@ root.render(
   <Sidebar>
     <Routes>
       <Route path="AdmissionForm" element={<AdmissionForm />} />
-      <Route path="About" element={<About />} />
+      <Route path="StudentInformation" element={<StudentInformation />} />
       <Route path="Contact" element={<Contact />} />
     </Routes>
   </Sidebar>

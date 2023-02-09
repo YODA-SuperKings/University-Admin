@@ -264,3 +264,33 @@ main{
   width: 96% !important;
 }
 /*Admission Form - End*/
+
+/*Student Information - Start*/
+.form-studentInformation{
+  background-color: white;
+  border-radius: 5px;
+  width: 96% !important;
+  margin: 0px auto;
+  padding: 20px;
+  padding-left: 50px;
+}
+
+.form-studentInformation-body{
+  text-align: left;
+  padding: 20px 10px;
+}
+
+.form-studentInformation-body > *{
+  padding: 5px;
+}
+
+.studentInformation_header{
+  text-align: center;
+  border-radius: 5px;
+  border: solid black 2px;
+  color: white;
+  background-color: #785fa0;
+  padding: 7px 5px;
+  width: 97%;
+}
+/*Student Information - End*/

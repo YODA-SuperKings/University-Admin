@@ -9,8 +9,8 @@ const menuItem = [
         icon: <FaTh/>
     },
     {
-        path: "/About",
-        name: "About",
+        path: "/StudentInformation",
+        name: "Student Information",
         icon: <FaUserAlt/>
     },
     {

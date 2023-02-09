@@ -208,7 +208,7 @@ function AdmissionForm(){
             toast(<><b style={{ color: 'Red' }}>Parent Details - Country Required.</b></>, { position: 'top-right' });
         }
         else{
-            
+
         }
     }
 
@@ -223,7 +223,7 @@ function AdmissionForm(){
                 <Link to={"/"}>Log out</Link>
                 {localStorage.removeItem("LoggedInEmail")}
             </div>
-            <div><h1 className='admission_header'>Admission Form</h1></div>
+            <div><h1 className='admission_header'>Admission Details</h1></div>
             <div className="form-admission-body">
             <div className='admission_border'>
                 <h1 style={{color: "#785fa0"}}>General Details</h1>
