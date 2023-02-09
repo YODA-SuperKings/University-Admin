@@ -9,6 +9,7 @@ import Sidebar from './Components/Sidebar';
 import Dashboard from './Components/Dashboard';
 import About from './Components/About';
 import Contact from './Components/Contact';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
