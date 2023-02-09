@@ -7,6 +7,9 @@ import StudentInformation from './Components/StudentInformation';
 import Payment from './Components/Payment';
 import Document from './Components/Document';
 import Banner from './Components/Banner';
+import Login from './Components/Login';
+import Registration from './Components/Registration';
+import Home from './Components/Home';
 
 function App() {
   return (
@@ -15,11 +18,14 @@ function App() {
          <Sidebar>
           <Banner />
           <Routes>
+            <Route path="Home" element={<Home />} />
             <Route path="AdmissionForm" element={<AdmissionForm />} />
             <Route path="StudentInformation" element={<StudentInformation />} />
             <Route path="Payment" element={<Payment />} />
             <Route path="Document" element={<Document />} />
             <Route path="Banner" element={<Banner />} />
+            <Route path="Login" element={<Login />} />
+            <Route path="Registration" element={<Registration />} />
           </Routes>
         </Sidebar>
       </BrowserRouter>

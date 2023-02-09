@@ -54,21 +54,19 @@ function Login(){
     }
 
     return(
+        
         <div className="form-login">
-            <h1 className='header'>Sign In To Your Account</h1>
-            <div className="form-login-body">
-                <div className="email">
-                    <label className="form_label" for="email">Email </label><br></br>
-                    <input  type="email" id="email" className="form_input" value={email} onChange = {(e) => handleInputChange(e)} placeholder="Email"/>
-                </div>
-                <div className="password">
-                    <label className="form_label" for="password">Password </label><br></br>
-                    <input className="form_input" type="password"  id="password" value={password} onChange = {(e) => handleInputChange(e)} placeholder="Password"/>
-                </div>
+            <div style={{margin :"0px 23px 0px 23px"}}>
+            <img src={process.env.PUBLIC_URL + "/Img/user.png"}  className="img_sec"/>
+            <label for="email"  class="form_label">Email </label><br/>
+            <input  type="email" class="form-control" id="email" value={email} onChange = {(e) => handleInputChange(e)} placeholder="Email"/><br/>
+            <label for="password" class="form_label">Password </label><br/>
+            <input type="password" class="form-control" id="password" value={password} onChange = {(e) => handleInputChange(e)} placeholder="Password"/><br/>
+            <button style={{width: "100%"}} onClick={(e)=>handleSubmit(e)} type="button" class="btn_student_save">SIGN IN</button>
+            <div style={{margin: "10px"}}>
+              <Link to="/Registration">Sign Up</Link>
+              <Link style={{marginLeft: "52%"}}>Forgot Password ?</Link>
             </div>
-            <div class="footer">
-                <button onClick={(e)=>handleSubmit(e)} type="submit" class="btn">SIGN IN</button>
-                <div><Link to="/Registration">Sign Up</Link><span style={{paddingLeft: "52%"}}></span><Link>Forgot Password ?</Link></div>
             </div>
         </div>
     )

@@ -114,32 +114,20 @@ function Registration(){
     
     return(
         <div className="signup-box">
-            <h1>Sign Up</h1>
-            <form>
-                <div>
-                    <label for="firstName">First Name </label><br></br>
-                    <input type="text" value={firstName} onChange = {(e) => handleInputChange(e)} id="firstName" placeholder="First Name"/>
-                    <label for="lastName">Last Name </label><br></br>
-                    <input type="text" name="" id="lastName" value={lastName}  onChange = {(e) => handleInputChange(e)} placeholder="LastName"/>
-                    <label for="password">Password </label><br></br>
-                    <input type="password"  id="password" value={password} onChange = {(e) => handleInputChange(e)} placeholder="Password"/>
-                    <label for="confirmPassword">Confirm Password </label><br></br>
-                    <input type="password" id="confirmPassword" value={confirmPassword} onChange = {(e) => handleInputChange(e)} placeholder="Confirm Password"/>
-                    <label for="email">Email </label><br></br>
-                    <input type="email" id="email" value={email} onChange = {(e) => handleInputChange(e)} placeholder="Email"/>
-                    <label for="registrationtype">Registration Type </label><br></br>
-                    <select id="registrationtype" value={registrationtype} onChange = {(e) => handleInputChange(e)}>
-                        <option value={0}>-Select-</option>
-                        <option value={1}>College</option>
-                        <option value={2}>Company</option>
-                    </select>
-                    <label for="name">{nameLabel}</label><br></br>
-                    <input  type="text" id="name" value={name} onChange = {(e) => handleInputChange(e)} placeholder={nameLabel}/>
-             
-                <button onClick={()=>handleSubmit()} type="submit" className="loginbutton">REGISTER</button>
-                <p className="para-2">Already have an account ? <span style={{paddingLeft: "17%"}}></span> <Link to="/">Sign In</Link></p>
-            </div>
-            </form>
+          <div style={{margin: " 0px 14px 0px 18px", padding: "23px 0px 23px 0px"}}>
+            <label for="firstName" class="form_label">First Name </label><br/>
+            <input type="text" class="form-control" value={firstName} onChange = {(e) => handleInputChange(e)} id="firstName" placeholder="First Name"/><br/>
+            <label for="lastName" class="form_label">Last Name </label><br/>
+            <input type="text" class="form-control" name="" id="lastName" value={lastName}  onChange = {(e) => handleInputChange(e)} placeholder="LastName"/><br/>
+            <label for="password" class="form_label">Password </label><br/>
+            <input type="password" class="form-control" id="password" value={password} onChange = {(e) => handleInputChange(e)} placeholder="Password"/><br/>
+            <label for="confirmPassword" class="form_label">Confirm Password </label><br/>
+            <input type="password" class="form-control" id="confirmPassword" value={confirmPassword} onChange = {(e) => handleInputChange(e)} placeholder="Confirm Password"/><br/>
+            <label for="email" class="form_label">Email </label><br/>
+            <input type="email" class="form-control" id="email" value={email} onChange = {(e) => handleInputChange(e)} placeholder="Email"/>
+            <button onClick={()=>handleSubmit()} type="button" className="btn_student_save" style={{width: "100%", margin: "17px 0px 0px 0px"}}>REGISTER</button>
+            <p className="para-2">Already have an account ? <span style={{paddingLeft: "17%"}}></span> <Link to="/Login">Sign In</Link></p>
+          </div>
         </div>
     )
 } 

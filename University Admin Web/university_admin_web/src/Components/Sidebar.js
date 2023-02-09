@@ -2,9 +2,16 @@ import React, {useState} from 'react';
 import { FaBars, FaTh, FaUserAlt, FaUserGraduate, FaSignOutAlt } from 'react-icons/fa';
 import { MdOutlinePayment } from 'react-icons/md';
 import { HiDocumentDuplicate } from 'react-icons/hi';
+import { AiOutlineLogin } from 'react-icons/ai';
+import { GrHomeRounded } from 'react-icons/gr';
 import { NavLink } from 'react-router-dom';
 
 const menuItem = [
+    {
+        path: "/Home",
+        name: "Home",
+        icon: <GrHomeRounded/>
+    },
     {
         path: "/AdmissionForm",
         name: "Admission",
@@ -24,6 +31,11 @@ const menuItem = [
         path: "/Document",
         name: "Document",
         icon: <HiDocumentDuplicate/>
+    },
+    {
+        path: "/Login",
+        name: "Login",
+        icon: <AiOutlineLogin/>
     },
     {
         path: "/",
