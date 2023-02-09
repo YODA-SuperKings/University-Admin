@@ -350,4 +350,29 @@ main{
   font-size: large;
   text-align: center;
 }
+
+.university_banner{
+  height: 150px;
+  border-radius: var(--bs-border-radius);
+  background-color: #785fa0;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Alegreya+SC');
+.universityheader{
+  font-family: "Alegreya SC", serif;
+  text-align: center;
+  font-size: 60px;
+  color: rgb(251 255 0);
+  text-shadow: rgb(0, 0, 0) 2px 2px 2px;
+  float : right;
+  margin-right: 26%;
+}
+
+.marq{
+  font-family: "Adamina", serif;
+  text-align: center;
+  font-size: 30px;
+  text-shadow: rgb(0, 0, 0) 2px 2px 2px;
+  color: rgb(251 255 0);
+}
 /*Document - End*/
