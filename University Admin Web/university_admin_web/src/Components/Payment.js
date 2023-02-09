@@ -41,10 +41,6 @@ function Payment(){
 
     return(
         <div className="form-payment">
-            <div>
-                <span style={{paddingLeft: "95%"}}></span>
-                <Link to={"/"}>Log out</Link>
-            </div>
             <div><h1 className='payment_header'>Payment Details</h1></div>
             <div className="form-payment-body">
                 <div className='payment_border'>
