@@ -16,6 +16,18 @@ body{
   width: 90%;
 }
 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 30%;
+  padding: 10px;
+}
+
 /*Registration CSS - Start*/
 .form-registration{
   background-color: white;
@@ -114,18 +126,6 @@ body{
   width: 97%;
 }
 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.column {
-  float: left;
-  width: 47%;
-  padding: 10px;
-}
-
 .btn_student_save, .btn_student_cancel{
   height: 35px;
   width: 47%;
@@ -159,8 +159,9 @@ img {
   text-decoration: none;
 }
 
-.container{
-  display: flex;
+.Sidebar_container{
+  display: flex !important;
+  width: 100% !important;
 }
 
 main{
@@ -171,7 +172,7 @@ main{
 .sidebar{
   background: #785fa0;
   color: antiquewhite;
-  height: 100vh;
+  height: 300vh;
   width: 300px;
   transition: all 0.5s;
 }
@@ -215,3 +216,51 @@ main{
   font-size: 20px;
 }
 /*Sidebar - End*/
+
+/*Admission Form - Start*/
+.form-admission{
+  background-color: white;
+  border-radius: 5px;
+  width: 96% !important;
+  margin: 0px auto;
+  padding: 20px;
+  padding-left: 50px;
+}
+
+.form-admission-body{
+  text-align: left;
+  padding: 20px 10px;
+}
+
+.form-admission-body > *{
+  padding: 5px;
+}
+
+.admission_header{
+  text-align: center;
+  border-radius: 5px;
+  border: solid black 2px;
+  color: white;
+  background-color: #785fa0;
+  padding: 7px 5px;
+  width: 97%;
+}
+
+.admission_footer{
+  text-align: left;
+  padding: 20px 10px;
+}
+
+.admission_btn{
+  height: 40px;
+  width: 90%;
+  background-color: #785fa0;
+  color: white;
+  font-size: large;
+}
+
+.admission_border{
+  border: solid #785fa0 1px;
+  width: 96% !important;
+}
+/*Admission Form - End*/

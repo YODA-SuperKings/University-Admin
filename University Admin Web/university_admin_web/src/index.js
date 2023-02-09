@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Registration from "./Components/Registration";
 import Sidebar from './Components/Sidebar';
-import Dashboard from './Components/Dashboard';
+import AdmissionForm from './Components/AdmissionForm';
 import About from './Components/About';
 import Contact from './Components/Contact';
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -20,8 +20,7 @@ root.render(
   </Routes>
   <Sidebar>
     <Routes>
-      <Route path="Registration" element={<Registration />} />
-      <Route path="Dashboard" element={<Dashboard />} />
+      <Route path="AdmissionForm" element={<AdmissionForm />} />
       <Route path="About" element={<About />} />
       <Route path="Contact" element={<Contact />} />
     </Routes>

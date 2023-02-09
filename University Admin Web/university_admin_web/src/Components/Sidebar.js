@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 
 const menuItem = [
     {
-        path: "/Dashboard",
-        name: "Dashboard",
+        path: "/AdmissionForm",
+        name: "Admission Form",
         icon: <FaTh/>
     },
     {
@@ -24,7 +24,7 @@ function Sidebar({children}){
     const [isOpen, setIsOpen] = useState(true);
     const toggle = () => setIsOpen(!isOpen);
     return(
-      <div className='container'>
+      <div className='Sidebar_container'>
         <div style={{width: isOpen ? "200px" : "50px"}} className='sidebar'>
             <div className='topSection'>
                 <h1 style={{display: isOpen ? "block" : "none"}} className='logo'><FaUserGraduate/></h1>
