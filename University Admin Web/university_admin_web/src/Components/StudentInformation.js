@@ -33,10 +33,6 @@ function StudentInformation(){
 
     return(
         <div className="form-studentInformation">
-            <div>
-                <span style={{paddingLeft: "95%"}}></span>
-                <Link to={"/"}>Log out</Link>
-            </div>
             <div><h1 className='studentInformation_header'>Student Information</h1></div>
             <div className="form-studentInformation-body">
             <Table responsive bordered hover>

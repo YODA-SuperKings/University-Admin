@@ -218,10 +218,6 @@ function AdmissionForm(){
 
     return (
         <div className="form-admission">
-            <div>
-                <span style={{paddingLeft: "95%"}}></span>
-                <Link to={"/"}>Log out</Link>
-            </div>
             <div><h1 className='admission_header'>Admission Details</h1></div>
             <div className="form-admission-body">
             <div className='admission_border'>
