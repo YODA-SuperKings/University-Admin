@@ -1,23 +1,29 @@
 import React, {useState} from 'react';
 import { FaBars, FaTh, FaUserAlt, FaUserGraduate, FaSignOutAlt } from 'react-icons/fa';
 import { MdOutlinePayment } from 'react-icons/md';
+import { HiDocumentDuplicate } from 'react-icons/hi';
 import { NavLink } from 'react-router-dom';
 
 const menuItem = [
     {
         path: "/AdmissionForm",
-        name: "Admission Form",
+        name: "Admission",
         icon: <FaTh/>
     },
     {
         path: "/StudentInformation",
-        name: "Student Information",
+        name: "Student",
         icon: <FaUserAlt/>
     },
     {
         path: "/Payment",
         name: "Payment",
         icon: <MdOutlinePayment/>
+    },
+    {
+        path: "/Document",
+        name: "Document",
+        icon: <HiDocumentDuplicate/>
     },
     {
         path: "/",
@@ -31,10 +37,10 @@ function Sidebar({children}){
     const toggle = () => setIsOpen(!isOpen);
     return(
       <div className='Sidebar_container'>
-        <div className='sidebar'>
+        <div style={{width: isOpen ? "250px" : "50px"}} className='sidebar'>
             <div className='topSection'>
                 <h1 style={{display: isOpen ? "block" : "none"}} className='logo'><FaUserGraduate/></h1>
-                <div style={{marginLeft: isOpen ? "100px" : "0px"}} className='bars'>
+                <div style={{marginLeft: isOpen ? "150px" : "0px", cursor:'pointer'}} className='bars'>
                     <FaBars onClick={toggle}/>
                 </div>
             </div>

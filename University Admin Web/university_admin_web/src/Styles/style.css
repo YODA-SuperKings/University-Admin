@@ -316,3 +316,38 @@ main{
   font-size: large;
 }
 /*Payment - End*/
+
+/*Document - Start*/
+.form-document{
+  background-color: white;
+  border-radius: 5px;
+  width: 96% !important;
+  margin: 0px auto;
+  padding: 20px;
+  padding-left: 50px;
+}
+
+.form-document-body{
+  text-align: left;
+  padding: 20px 10px;
+}
+
+.form-document-body > *{
+  padding: 5px;
+}
+
+.document_header{
+  text-align: center;
+  font-size: xx-large;
+  color: #785fa0;
+}
+
+.btn_add_document, .btn_add_document_save, .btn_add_document_close{
+  height: 35px;
+  width: 12%;
+  background-color: #785fa0;
+  color: white;
+  font-size: large;
+  text-align: center;
+}
+/*Document - End*/

@@ -281,7 +281,7 @@ function AdmissionForm(){
                             <option value={0}>-Select-</option>
                             <option value={1}>Freshman</option>
                             <option value={2}>Transferee</option>
-                            <option value={2}>Other</option>
+                            <option value={3}>Other</option>
                         </select>
                     </div>
                     <div className='col-md-4'>

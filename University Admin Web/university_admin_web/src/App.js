@@ -5,6 +5,7 @@ import Sidebar from './Components/Sidebar';
 import AdmissionForm from './Components/AdmissionForm';
 import StudentInformation from './Components/StudentInformation';
 import Payment from './Components/Payment';
+import Document from './Components/Document';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="AdmissionForm" element={<AdmissionForm />} />
             <Route path="StudentInformation" element={<StudentInformation />} />
             <Route path="Payment" element={<Payment />} />
+            <Route path="Document" element={<Document />} />
           </Routes>
         </Sidebar>
       </BrowserRouter>
