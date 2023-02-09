@@ -36,7 +36,6 @@ function StudentInformation(){
             <div>
                 <span style={{paddingLeft: "95%"}}></span>
                 <Link to={"/"}>Log out</Link>
-                {localStorage.removeItem("LoggedInEmail")}
             </div>
             <div><h1 className='studentInformation_header'>Student Information</h1></div>
             <div className="form-studentInformation-body">

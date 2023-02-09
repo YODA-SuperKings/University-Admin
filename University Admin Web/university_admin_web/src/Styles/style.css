@@ -5,27 +5,15 @@ body{
 }
 
 .form_label{
-  width: 40%;
-  color: #785fa0;
-  font-size: large;
-  font-weight: bolder;
+  width: 40% !important;
+  color: #785fa0 !important;
+  font-size: large !important;
+  font-weight: bolder !important;
 }
 
 .form_input{
-  height: 30px;;
-  width: 90%;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.column {
-  float: left;
-  width: 30%;
-  padding: 10px;
+  height: 30px !important;
+  width: 100% !important;
 }
 
 /*Registration CSS - Start*/
@@ -228,22 +216,18 @@ main{
 }
 
 .form-admission-body{
-  text-align: left;
-  padding: 20px 10px;
+  text-align: left !important;
+  padding: 20px 10px !important;
 }
 
 .form-admission-body > *{
-  padding: 5px;
+  padding: 5px !important;
 }
 
 .admission_header{
   text-align: center;
-  border-radius: 5px;
-  border: solid black 2px;
-  color: white;
-  background-color: #785fa0;
-  padding: 7px 5px;
-  width: 97%;
+  font-size:xx-large;
+  color: #785fa0;
 }
 
 .admission_footer{
@@ -260,7 +244,7 @@ main{
 }
 
 .admission_border{
-  border: solid #785fa0 1px;
+  border: solid #785fa0 1px !important;
   width: 96% !important;
 }
 /*Admission Form - End*/
@@ -286,11 +270,7 @@ main{
 
 .studentInformation_header{
   text-align: center;
-  border-radius: 5px;
-  border: solid black 2px;
-  color: white;
-  background-color: #785fa0;
-  padding: 7px 5px;
-  width: 97%;
+  font-size: xx-large;
+  color: #785fa0;
 }
 /*Student Information - End*/

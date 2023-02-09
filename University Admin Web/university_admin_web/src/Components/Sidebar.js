@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import { FaAddressCard, FaBars, FaTh, FaUserAlt, FaUserGraduate } from 'react-icons/fa';
+import { FaBars, FaTh, FaUserAlt, FaUserGraduate } from 'react-icons/fa';
+import { MdOutlinePayment } from 'react-icons/md';
 import { NavLink } from 'react-router-dom';
 
 const menuItem = [
@@ -14,9 +15,9 @@ const menuItem = [
         icon: <FaUserAlt/>
     },
     {
-        path: "/Contact",
-        name: "Contact",
-        icon: <FaAddressCard/>
+        path: "/Payment",
+        name: "Payment",
+        icon: <MdOutlinePayment/>
     }
 ]
 

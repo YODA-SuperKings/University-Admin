@@ -221,204 +221,194 @@ function AdmissionForm(){
             <div>
                 <span style={{paddingLeft: "95%"}}></span>
                 <Link to={"/"}>Log out</Link>
-                {localStorage.removeItem("LoggedInEmail")}
             </div>
             <div><h1 className='admission_header'>Admission Details</h1></div>
             <div className="form-admission-body">
             <div className='admission_border'>
                 <h1 style={{color: "#785fa0"}}>General Details</h1>
-            <div className='row'>
-                <div className='column'>
-                        <div>
-                            <label className="form_label" for="firstName">First Name </label><br></br>
-                            <input className="form_input" type="text" id="firstName" value={firstName} onChange = {(e) => handleInputChange(e)} placeholder="First Name"/>
-                        </div>
-                        <br></br>
-                        <div>
-                            <label className="form_label" for="lastName">Last Name </label><br></br>
-                            <input className="form_input" type="text" id="lastName" value={lastName} onChange = {(e) => handleInputChange(e)} placeholder="Last Name"/>
-                        </div>
-                        <br></br>
-                        <div>
-                            <label className="form_label" for="dob">Date of Birth </label><br></br>
-                            <input  type="date" name="" id="dob" className="form_input" value={dob} onChange = {(e) => handleInputChange(e)} placeholder="Date of Birth"/>
-                        </div>
-                        <br></br>
-                        <div>
-                            <label className="form_label" for="address">Address </label><br></br>
-                            <input  type="text" name="" id="address" className="form_input" value={address} onChange = {(e) => handleInputChange(e)} placeholder="Address"/>
-                        </div>
+                <div className='row'>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="firstName">First Name </label><br></br>
+                        <input className="form_input" type="text" id="firstName" value={firstName} onChange = {(e) => handleInputChange(e)} placeholder="First Name"/>
+                    </div>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="lastName">Last Name </label><br></br>
+                        <input className="form_input" type="text" id="lastName" value={lastName} onChange = {(e) => handleInputChange(e)} placeholder="Last Name"/>
+                    </div>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="dob">Date of Birth </label><br></br>
+                        <input  type="date" name="" id="dob" className="form_input" value={dob} onChange = {(e) => handleInputChange(e)} placeholder="Date of Birth"/>
+                    </div>
                 </div>
-                <div className='column'>
-                        <div>
+                <br></br>
+                <div className='row'>
+                    <div className='row'>
+                        <div className='col-md-4'>
                             <label className="form_label" for="email">Email </label><br></br>
                             <input  type="email" id="email" className="form_input" value={email} onChange = {(e) => handleInputChange(e)} placeholder="Email"/>
                         </div>
-                        <br></br>
-                        <div>
+                        <div className='col-md-4'>
+                            <label className="form_label" for="phoneNumber">Phone Number </label><br></br>
+                            <input className="form_input" type="number" id="phoneNumber" value={phoneNumber} onChange = {(e) => handleInputChange(e)} placeholder="Phone Number"/>
+                        </div>
+                        <div className='col-md-4'>
                             <label className="form_label" for="gender">Gender </label><br></br>
                             <div id="gender" onChange={(e) => handleInputChange(e)}>
                                 <input type="radio" id="gender_male" defaultChecked value={male} name="gender" /> Male &nbsp;
                                 <input type="radio" id="gender_female" value={female} name="gender" /> Female
                             </div>
                         </div>
-                        <br></br>
-                        <div>
-                            <label className="form_label" for="phoneNumber">Phone Number </label><br></br>
-                            <input className="form_input" type="number" id="phoneNumber" value={phoneNumber} onChange = {(e) => handleInputChange(e)} placeholder="Phone Number"/>
-                        </div>
-                        <br></br>
-                        <div>
-                            <label className="form_label" for="zipCode">Zip Code </label><br></br>
-                            <input  type="number" name="" id="zipCode" className="form_input" value={zipCode} onChange = {(e) => handleInputChange(e)} placeholder="Zip Code"/>
-                        </div>
+                    </div>
                 </div>
-            </div>
+                <br></br>
+                <div className='row'>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="address">Address </label><br></br>
+                        <input  type="text" name="" id="address" className="form_input" value={address} onChange = {(e) => handleInputChange(e)} placeholder="Address"/>
+                    </div>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="zipCode">Zip Code </label><br></br>
+                        <input  type="number" name="" id="zipCode" className="form_input" value={zipCode} onChange = {(e) => handleInputChange(e)} placeholder="Zip Code"/>
+                    </div>
+                    <div className='col-md-4'>
+
+                    </div>
+                </div>
             </div>
             <br></br>
             <div className='admission_border'>
                 <h1 style={{color: "#785fa0"}}>Admission Information</h1>
                 <div className='row'>
-                    <div className='column'>
-                            <div>
-                                <label className="form_label" for="applicationType">Application Type </label><br></br>
-                                <select className="form_input" id="applicationType" value={applicationType} onChange = {(e) => handleInputChange(e)}>
-                                    <option value={0}>-Select-</option>
-                                    <option value={1}>Freshman</option>
-                                    <option value={2}>Transferee</option>
-                                    <option value={2}>Other</option>
-                                </select>
-                            </div>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="applicationType">Application Type </label><br></br>
+                        <select className="form_input" id="applicationType" value={applicationType} onChange = {(e) => handleInputChange(e)}>
+                            <option value={0}>-Select-</option>
+                            <option value={1}>Freshman</option>
+                            <option value={2}>Transferee</option>
+                            <option value={2}>Other</option>
+                        </select>
                     </div>
-                    <div className='column'>
-                            <div>
-                                <label className="form_label" for="admissionApplicationFor">Admission Application For </label><br></br>
-                                <select className="form_input" id="admissionApplicationFor" value={admissionApplicationFor} onChange = {(e) => handleInputChange(e)}>
-                                    <option value={0}>-Select-</option>
-                                    <option value={1}>Semester 1</option>
-                                    <option value={2}>Semester 2</option>
-                                    <option value={3}>Semester 3</option>
-                                    <option value={4}>Semester 4</option>
-                                    <option value={5}>Semester 5</option>
-                                    <option value={6}>Semester 6</option>
-                                    <option value={7}>Semester 7</option>
-                                    <option value={8}>Semester 8</option>
-                                </select>
-                            </div>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="admissionApplicationFor">Semester </label><br></br>
+                        <select className="form_input" id="admissionApplicationFor" value={admissionApplicationFor} onChange = {(e) => handleInputChange(e)}>
+                            <option value={0}>-Select-</option>
+                            <option value={1}>Semester 1</option>
+                            <option value={2}>Semester 2</option>
+                            <option value={3}>Semester 3</option>
+                            <option value={4}>Semester 4</option>
+                            <option value={5}>Semester 5</option>
+                            <option value={6}>Semester 6</option>
+                            <option value={7}>Semester 7</option>
+                            <option value={8}>Semester 8</option>
+                        </select>
                     </div>
-                    <div className='column'>
-                            <div>
-                                <label className="form_label" for="courseAppliedFor">Course Applied Type </label><br></br>
-                                <select className="form_input" id="courseAppliedFor" value={courseAppliedFor} onChange = {(e) => handleInputChange(e)}>
-                                    <option value={0}>-Select-</option>
-                                    <option value={1}>ECE</option>
-                                    <option value={2}>EEE</option>
-                                    <option value={3}>IT</option>
-                                    <option value={4}>CSE</option>
-                                    <option value={5}>MECH</option>
-                                </select>
-                            </div>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="courseAppliedFor">Course Applied Type </label><br></br>
+                        <select className="form_input" id="courseAppliedFor" value={courseAppliedFor} onChange = {(e) => handleInputChange(e)}>
+                            <option value={0}>-Select-</option>
+                            <option value={1}>ECE</option>
+                            <option value={2}>EEE</option>
+                            <option value={3}>IT</option>
+                            <option value={4}>CSE</option>
+                            <option value={5}>MECH</option>
+                        </select>
                     </div>
                 </div>
             </div>
             <br></br>
             <div className='admission_border'>
                 <h1 style={{color: "#785fa0"}}>High School Education</h1>
-            <div className='row'>
-                <div className='column'>
-                        <div>
-                            <label className="form_label" for="lastHighSchoolName">Name Of Last High School Attended </label><br></br>
-                            <input className="form_input" type="text" id="lastHighSchoolName" value={lastHighSchoolName} onChange = {(e) => handleInputChange(e)} placeholder="Name Of Last High School Attended"/>
-                        </div>
-                        <br></br>
-                        <div>
-                            <label className="form_label" for="highSchoolAddress">Address </label><br></br>
-                            <input  type="text" name="" id="highSchoolAddress" className="form_input" value={highSchoolAddress} onChange = {(e) => handleInputChange(e)} placeholder="Address"/>
-                        </div>
-                        <br></br>
-                        <div>
-                            <label className="form_label" for="highSchoolZipCode">Zip Code </label><br></br>
-                            <input  type="text" name="" id="highSchoolZipCode" className="form_input" value={highSchoolZipCode} onChange = {(e) => handleInputChange(e)} placeholder="Zip Code"/>
-                        </div>
-                        
+                <div className='row'>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="lastHighSchoolName">School Name </label><br></br>
+                        <input className="form_input" type="text" id="lastHighSchoolName" value={lastHighSchoolName} onChange = {(e) => handleInputChange(e)} placeholder="Name Of Last High School Attended"/>
+                    </div>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="graduatedYear">Graduated Year </label><br></br>
+                        <input  type="date" name="" id="graduatedYear" className="form_input" value={graduatedYear} onChange = {(e) => handleInputChange(e)} placeholder="Graduated Year"/>
+                    </div>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="highSchoolPercentage">Percentage </label><br></br>
+                        <input className="form_input" type="number" id="highSchoolPercentage" value={highSchoolPercentage} onChange = {(e) => handleInputChange(e)} placeholder="Percentage"/>
+                    </div>
                 </div>
-                <div className='column'>
-                        <div>
-                            <label className="form_label" for="graduatedYear">Graduated Year </label><br></br>
-                            <input  type="date" name="" id="graduatedYear" className="form_input" value={graduatedYear} onChange = {(e) => handleInputChange(e)} placeholder="Graduated Year"/>
-                        </div>
-                        <br></br>
-                        <div>
-                            <label className="form_label" for="highSchoolCity">City </label><br></br>
-                            <input  type="text" name="" id="highSchoolCity" className="form_input" value={highSchoolCity} onChange = {(e) => handleInputChange(e)} placeholder="City"/>
-                        </div>
-                        <br></br>
-                        <div>
-                            <label className="form_label" for="highSchoolCountry">Country </label><br></br>
-                            <input  type="text" name="" id="highSchoolCountry" className="form_input" value={highSchoolCountry} onChange = {(e) => handleInputChange(e)} placeholder="Country"/>
-                        </div>
+                <br></br>
+                <div className='row'>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="highSchoolAddress">Address </label><br></br>
+                        <input  type="text" name="" id="highSchoolAddress" className="form_input" value={highSchoolAddress} onChange = {(e) => handleInputChange(e)} placeholder="Address"/>
+                    </div>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="highSchoolCity">City </label><br></br>
+                        <input  type="text" name="" id="highSchoolCity" className="form_input" value={highSchoolCity} onChange = {(e) => handleInputChange(e)} placeholder="City"/>
+                    </div>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="highSchoolState">State </label><br></br>
+                        <input  type="text" name="" id="highSchoolState" className="form_input" value={highSchoolState} onChange = {(e) => handleInputChange(e)} placeholder="State"/>
+                    </div>
                 </div>
-                <div className='column'>
-                        <div>
-                            <label className="form_label" for="highSchoolPercentage">Percentage </label><br></br>
-                            <input className="form_input" type="number" id="highSchoolPercentage" value={highSchoolPercentage} onChange = {(e) => handleInputChange(e)} placeholder="Percentage"/>
-                        </div>
-                        <br></br>
-                        <div>
-                            <label className="form_label" for="highSchoolState">State </label><br></br>
-                            <input  type="text" name="" id="highSchoolState" className="form_input" value={highSchoolState} onChange = {(e) => handleInputChange(e)} placeholder="State"/>
-                        </div>
+                <br></br>
+                <div className='row'>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="highSchoolZipCode">Zip Code </label><br></br>
+                        <input  type="text" name="" id="highSchoolZipCode" className="form_input" value={highSchoolZipCode} onChange = {(e) => handleInputChange(e)} placeholder="Zip Code"/>
+                    </div>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="highSchoolCity">City </label><br></br>
+                        <input  type="text" name="" id="highSchoolCity" className="form_input" value={highSchoolCity} onChange = {(e) => handleInputChange(e)} placeholder="City"/>
+                    </div>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="highSchoolCountry">Country </label><br></br>
+                        <input  type="text" name="" id="highSchoolCountry" className="form_input" value={highSchoolCountry} onChange = {(e) => handleInputChange(e)} placeholder="Country"/>
+                    </div>
                 </div>
-            </div>
             </div>
             <br></br>
             <div className='admission_border'>
                 <h1 style={{color: "#785fa0"}}>Parent Details</h1>
-            <div className='row'>
-                <div className='column'>
-                        <div>
-                            <label className="form_label" for="fatherName">Father Name </label><br></br>
-                            <input className="form_input" type="text" id="fatherName" value={fatherName} onChange = {(e) => handleInputChange(e)} placeholder="Father Name"/>
-                        </div>
-                        <br></br>
-                        <div>
-                            <label className="form_label" for="guardianAddress">Address </label><br></br>
-                            <input  type="text" name="" id="guardianAddress" className="form_input" value={guardianAddress} onChange = {(e) => handleInputChange(e)} placeholder="Address"/>
-                        </div>
-                        <br></br>
-                        <div>
-                            <label className="form_label" for="guardianZipCode">Zip Code </label><br></br>
-                            <input  type="text" name="" id="guardianZipCode" className="form_input" value={guardianZipCode} onChange = {(e) => handleInputChange(e)} placeholder="Zip Code"/>
-                        </div>
+                <div className='row'>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="fatherName">Father Name </label><br></br>
+                        <input className="form_input" type="text" id="fatherName" value={fatherName} onChange = {(e) => handleInputChange(e)} placeholder="Father Name"/>
+                    </div>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="motherName">Mother Name </label><br></br>
+                        <input className="form_input" type="text" id="motherName" value={motherName} onChange = {(e) => handleInputChange(e)} placeholder="Mother Name"/>
+                    </div>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="guardianPhoneNumber">Phone Number </label><br></br>
+                        <input className="form_input" type="number" id="guardianPhoneNumber" value={guardianPhoneNumber} onChange = {(e) => handleInputChange(e)} placeholder="Phone Number"/>
+                    </div>
                 </div>
-                <div className='column'>
-                        <div>
-                            <label className="form_label" for="motherName">Mother Name </label><br></br>
-                            <input className="form_input" type="text" id="motherName" value={motherName} onChange = {(e) => handleInputChange(e)} placeholder="Mother Name"/>
-                        </div>
-                        <br></br>
-                        <div>
-                            <label className="form_label" for="guardianCity">City </label><br></br>
-                            <input  type="text" name="" id="guardianCity" className="form_input" value={guardianCity} onChange = {(e) => handleInputChange(e)} placeholder="City"/>
-                        </div>
-                        <br></br>
-                        <div>
-                            <label className="form_label" for="guardianCountry">Country </label><br></br>
-                            <input  type="text" name="" id="guardianCountry" className="form_input" value={guardianCountry} onChange = {(e) => handleInputChange(e)} placeholder="Country"/>
-                        </div>
+                <br></br>
+                <div className='row'>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="guardianAddress">Address </label><br></br>
+                        <input  type="text" name="" id="guardianAddress" className="form_input" value={guardianAddress} onChange = {(e) => handleInputChange(e)} placeholder="Address"/>
+                    </div>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="guardianCity">City </label><br></br>
+                        <input  type="text" name="" id="guardianCity" className="form_input" value={guardianCity} onChange = {(e) => handleInputChange(e)} placeholder="City"/>
+                    </div>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="guardianState">State </label><br></br>
+                        <input  type="text" name="" id="guardianState" className="form_input" value={guardianState} onChange = {(e) => handleInputChange(e)} placeholder="State"/>
+                    </div>
                 </div>
-                <div className='column'>
-                        <div>
-                            <label className="form_label" for="guardianPhoneNumber">Phone Number </label><br></br>
-                            <input className="form_input" type="number" id="guardianPhoneNumber" value={guardianPhoneNumber} onChange = {(e) => handleInputChange(e)} placeholder="Phone Number"/>
-                        </div>
-                        <br></br>
-                        <div>
-                            <label className="form_label" for="guardianState">State </label><br></br>
-                            <input  type="text" name="" id="guardianState" className="form_input" value={guardianState} onChange = {(e) => handleInputChange(e)} placeholder="State"/>
-                        </div>
+                <br></br>
+                <div className='row'>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="guardianZipCode">Zip Code </label><br></br>
+                        <input  type="text" name="" id="guardianZipCode" className="form_input" value={guardianZipCode} onChange = {(e) => handleInputChange(e)} placeholder="Zip Code"/>
+                    </div>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="guardianCountry">Country </label><br></br>
+                        <input  type="text" name="" id="guardianCountry" className="form_input" value={guardianCountry} onChange = {(e) => handleInputChange(e)} placeholder="Country"/>
+                    </div>
+                    <div className='col-md-4'>
+                        
+                    </div>
                 </div>
-            </div>
             </div>
             <div className="admission_footer">
                 <div style={{ paddingLeft: "80%" }}>

@@ -8,7 +8,7 @@ import Registration from "./Components/Registration";
 import Sidebar from './Components/Sidebar';
 import AdmissionForm from './Components/AdmissionForm';
 import StudentInformation from './Components/StudentInformation';
-import Contact from './Components/Contact';
+import Payment from './Components/Payment';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,7 +21,7 @@ root.render(
     <Routes>
       <Route path="AdmissionForm" element={<AdmissionForm />} />
       <Route path="StudentInformation" element={<StudentInformation />} />
-      <Route path="Contact" element={<Contact />} />
+      <Route path="Payment" element={<Payment />} />
     </Routes>
   </Sidebar>
   </BrowserRouter>
