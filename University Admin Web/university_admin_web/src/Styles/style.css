@@ -399,7 +399,7 @@ main{
   color: rgb(251 255 0);
   text-shadow: rgb(0, 0, 0) 2px 2px 2px;
   float : right;
-  margin-right: 26%;
+  margin: 30px 460px 0px 0px;
 }
 
 .marq{
@@ -415,4 +415,98 @@ main{
   margin-left: 37%;
   width: 127px;
 }
-/*Document - End*/
+/*Banner - End*/
+
+/*Certificate Verification - Start*/
+.form-certificateVerification{
+  background-color: white;
+  border-radius: 5px;
+  width: 96% !important;
+  margin: 0px auto;
+  padding: 20px;
+  padding-left: 50px;
+}
+
+.form-certificateVerification-body{
+  text-align: left;
+  padding: 20px 10px;
+}
+
+.form-certificateVerification-body > *{
+  padding: 5px;
+}
+
+.certificateVerification_header{
+  text-align: center;
+  font-size: xx-large;
+  color: #785fa0;
+}
+
+.btn_certificateVerification_view{
+  height: 35px;
+  width: 70%;
+  background-color: #785fa0;
+  color: white;
+  font-size: large;
+  text-align: center;
+}
+
+.btn_certificateVerification_accept, .btn_certificateVerification_reject{
+  height: 35px;
+  width: 10%;
+  background-color: #785fa0;
+  color: white;
+  font-size: large;
+  text-align: center;
+}
+/*Certificate Verification - End*/
+/*Evaluation - Start*/
+.form-evaluation{
+  background-color: white;
+  border-radius: 5px;
+  width: 96% !important;
+  margin: 0px auto;
+  padding: 20px;
+  padding-left: 50px;
+}
+
+.form-evaluation-body{
+  text-align: left;
+  padding: 20px 10px;
+}
+
+.form-evaluation-body > *{
+  padding: 5px;
+}
+
+.evaluation_header{
+  text-align: center;
+  font-size: xx-large;
+  color: #785fa0;
+}
+/*Evaluation - End*/
+/*Department - Start*/
+.form-department{
+  background-color: white;
+  border-radius: 5px;
+  width: 96% !important;
+  margin: 0px auto;
+  padding: 20px;
+  padding-left: 50px;
+}
+
+.form-department-body{
+  text-align: left;
+  padding: 20px 10px;
+}
+
+.form-department-body > *{
+  padding: 5px;
+}
+
+.department_header{
+  text-align: center;
+  font-size: xx-large;
+  color: #785fa0;
+}
+/*department - End*/
