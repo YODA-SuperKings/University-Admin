@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import toast from 'react-simple-toasts';
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Payment(){
+    const navigate = useNavigate();
     const [cardNumber, setCardNumber] = useState(null);
     const [cvvNumber, setCvvNumber] = useState(null);
     const [paymentAmount, setPaymentAmount] = useState(0);
@@ -31,12 +32,13 @@ function Payment(){
             toast(<><b style={{ color: 'Red' }}>Payment Amount Required.</b></>, { position: 'top-right' });
         }
         else{
-
+            toast(<><b style={{ color: 'Green' }}>Fees paid succesfully.</b></>, { position: 'top-right' });
+            navigate("/StudentPaymentDetails");
         }
     }
 
     const handleCancelSubmit = (e) => {
-
+        navigate("/StudentPaymentDetails");
     }
 
     return(

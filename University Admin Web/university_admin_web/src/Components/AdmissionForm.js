@@ -236,18 +236,18 @@ function AdmissionForm(){
                         <input  type="date" name="" id="dob" className="form_input" value={dob} onChange = {(e) => handleInputChange(e)} placeholder="Date of Birth"/>
                     </div>
                 </div>
-                <br></br>
+                <div className='fieldRowPadding'></div>
                 <div className='row'>
                     <div className='row'>
                         <div className='col-md-4'>
                             <label className="form_label" for="email">Email </label><br></br>
                             <input  type="email" id="email" className="form_input" value={email} onChange = {(e) => handleInputChange(e)} placeholder="Email"/>
                         </div>
-                        <div className='col-md-4'>
+                        <div className='col-md-4' style={{paddingLeft: "1.5%"}}>
                             <label className="form_label" for="phoneNumber">Phone Number </label><br></br>
                             <input className="form_input" type="number" id="phoneNumber" value={phoneNumber} onChange = {(e) => handleInputChange(e)} placeholder="Phone Number"/>
                         </div>
-                        <div className='col-md-4'>
+                        <div className='col-md-4' style={{paddingLeft: "2%"}}>
                             <label className="form_label" for="gender">Gender </label><br></br>
                             <div id="gender" onChange={(e) => handleInputChange(e)}>
                                 <input type="radio" id="gender_male" defaultChecked value={male} name="gender" /> Male &nbsp;
@@ -256,7 +256,7 @@ function AdmissionForm(){
                         </div>
                     </div>
                 </div>
-                <br></br>
+                <div className='fieldRowPadding'></div>
                 <div className='row'>
                     <div className='col-md-4'>
                         <label className="form_label" for="address">Address </label><br></br>
@@ -271,7 +271,7 @@ function AdmissionForm(){
                     </div>
                 </div>
             </div>
-            <br></br>
+            <div style={{paddingTop: "1%"}}></div>
             <div className='admission_border'>
                 <h1 style={{color: "#785fa0"}}>Admission Information</h1>
                 <div className='row'>
@@ -311,7 +311,7 @@ function AdmissionForm(){
                     </div>
                 </div>
             </div>
-            <br></br>
+            <div style={{paddingTop: "1%"}}></div>
             <div className='admission_border'>
                 <h1 style={{color: "#785fa0"}}>High School Education</h1>
                 <div className='row'>
@@ -328,7 +328,7 @@ function AdmissionForm(){
                         <input className="form_input" type="number" id="highSchoolPercentage" value={highSchoolPercentage} onChange = {(e) => handleInputChange(e)} placeholder="Percentage"/>
                     </div>
                 </div>
-                <br></br>
+                <div style={{paddingTop: "1%"}}></div>
                 <div className='row'>
                     <div className='col-md-4'>
                         <label className="form_label" for="highSchoolAddress">Address </label><br></br>
@@ -343,7 +343,7 @@ function AdmissionForm(){
                         <input  type="text" name="" id="highSchoolState" className="form_input" value={highSchoolState} onChange = {(e) => handleInputChange(e)} placeholder="State"/>
                     </div>
                 </div>
-                <br></br>
+                <div className='fieldRowPadding'></div>
                 <div className='row'>
                     <div className='col-md-4'>
                         <label className="form_label" for="highSchoolZipCode">Zip Code </label><br></br>
@@ -359,7 +359,7 @@ function AdmissionForm(){
                     </div>
                 </div>
             </div>
-            <br></br>
+            <div className='fieldRowPadding'></div>
             <div className='admission_border'>
                 <h1 style={{color: "#785fa0"}}>Parent Details</h1>
                 <div className='row'>
@@ -376,7 +376,7 @@ function AdmissionForm(){
                         <input className="form_input" type="number" id="guardianPhoneNumber" value={guardianPhoneNumber} onChange = {(e) => handleInputChange(e)} placeholder="Phone Number"/>
                     </div>
                 </div>
-                <br></br>
+                <div className='fieldRowPadding'></div>
                 <div className='row'>
                     <div className='col-md-4'>
                         <label className="form_label" for="guardianAddress">Address </label><br></br>
@@ -391,7 +391,7 @@ function AdmissionForm(){
                         <input  type="text" name="" id="guardianState" className="form_input" value={guardianState} onChange = {(e) => handleInputChange(e)} placeholder="State"/>
                     </div>
                 </div>
-                <br></br>
+                <div className='fieldRowPadding'></div>
                 <div className='row'>
                     <div className='col-md-4'>
                         <label className="form_label" for="guardianZipCode">Zip Code </label><br></br>

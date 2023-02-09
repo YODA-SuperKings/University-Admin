@@ -4,6 +4,7 @@ import { MdOutlinePayment } from 'react-icons/md';
 import { HiDocumentDuplicate } from 'react-icons/hi';
 import { AiOutlineLogin } from 'react-icons/ai';
 import { GrHomeRounded } from 'react-icons/gr';
+import { TbFileCertificate } from 'react-icons/tb';
 import { NavLink } from 'react-router-dom';
 
 const menuItem = [
@@ -23,14 +24,29 @@ const menuItem = [
         icon: <FaUserAlt/>
     },
     {
-        path: "/Payment",
-        name: "Payment",
+        path: "/StudentPaymentDetails",
+        name: "Pay Fees",
         icon: <MdOutlinePayment/>
     },
     {
         path: "/Document",
         name: "Document",
         icon: <HiDocumentDuplicate/>
+    },
+    {
+        path: "/Department",
+        name: "Department",
+        icon: <MdOutlinePayment/>
+    },
+    {
+        path: "/Evaluation",
+        name: "Evaluation",
+        icon: <MdOutlinePayment/>
+    },
+    {
+        path: "/CertificateVerfication",
+        name: "Certificate Verfication",
+        icon: <TbFileCertificate/>
     },
     {
         path: "/Login",
@@ -42,6 +58,7 @@ const menuItem = [
         name: "Log out",
         icon: <FaSignOutAlt/>
     }
+    
 ]
 
 function Sidebar({children}){
