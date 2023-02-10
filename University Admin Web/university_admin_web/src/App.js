@@ -7,6 +7,7 @@ import StudentInformation from './Components/StudentInformation';
 import Payment from './Components/Payment';
 import Document from './Components/Document';
 import Banner from './Components/Banner';
+import CertificateVerfication from './Components/CertificateVerification';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="Payment" element={<Payment />} />
             <Route path="Document" element={<Document />} />
             <Route path="Banner" element={<Banner />} />
+            <Route path="CertificateVerfication" element={<CertificateVerfication />} />
           </Routes>
         </Sidebar>
       </BrowserRouter>

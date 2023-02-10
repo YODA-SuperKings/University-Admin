@@ -5,7 +5,7 @@ body{
 }
 
 .form_label{
-  width: 40% !important;
+  width: auto !important;
   color: #785fa0 !important;
   font-size: large !important;
   font-weight: bolder !important;
@@ -381,3 +381,47 @@ main{
   color: rgb(251 255 0);
 }
 /*Banner - End*/
+
+/*Certificate Verification - Start*/
+.form-certificateVerification{
+  background-color: white;
+  border-radius: 5px;
+  width: 96% !important;
+  margin: 0px auto;
+  padding: 20px;
+  padding-left: 50px;
+}
+
+.form-certificateVerification-body{
+  text-align: left;
+  padding: 20px 10px;
+}
+
+.form-certificateVerification-body > *{
+  padding: 5px;
+}
+
+.certificateVerification_header{
+  text-align: center;
+  font-size: xx-large;
+  color: #785fa0;
+}
+
+.btn_certificateVerification_view{
+  height: 35px;
+  width: 70%;
+  background-color: #785fa0;
+  color: white;
+  font-size: large;
+  text-align: center;
+}
+
+.btn_certificateVerification_accept, .btn_certificateVerification_reject{
+  height: 35px;
+  width: 10%;
+  background-color: #785fa0;
+  color: white;
+  font-size: large;
+  text-align: center;
+}
+/*Certificate Verification - End*/

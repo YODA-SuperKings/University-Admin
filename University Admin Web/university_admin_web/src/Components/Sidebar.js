@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { FaBars, FaTh, FaUserAlt, FaUserGraduate, FaSignOutAlt } from 'react-icons/fa';
 import { MdOutlinePayment } from 'react-icons/md';
 import { HiDocumentDuplicate } from 'react-icons/hi';
+import { TbFileCertificate } from 'react-icons/tb';
 import { NavLink } from 'react-router-dom';
 
 const menuItem = [
@@ -24,6 +25,11 @@ const menuItem = [
         path: "/Document",
         name: "Document",
         icon: <HiDocumentDuplicate/>
+    },
+    {
+        path: "/CertificateVerfication",
+        name: "Certificate Verfication",
+        icon: <TbFileCertificate/>
     },
     {
         path: "/",
