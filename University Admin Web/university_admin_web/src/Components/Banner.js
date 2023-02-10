@@ -2,9 +2,15 @@
 function Banner() {
     return (
     <div>
-      <div class="shadow-sm p-1 mb-1 university_banner">
-        <img src={process.env.PUBLIC_URL + "/Img/logo.png"} />
-        <h1 className="universityheader"> MSMC University, Chennai</h1>
+      <div className="row shadow-sm p-1 mb-1 university_banner">
+        <div className="col-md-4">
+          <div style={{width: "35%", height: "35%"}}>
+            <img src={process.env.PUBLIC_URL + "/Img/logo.png"} />
+          </div>
+        </div>
+        <div className="col-md-8">
+          <h1 className="universityheader text-nowrap"> MSMC University, Chennai</h1>
+        </div>
       </div>
       <div class="shadow-sm p-1 mb-1 marq">
       <marquee direction = "left" loop="" >

@@ -13,8 +13,6 @@ function AdmissionForm(){
     const [female, setFemale] = useState(null);
     const [email, setEmail] = useState(null);
     const [phoneNumber, setPhoneNumber] = useState(null);
-    const [address, setAddress] = useState(null);
-    const [zipCode, setZipCode] = useState(null);
     //Admission Information
     const [applicationType, setApplicationType] = useState(null);
     const [admissionApplicationFor, setAdmissionApplicationFor] = useState(null);
@@ -55,10 +53,6 @@ function AdmissionForm(){
             setEmail(value);
         if(id === "phoneNumber")
             setPhoneNumber(value);
-        if(id === "address")
-            setAddress(value);
-        if(id === "zipCode")
-            setZipCode(value);
         //Admission information
         if(id === "applicationType")
             setApplicationType(value);
@@ -122,14 +116,6 @@ function AdmissionForm(){
         else if(phoneNumber === null || phoneNumber === "")
         {
             toast(<><b style={{ color: 'Red' }}>Phone Number Required.</b></>, { position: 'top-right' });
-        }
-        else if(address === null || address === "")
-        {
-            toast(<><b style={{ color: 'Red' }}>Address Required.</b></>, { position: 'top-right' });
-        }
-        else if(zipCode === null || zipCode === "")
-        {
-            toast(<><b style={{ color: 'Red' }}>Zip Code Required.</b></>, { position: 'top-right' });
         }
         else if(applicationType === null)
         {
@@ -254,20 +240,6 @@ function AdmissionForm(){
                                 <input type="radio" id="gender_female" value={female} name="gender" /> Female
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div className='fieldRowPadding'></div>
-                <div className='row'>
-                    <div className='col-md-4'>
-                        <label className="form_label" for="address">Address </label><br></br>
-                        <input  type="text" name="" id="address" className="form_input" value={address} onChange = {(e) => handleInputChange(e)} placeholder="Address"/>
-                    </div>
-                    <div className='col-md-4'>
-                        <label className="form_label" for="zipCode">Zip Code </label><br></br>
-                        <input  type="number" name="" id="zipCode" className="form_input" value={zipCode} onChange = {(e) => handleInputChange(e)} placeholder="Zip Code"/>
-                    </div>
-                    <div className='col-md-4'>
-
                     </div>
                 </div>
             </div>
