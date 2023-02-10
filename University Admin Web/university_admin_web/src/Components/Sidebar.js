@@ -26,10 +26,16 @@ const menuItem = [
         icon: <HiDocumentDuplicate/>
     },
     {
+        path: "/Department",
+        name: "Department",
+        icon: <MdOutlinePayment/>
+    },
+    {
         path: "/",
         name: "Log out",
         icon: <FaSignOutAlt/>
     }
+    
 ]
 
 function Sidebar({children}){

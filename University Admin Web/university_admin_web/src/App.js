@@ -7,6 +7,7 @@ import StudentInformation from './Components/StudentInformation';
 import Payment from './Components/Payment';
 import Document from './Components/Document';
 import Banner from './Components/Banner';
+import Department from './Components/Department';
 
 function App() {
   return (
@@ -19,7 +20,9 @@ function App() {
             <Route path="StudentInformation" element={<StudentInformation />} />
             <Route path="Payment" element={<Payment />} />
             <Route path="Document" element={<Document />} />
+            <Route path="Department" element={<Department />} />
             <Route path="Banner" element={<Banner />} />
+            
           </Routes>
         </Sidebar>
       </BrowserRouter>
