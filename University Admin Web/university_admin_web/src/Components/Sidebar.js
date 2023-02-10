@@ -13,19 +13,75 @@ const menuItem = [
         name: "Home",
         icon: <GrHomeRounded/>
     },
+    /*--------Admission---------------------*/
     {
         path: "/AdmissionForm",
         name: "Admission",
         icon: <FaTh/>
     },
     {
+        path: "/ProgramsOffered",
+        name: "Programs Offered",
+        icon: <GrHomeRounded/>
+    },
+    {
+        path: "/AffiliatedColleges",
+        name: "Affiliated Colleges",
+        icon: <GrHomeRounded/>
+    },
+    {
+        path: "/Syllabus",
+        name: "Syllabus",
+        icon: <GrHomeRounded/>
+    },
+    {
+        path: "/FeeStructure",
+        name: "Fee Structure",
+        icon: <GrHomeRounded/>
+    },
+    {
+        path: "/HolidayCalendar",
+        name: "Holiday Calendar",
+        icon: <GrHomeRounded/>
+    },
+    {
+        path: "/CertificateVerfication",
+        name: "Certificate Verfication",
+        icon: <TbFileCertificate/>
+    },
+    /*------------------Admission End--------------------------*/
+    /*------------------People--------------------------*/
+
+     /*------------------Staff--------------------------*/
+     {
+        path: "/Department",
+        name: "Department",
+        icon: <MdOutlinePayment/>
+    },
+    {
         path: "/StudentInformation",
-        name: "Student",
+        name: "Student Details",
         icon: <FaUserAlt/>
     },
     {
-        path: "/StudentPaymentDetails",
-        name: "Pay Fees",
+        path: "/StudentAttendance",
+        name: "Student Attendance",
+        icon: <FaUserAlt/>
+    },
+    {
+        path: "/StudentModelPaper",
+        name: "Model Papers",
+        icon: <FaUserAlt/>
+    },
+    {
+        path: "/Evaluation",
+        name: " Exam Evaluation",
+        icon: <MdOutlinePayment/>
+    },
+     /*------------------Student--------------------------*/
+     {
+        path: "/StudentProfile",
+        name: " Student Profile",
         icon: <MdOutlinePayment/>
     },
     {
@@ -34,20 +90,40 @@ const menuItem = [
         icon: <HiDocumentDuplicate/>
     },
     {
-        path: "/Department",
-        name: "Department",
+        path: "/StudentPaymentDetails",
+        name: "Pay Fees",
+        icon: <MdOutlinePayment/>
+    },
+    /*------------------People End--------------------------*/
+    /*------------------Examination--------------------------*/
+    {
+        path: "/ExamTimeTable",
+        name: "Exam Time Table",
         icon: <MdOutlinePayment/>
     },
     {
-        path: "/Evaluation",
-        name: "Evaluation",
+        path: "/ExamResult",
+        name: "Exam Result",
         icon: <MdOutlinePayment/>
     },
-    {
-        path: "/CertificateVerfication",
-        name: "Certificate Verfication",
-        icon: <TbFileCertificate/>
-    },
+     /*------------------Examination End--------------------------*/
+  /*------------------Downloads--------------------------*/
+  {
+    path: "/HallTicketDownload",
+    name: "Hall Ticket Download",
+    icon: <MdOutlinePayment/>
+},
+{
+    path: "/MarkSheetDownload",
+    name: "Mark Sheet Download",
+    icon: <MdOutlinePayment/>
+},
+ /*------------------Downloads End--------------------------*/
+   
+   
+    
+    
+    
     {
         path: "/Login",
         name: "Login",
