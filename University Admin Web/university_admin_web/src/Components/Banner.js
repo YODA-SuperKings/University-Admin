@@ -9,7 +9,7 @@ function Banner() {
           </div>
         </div>
         <div className="col-md-8">
-          <h1 className="universityheader text-nowrap"> MSMC University, Chennai</h1>
+          <h1 className="universityheader text-nowrap"> MMSC University, Chennai</h1>
         </div>
       </div>
       <div class="shadow-sm p-1 mb-1 marq">
