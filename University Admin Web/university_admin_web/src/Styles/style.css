@@ -318,6 +318,14 @@ main{
   color: white;
   font-size: large;
 }
+
+.studentName_label, .registrationNumber_label{
+  width: auto;
+  text-align: center;
+  color: #785fa0;
+  font-size: xx-large;
+  font-weight: bolder;
+}
 /*Payment - End*/
 
 /*Document - Start*/

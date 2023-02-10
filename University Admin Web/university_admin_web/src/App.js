@@ -10,6 +10,7 @@ import Banner from './Components/Banner';
 import Department from './Components/Department';
 import Evaluation from './Components/Evaluation';
 import CertificateVerfication from './Components/CertificateVerification';
+import StudentPaymentDetails from './Components/StudentPaymentDetails';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="Evaluation" element={<Evaluation />} />
             <Route path="Banner" element={<Banner />} />
             <Route path="CertificateVerfication" element={<CertificateVerfication />} />
+            <Route path="StudentPaymentDetails" element={<StudentPaymentDetails />} />
           </Routes>
         </Sidebar>
       </BrowserRouter>

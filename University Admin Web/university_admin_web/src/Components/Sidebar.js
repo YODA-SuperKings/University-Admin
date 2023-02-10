@@ -17,8 +17,8 @@ const menuItem = [
         icon: <FaUserAlt/>
     },
     {
-        path: "/Payment",
-        name: "Payment",
+        path: "/StudentPaymentDetails",
+        name: "Pay Fees",
         icon: <MdOutlinePayment/>
     },
     {
