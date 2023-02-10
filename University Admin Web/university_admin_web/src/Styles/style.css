@@ -247,6 +247,9 @@ main{
   border: solid #785fa0 1px !important;
   width: 96% !important;
 }
+.fieldRowPadding{
+  padding-top: 0.5%;
+}
 /*Admission Form - End*/
 
 /*Student Information - Start*/
@@ -350,7 +353,9 @@ main{
   font-size: large;
   text-align: center;
 }
+/*Document - End*/
 
+/*Banner - Start*/
 .university_banner{
   height: 150px;
   border-radius: var(--bs-border-radius);
@@ -375,4 +380,4 @@ main{
   text-shadow: rgb(0, 0, 0) 2px 2px 2px;
   color: rgb(251 255 0);
 }
-/*Document - End*/
+/*Banner - End*/
