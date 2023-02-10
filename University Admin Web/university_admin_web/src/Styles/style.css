@@ -407,3 +407,30 @@ main{
   color: #785fa0;
 }
 /*department - End*/
+
+/*Evaluation - Start*/
+.form-evaluation{
+  background-color: white;
+  border-radius: 5px;
+  width: 96% !important;
+  margin: 0px auto;
+  padding: 20px;
+  padding-left: 50px;
+}
+
+.form-evaluation-body{
+  text-align: left;
+  padding: 20px 10px;
+}
+
+.form-evaluation-body > *{
+  padding: 5px;
+}
+
+.evaluation_header{
+  text-align: center;
+  font-size: xx-large;
+  color: #785fa0;
+}
+/*Evaluation - End*/
+

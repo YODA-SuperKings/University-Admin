@@ -31,6 +31,11 @@ const menuItem = [
         icon: <MdOutlinePayment/>
     },
     {
+        path: "/Evaluation",
+        name: "Evaluation",
+        icon: <MdOutlinePayment/>
+    },
+    {
         path: "/",
         name: "Log out",
         icon: <FaSignOutAlt/>

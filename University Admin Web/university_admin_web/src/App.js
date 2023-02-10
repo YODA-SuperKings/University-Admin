@@ -8,7 +8,7 @@ import Payment from './Components/Payment';
 import Document from './Components/Document';
 import Banner from './Components/Banner';
 import Department from './Components/Department';
-
+import Evaluation from './Components/Evaluation';
 function App() {
   return (
     <div className="App">
@@ -21,6 +21,7 @@ function App() {
             <Route path="Payment" element={<Payment />} />
             <Route path="Document" element={<Document />} />
             <Route path="Department" element={<Department />} />
+            <Route path="Evaluation" element={<Evaluation />} />
             <Route path="Banner" element={<Banner />} />
             
           </Routes>
