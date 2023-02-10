@@ -27,6 +27,16 @@ const menuItem = [
         icon: <HiDocumentDuplicate/>
     },
     {
+        path: "/Department",
+        name: "Department",
+        icon: <MdOutlinePayment/>
+    },
+    {
+        path: "/Evaluation",
+        name: "Evaluation",
+        icon: <MdOutlinePayment/>
+    },
+    {
         path: "/CertificateVerfication",
         name: "Certificate Verfication",
         icon: <TbFileCertificate/>
@@ -36,6 +46,7 @@ const menuItem = [
         name: "Log out",
         icon: <FaSignOutAlt/>
     }
+    
 ]
 
 function Sidebar({children}){
