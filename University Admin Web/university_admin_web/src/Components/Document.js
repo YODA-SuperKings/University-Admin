@@ -5,7 +5,7 @@ import { FaFileDownload } from 'react-icons/fa';
 import { useNavigate, Link } from "react-router-dom";
 import Table from 'react-bootstrap/Table';
 import Modal from 'react-bootstrap/Modal';
-import FileBase64 from 'react-file-base64';
+//import FileBase64 from 'react-file-base64';
 
 function Document(){
     const [modalShow, setModalShow] = React.useState(false);
@@ -172,7 +172,7 @@ function Document(){
             <div className="form-document-body">
             
             <input type="text" onChange={e => setItem({ ...item, title: e.target.value })}/>
-            <FileBase64 type="file" multiple={false} onDone={({ base64 }) => setItem({ ...item, image: base64 })}/>
+            {/* <FileBase64 type="file" multiple={false} onDone={({ base64 }) => setItem({ ...item, image: base64 })}/> */}
             {/* <button variant="primary" onClick={(e)=>ApproveCollege(e)}>Add Document</button> */}
             {/* <button variant="primary" onClick={() => setModalShow(true)} type="submit" class="btn_add_document">Add Document</button> */}
             <AddDocumentModal show={modalShow} onHide={() => setModalShow(false)}/>

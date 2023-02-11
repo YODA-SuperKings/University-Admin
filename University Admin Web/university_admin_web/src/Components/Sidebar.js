@@ -149,6 +149,7 @@ const menuItem = [
 ]
 
 function Sidebar({children}){
+    debugger;
     const [isOpen, setIsOpen] = useState(true);
     const toggle = () => setIsOpen(!isOpen);
     let menuItemFinal = [];
@@ -170,7 +171,7 @@ function Sidebar({children}){
     {
         tempmenu = ["Certificate Verfication","Model Papers","Student Profile","Document","Pay Fees","Exam Time Table","Exam Result","Hall Ticket Download","Mark Sheet Download","Log out"]
     }
-    console.log("tempmenu",tempmenu);
+    
     menuItem.forEach(mi => {
         tempmenu.forEach(item =>{
             if(item === mi.name){
@@ -178,7 +179,6 @@ function Sidebar({children}){
             }
         })
     });
-    console.log(menuItemFinal);
 
     return(
       <div className='Sidebar_container'>
