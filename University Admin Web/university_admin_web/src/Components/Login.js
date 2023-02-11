@@ -34,7 +34,6 @@ function Login(props){
         .then((res) => res.json())
         .then((data) => {
             if (data !== 0) {
-                debugger;
                 toast(<><b style={{ color: 'Green' }}>Login Succesfully.</b></>, { position: 'top-right' });
                 setauthenticated(true)
                 localStorage.setItem("authenticated", true);

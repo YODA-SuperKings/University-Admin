@@ -134,6 +134,11 @@ const menuItem = [
         path: "/",
         name: "Log out",
         icon: <FaSignOutAlt/>
+    },
+    {
+        path: "/Registration",
+        name: "Registration",
+        icon: <FaSignOutAlt/>
     }
     
 ]
@@ -141,17 +146,11 @@ const menuItem = [
 function Sidebar({children}){
     const [isOpen, setIsOpen] = useState(true);
     const toggle = () => setIsOpen(!isOpen);
-    const [components, setComponents] = useState(["Sample Component"]); 
     const menuItemFinal = [];
     let tempmenu = []
     let loginType = localStorage.getItem("LoginType");
-
-    function dummyClick(){
-        debugger;
-        setComponents([...components, "Sample Component"]) 
-    }
     
-    tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Department","Pay Fees","Exam Time Table","Exam Result","Log In"]
+    tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Department","Pay Fees","Exam Time Table","Exam Result","Log In", "Registration"]
     if(loginType === 1)
     {
         tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Certificate Verfication","Department",
@@ -182,7 +181,6 @@ function Sidebar({children}){
                 <h1 style={{display: isOpen ? "block" : "none"}} className='logo'><FaUserGraduate/></h1>
                 <div style={{marginLeft: isOpen ? "150px" : "0px", cursor:'pointer'}} className='bars'>
                     <FaBars onClick={toggle}/>
-                    <button onClick={dummyClick} text="Call Component"/> 
                 </div>
             </div>
             {

@@ -20,8 +20,8 @@ body{
 .form-registration{
   background-color: white;
   border-radius: 5px;
-  width: 500px;
-  margin: 130px auto;
+  width: 96% !important;
+  margin: 0px auto;
   padding: 20px;
   padding-left: 50px;
 }
@@ -33,6 +33,25 @@ body{
 
 .form-registration-body > *{
   padding: 5px;
+}
+
+.registration_header{
+  text-align: center;
+  font-size: xx-large;
+  color: #785fa0;
+}
+
+.registration_footer{
+  text-align: left;
+  padding: 20px 10px;
+}
+
+.btn_register{
+  height: 40px;
+  width: 90%;
+  background-color: #785fa0;
+  color: white;
+  font-size: large;
 }
 
 .header{

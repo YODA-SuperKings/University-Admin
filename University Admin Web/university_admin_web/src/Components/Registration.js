@@ -5,51 +5,66 @@ import { useNavigate } from "react-router-dom";
 
 function Registration(){
     const navigate = useNavigate();
-    const [firstName, setFirstName] = useState(null);
-    const [lastName, setLastName] = useState(null);
-    const [email, setEmail] = useState(null);
+    const [code, setCode] = useState(null);
+    const [nameOfInstitute, setNameOfInstitute] = useState(null);
+    const [userName, setUserName] = useState(null);
     const [password,setPassword] = useState(null);
     const [confirmPassword,setConfirmPassword] = useState(null);
-    const [registrationtype,setRegistrationType] = useState(null);
-    const [nameLabel,setNameLabel] = useState("Name");
-    const [name,setName] = useState(null);
+    const [email, setEmail] = useState(null);
+    const [phoneNumber,setPhoneNumber] = useState(null);
+    const [address,setAddress] = useState(null);
+    const [city,setCity] = useState(null);
+    const [district,setDistrict] = useState(null);
+    const [zipCode,setZipCode] = useState(null);
+    const [state,setState] = useState(null);
+    const [type,setType] = useState(null);
 
     const handleInputChange = (e) => {
         const {id , value} = e.target;
-        if(id === "firstName")
-            setFirstName(value);
-        if(id === "lastName")
-            setLastName(value);
-        if(id === "email")
-            setEmail(value);
+        if(id === "code")
+            setCode(value);
+        if(id === "nameOfInstitute")
+            setNameOfInstitute(value);
+        if(id === "userName")
+            setUserName(value);
         if(id === "password")
             setPassword(value);
         if(id === "confirmPassword")
             setConfirmPassword(value);
-        if(id === "registrationtype")
-        {
-            setRegistrationType(value);
-            if(value === "1")
-                setNameLabel("Institute Name");
-            else if(value === "2")
-                setNameLabel("Company Name");
-        }
-        if(id === "name")
-            setName(value);
+        if(id === "email")
+            setEmail(value);
+        if(id === "phoneNumber")
+            setPhoneNumber(value);
+        if(id === "address")
+            setAddress(value);
+        if(id === "city")
+            setCity(value);
+        if(id === "district")
+            setDistrict(value);
+        if(id === "zipCode")
+            setZipCode(value);
+        if(id === "state")
+            setState(value);
+        if(id === "type")
+            setType(value);
     }
 
-    const addUser = () => {
+    const addRegistration = () => {
         let toastColor = '';
         const postBody = {
-            FirstName: firstName,
-            LastName: lastName,
-            Password: password,
-            ConfirmPassword: confirmPassword,
+            Code: code,
+            NameofInstitute: nameOfInstitute,
+            UserName: userName,
             Email: email,
-            RegistrationType: parseInt(registrationtype),
-            Name: name
+            PhoneNumber: phoneNumber,
+            Address: address,
+            City: city,
+            District: district,
+            State: state,
+            ZipCode: zipCode,
+            Type: type
         };
-        fetch('https://localhost:44342/api/Users/CreateUser', 
+        fetch('https://localhost:44343/api/CollegeRegistration/CreateCollegeRegistration', 
         { 
             method: 'POST',
             body: JSON.stringify(postBody),
@@ -61,10 +76,12 @@ function Registration(){
         }) 
         .then((res) => res.json())
         .then((data) => {
-            if(data === "User email already exists.")
+            if(data === "Email already exists.")
                 toastColor = 'Red';
-            else
+            else{
                 toastColor = 'Green';
+                addUser();
+            }
             toast(<><b style={{ color: toastColor }}>{data}</b></>, { position: 'top-right' });
             console.log(data);
         })
@@ -74,14 +91,18 @@ function Registration(){
         });
      };
 
-    const handleSubmit  = () => {
-        if(firstName === null || firstName === "")
+    const Register  = () => {
+        if(code === null || code === "")
         {
-            toast(<><b style={{ color: 'Red' }}>First Name Required.</b></>, { position: 'top-right' });
+            toast(<><b style={{ color: 'Red' }}>Code Required.</b></>, { position: 'top-right' });
         }
-        else if(lastName === null || lastName === "")
+        else if(nameOfInstitute === null || nameOfInstitute === "")
         {
-            toast(<><b style={{ color: 'Red' }}>Last Name Required.</b></>, { position: 'top-right' });
+            toast(<><b style={{ color: 'Red' }}>Name Of Institue Required.</b></>, { position: 'top-right' });
+        }
+        else if(userName === null || userName === "")
+        {
+            toast(<><b style={{ color: 'Red' }}>User Name Required.</b></>, { position: 'top-right' });
         }
         else if(password === null || password === "")
         {
@@ -98,36 +119,162 @@ function Registration(){
         {
             toast(<><b style={{ color: 'Red' }}>Email Required.</b></>, { position: 'top-right' });
         }
-        else if(registrationtype === null)
+        else if(phoneNumber === null)
         {
-            toast(<><b style={{ color: 'Red' }}>Registration Type Required.</b></>, { position: 'top-right' });
+            toast(<><b style={{ color: 'Red' }}>Phone Number Required.</b></>, { position: 'top-right' });
         }
-        else if(name === null)
+        else if(address === null || address === "")
         {
-            toast(<><b style={{ color: 'Red' }}>{nameLabel} Required.</b></>, { position: 'top-right' });
+            toast(<><b style={{ color: 'Red' }}>Address Required.</b></>, { position: 'top-right' });
+        }
+        else if(city === null || city === "")
+        {
+            toast(<><b style={{ color: 'Red' }}>City Required.</b></>, { position: 'top-right' });
+        }
+        else if(district === null || district === "")
+        {
+            toast(<><b style={{ color: 'Red' }}>District Required.</b></>, { position: 'top-right' });
+        }
+        else if(zipCode === null || zipCode === "")
+        {
+            toast(<><b style={{ color: 'Red' }}>Zip Code Required.</b></>, { position: 'top-right' });
+        }
+        else if(state === null || state === "")
+        {
+            toast(<><b style={{ color: 'Red' }}>State Required.</b></>, { position: 'top-right' });
+        }
+        else if(type === null || type === "")
+        {
+            toast(<><b style={{ color: 'Red' }}>State Required.</b></>, { position: 'top-right' });
         }
         else{
-            addUser();
-            navigate("/");
+            addRegistration();
+            navigate("/Home");
         }
+    }
+
+    const addUser = () => {
+        const postBody = {
+            UserName: userName,
+            Email: email,
+            Password:password,
+            ConfirmPassword: confirmPassword
+        };
+        fetch('https://localhost:44343/api/Users/CreateUser', 
+        { 
+            method: 'POST',
+            body: JSON.stringify(postBody),
+            withCredentials: true, 
+            crossorigin: true,
+            headers: {
+            Accept: 'application/json','Content-Type': 'application/json'
+            },
+        }) 
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+        })
+        .catch((error) => {
+            toast(<><b style={{ color: 'Red' }}>{error}</b></>, { position: 'top-right' });
+            console.error(error);
+        });
     }
     
     return(
-        <div className="signup-box">
-          <div style={{margin: " 0px 14px 0px 18px", padding: "23px 0px 23px 0px"}}>
-            <label for="firstName" class="form_label">First Name </label><br/>
-            <input type="text" class="form-control" value={firstName} onChange = {(e) => handleInputChange(e)} id="firstName" placeholder="First Name"/><br/>
-            <label for="lastName" class="form_label">Last Name </label><br/>
-            <input type="text" class="form-control" name="" id="lastName" value={lastName}  onChange = {(e) => handleInputChange(e)} placeholder="LastName"/><br/>
-            <label for="password" class="form_label">Password </label><br/>
-            <input type="password" class="form-control" id="password" value={password} onChange = {(e) => handleInputChange(e)} placeholder="Password"/><br/>
-            <label for="confirmPassword" class="form_label">Confirm Password </label><br/>
-            <input type="password" class="form-control" id="confirmPassword" value={confirmPassword} onChange = {(e) => handleInputChange(e)} placeholder="Confirm Password"/><br/>
-            <label for="email" class="form_label">Email </label><br/>
-            <input type="email" class="form-control" id="email" value={email} onChange = {(e) => handleInputChange(e)} placeholder="Email"/>
-            <button onClick={()=>handleSubmit()} type="button" className="btn_student_save" style={{width: "100%", margin: "17px 0px 0px 0px"}}>REGISTER</button>
-            <p className="para-2">Already have an account ? <span style={{paddingLeft: "17%"}}></span> <Link to="/Login">Sign In</Link></p>
-          </div>
+        <div className="form-registration">
+            <div><h1 className='registration_header'>Registration</h1></div>
+            <div className="form-registration-body">
+                <div className='row'>
+                    <div className='col-md-4'>
+                        <label class="form_label" for="code">Code </label><br/>
+                        <input type="text" class="form-control" id="code" value={code} onChange = {(e) => handleInputChange(e)} placeholder="Code"/>
+                    </div>
+                    <div className='col-md-4'>
+                        <label class="form_label" for="nameOfInstitute">Name Of Institute </label><br/>
+                        <input type="text" class="form-control" id="nameOfInstitute" value={nameOfInstitute} onChange = {(e) => handleInputChange(e)} placeholder="Name Of Institute"/>
+                    </div>
+                    <div className='col-md-4'></div>
+                </div>
+                <div style={{paddingTop: "1%"}}></div>
+                <div className='row'>
+                    <div className='col-md-4'>
+                        <label class="form_label" for="userName">User Name </label><br/>
+                        <input type="text" class="form-control" id="userName" value={userName} onChange = {(e) => handleInputChange(e)} placeholder="User Name"/>
+                    </div>
+                    <div className='col-md-4'>
+                        <label class="form_label" for="password">Password </label><br/>
+                        <input type="password" class="form-control" id="password" value={password} onChange = {(e) => handleInputChange(e)} placeholder="Password"/>
+                    </div>
+                    <div className='col-md-4'></div>
+                </div>
+                <div style={{paddingTop: "1%"}}></div>
+                <div className='row'>
+                    <div className='col-md-4'>
+                    <label class="form_label" for="confirmPassword">Confirm Password </label><br/>
+                        <input type="password" class="form-control" id="confirmPassword" value={confirmPassword} onChange = {(e) => handleInputChange(e)} placeholder="Confirm Password"/>
+                    </div>
+                    <div className='col-md-4'>
+                        <label class="form_label" for="email">Email </label><br/>
+                        <input type="email" class="form-control" id="email" value={email} onChange = {(e) => handleInputChange(e)} placeholder="Email"/>
+                    </div>
+                    <div className='col-md-4'></div>
+                </div>
+                <div style={{paddingTop: "1%"}}></div>
+                <div className='row'>
+                    <div className='col-md-4'>
+                        <label class="form_label" for="phoneNumber">Phone Number </label><br/>
+                        <input type="number" class="form-control" id="phoneNumber" value={phoneNumber} onChange = {(e) => handleInputChange(e)} placeholder="Phone Number"/>
+                    </div>
+                    <div className='col-md-4'>
+                        <label class="form_label" for="address">Address </label><br/>
+                        <input type="text" class="form-control" id="address" value={address} onChange = {(e) => handleInputChange(e)} placeholder="Address"/>
+                    </div>
+                    <div className='col-md-4'></div>
+                </div>
+                <div style={{paddingTop: "1%"}}></div>
+                <div className='row'>
+                    <div className='col-md-4'>
+                    <label class="form_label" for="city">City </label><br/>
+                        <input type="text" class="form-control" id="city" value={city} onChange = {(e) => handleInputChange(e)} placeholder="City"/>
+                    </div>
+                    <div className='col-md-4'>
+                    <label class="form_label" for="district">District </label><br/>
+                        <input type="text" class="form-control" id="district" value={district} onChange = {(e) => handleInputChange(e)} placeholder="District"/>
+                    </div>
+                    <div className='col-md-4'></div>
+                </div>
+                <div style={{paddingTop: "1%"}}></div>
+                <div className='row'>
+                    <div className='col-md-4'>
+                        <label class="form_label" for="zipCode">Zip Code </label><br/>
+                        <input type="text" class="form-control" id="zipCode" value={zipCode} onChange = {(e) => handleInputChange(e)} placeholder="Zip Code"/>
+                    </div>
+                    <div className='col-md-4'>
+                        <label class="form_label" for="state">State </label><br/>
+                        <input type="text" class="form-control" id="state" value={state} onChange = {(e) => handleInputChange(e)} placeholder="State"/>
+                    </div>
+                    <div className='col-md-4'></div>
+                </div>
+                <div style={{paddingTop: "1%"}}></div>
+                <div className='row'>
+                    <div className='col-md-4'>
+                        <label class="form_label" for="type">Type </label><br/>
+                        <select className="form_input" id="type" value={type} onChange = {(e) => handleInputChange(e)}>
+                            <option value={0}>-Select-</option>
+                            <option value={1}>Self Finance</option>
+                            <option value={2}>Aided</option>
+                            <option value={3}>Government</option>
+                        </select>
+                    </div>
+                    <div className='col-md-4'></div>
+                    <div className='col-md-4'></div>
+                </div>
+            </div>
+            <div className="registration_footer">
+                <div style={{ paddingLeft: "80%" }}>
+                    <button onClick={(e)=>Register(e)} type="submit" class="btn_register">Register</button>
+                </div>
+            </div>
         </div>
     )
 } 
