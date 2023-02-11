@@ -14,6 +14,7 @@ import Department from './Components/Department';
 import Evaluation from './Components/Evaluation';
 import CertificateVerfication from './Components/CertificateVerification';
 import StudentPaymentDetails from './Components/StudentPaymentDetails';
+import CollegeInfo from './Components/CollegeInfo';
 import ProgramsOffered from './Components/ProgramsOffered';
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
             <Route path="Registration" element={<Registration />} />
             <Route path="CertificateVerfication" element={<CertificateVerfication />} />
             <Route path="StudentPaymentDetails" element={<StudentPaymentDetails />} />
+            <Route path="CollegeInfo" element={<CollegeInfo />} />
             <Route path="ProgramsOffered" element={<ProgramsOffered />} />
           </Routes>
         </Sidebar>

@@ -139,6 +139,11 @@ const menuItem = [
         path: "/Registration",
         name: "Registration",
         icon: <FaSignOutAlt/>
+    },
+    {
+        path: "/CollegeInfo",
+        name: "College Info",
+        icon: <FaSignOutAlt/>
     }
     
 ]
@@ -150,21 +155,21 @@ function Sidebar({children}){
     let tempmenu = []
     let loginType = localStorage.getItem("LoginType");
     
-    // tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Department","Pay Fees","Exam Time Table","Exam Result","Log In", "Registration"]
-    // if(loginType === 1)
-    // {
-    //     tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Certificate Verfication","Department",
-    //     "Student Details","Student Attendance","Model Papers","Exam Evaluation","Student Profile","Document","Pay Fees","Exam Time Table","Exam Result","Hall Ticket Download",
-    //     "Mark Sheet Download","Log out"]
-    // }
-    // else  if(loginType === 2 || loginType === 3)
-    // {
-    //     tempmenu = ["Certificate Verfication","Department","Student Details","Student Attendance","Model Papers","Exam Evaluation","Document","Log out"]
-    // }
-    // else  if(loginType === 4)
-    // {
-    //     tempmenu = ["Certificate Verfication","Model Papers","Student Profile","Document","Pay Fees","Exam Time Table","Exam Result","Hall Ticket Download","Mark Sheet Download","Log out"]
-    // }
+    tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Department","Pay Fees","Exam Time Table","Exam Result","Log In", "Registration", "College Info"]
+    if(loginType === 1)
+    {
+        tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Certificate Verfication","Department",
+        "Student Details","Student Attendance","Model Papers","Exam Evaluation","Student Profile","Document","Pay Fees","Exam Time Table","Exam Result","Hall Ticket Download",
+        "Mark Sheet Download","Log out"]
+    }
+    else  if(loginType === 2 || loginType === 3)
+    {
+        tempmenu = ["Certificate Verfication","Department","Student Details","Student Attendance","Model Papers","Exam Evaluation","Document","Log out"]
+    }
+    else  if(loginType === 4)
+    {
+        tempmenu = ["Certificate Verfication","Model Papers","Student Profile","Document","Pay Fees","Exam Time Table","Exam Result","Hall Ticket Download","Mark Sheet Download","Log out"]
+    }
 
     // menuItem.forEach(mi => {
     //     tempmenu.forEach(item =>{
