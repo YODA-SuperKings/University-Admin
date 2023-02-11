@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useNavigate, Link, redirect } from "react-router-dom";
 import toast from 'react-simple-toasts';
-import Sidebar from './Sidebar';
 
 function Login(props){
     const navigate = useNavigate();
@@ -38,6 +36,7 @@ function Login(props){
                 setauthenticated(true)
                 localStorage.setItem("authenticated", true);
                 localStorage.setItem('LoginType', data);
+                props.onSubmit();
             }
             else
             {

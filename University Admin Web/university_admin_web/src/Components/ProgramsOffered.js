@@ -29,7 +29,6 @@ function ProgramsOffered() {
     return ( 
         <div className="form-collegeInfo">
             <div><h1 className='collegeInfo_header'>Programs offered</h1></div>
-            <input placeholder="Enter Post Title"/>
             <div className="form-collegeInfo-body">
                 <Table responsive bordered hover>
                     <thead>

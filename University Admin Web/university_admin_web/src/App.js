@@ -16,8 +16,12 @@ import CertificateVerfication from './Components/CertificateVerification';
 import StudentPaymentDetails from './Components/StudentPaymentDetails';
 import CollegeInfo from './Components/CollegeInfo';
 import ProgramsOffered from './Components/ProgramsOffered';
+import AffiliatedColleges from './Components/AffiliatedColleges';
 
 function App() {
+  const reloadPage = () => {
+    window.location.reload();
+  }
   return (
     <div className="App">
         <BrowserRouter>
@@ -32,12 +36,13 @@ function App() {
             <Route path="Department" element={<Department />} />
             <Route path="Evaluation" element={<Evaluation />} />
             <Route path="Banner" element={<Banner />} />
-            <Route path="Login" element={<Login />} />
+            <Route path="Login" element={<Login onSubmit={reloadPage}/>} />
             <Route path="Registration" element={<Registration />} />
             <Route path="CertificateVerfication" element={<CertificateVerfication />} />
             <Route path="StudentPaymentDetails" element={<StudentPaymentDetails />} />
             <Route path="CollegeInfo" element={<CollegeInfo />} />
             <Route path="ProgramsOffered" element={<ProgramsOffered />} />
+            <Route path="AffiliatedColleges" element={<AffiliatedColleges />} />
           </Routes>
         </Sidebar>
       </BrowserRouter>

@@ -560,3 +560,29 @@ main{
   text-align: center;
 }
 /*College Info - End*/
+
+/*College Info - Start*/
+.form-affiliatedColleges{
+  background-color: white;
+  border-radius: 5px;
+  width: 96% !important;
+  margin: 0px auto;
+  padding: 20px;
+  padding-left: 50px;
+}
+
+.form-affiliatedColleges-body{
+  text-align: left;
+  padding: 20px 10px;
+}
+
+.form-affiliatedColleges-body > *{
+  padding: 5px;
+}
+
+.affiliatedColleges_header{
+  text-align: center;
+  font-size: xx-large;
+  color: #785fa0;
+}
+/*College Info - End*/
