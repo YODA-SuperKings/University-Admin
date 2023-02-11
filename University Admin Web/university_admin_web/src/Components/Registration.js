@@ -76,7 +76,7 @@ function Registration(){
         }) 
         .then((res) => res.json())
         .then((data) => {
-            if(data === "Email already exists.")
+            if(data === "Email already exists." || data === "Code already exists.")
                 toastColor = 'Red';
             else{
                 toastColor = 'Green';

@@ -530,3 +530,38 @@ main{
   color: #785fa0;
 }
 /*department - End*/
+
+/*College Info - Start*/
+.form-collegeInfo{
+  background-color: white;
+  border-radius: 5px;
+  width: 96% !important;
+  margin: 0px auto;
+  padding: 20px;
+  padding-left: 50px;
+}
+
+.form-collegeInfo-body{
+  text-align: left;
+  padding: 20px 10px;
+}
+
+.form-collegeInfo-body > *{
+  padding: 5px;
+}
+
+.collegeInfo_header{
+  text-align: center;
+  font-size: xx-large;
+  color: #785fa0;
+}
+
+.btn_collegeInfo_Approve{
+  height: 35px;
+  width: 100%;
+  background-color: #785fa0;
+  color: white;
+  font-size: large;
+  text-align: center;
+}
+/*College Info - End*/

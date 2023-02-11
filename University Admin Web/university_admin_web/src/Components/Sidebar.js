@@ -139,6 +139,11 @@ const menuItem = [
         path: "/Registration",
         name: "Registration",
         icon: <FaSignOutAlt/>
+    },
+    {
+        path: "/CollegeInfo",
+        name: "College Info",
+        icon: <FaSignOutAlt/>
     }
     
 ]
@@ -150,7 +155,7 @@ function Sidebar({children}){
     let tempmenu = []
     let loginType = localStorage.getItem("LoginType");
     
-    tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Department","Pay Fees","Exam Time Table","Exam Result","Log In", "Registration"]
+    tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Department","Pay Fees","Exam Time Table","Exam Result","Log In", "Registration", "College Info"]
     if(loginType === 1)
     {
         tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Certificate Verfication","Department",
