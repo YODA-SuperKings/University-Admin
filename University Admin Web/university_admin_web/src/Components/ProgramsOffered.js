@@ -28,18 +28,16 @@ function ProgramsOffered() {
 
     return ( 
         <div className="form-collegeInfo">
-            <div><h1 className='collegeInfo_header'>Programs offered</h1></div>
+            <div><h1 className='document_header'>PROGRAMS OFFERED</h1></div>
             <div className="form-collegeInfo-body">
                 <Table responsive bordered hover>
                     <thead>
                         <tr>
-                         <th>SINO</th>
+                         <th>SNO</th>
                          <th>Course Name</th>
                         </tr>
                     </thead>
                     <tbody> 
-
-
                         {gridData.map(d =>
                             <tr key = {d.id}>
                                 <td>{d.slno}</td>

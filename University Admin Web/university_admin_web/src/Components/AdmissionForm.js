@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import toast from 'react-simple-toasts';
 import { useNavigate } from "react-router-dom";
-
+import Accordion from 'react-bootstrap/Accordion';
 
 function AdmissionForm(){
     const navigate = useNavigate();
@@ -292,34 +292,35 @@ function AdmissionForm(){
 
     return (
         <div className="form-admission">
-            <div><h1 className='admission_header'>Admission Details</h1></div>
-            <div className="form-admission-body">
-            <div className='admission_border'>
-                <h1 style={{color: "#785fa0"}}>General Details</h1>
+         <div><h1 className= "document_header">ADMISSION FORM</h1></div>
+        <div className="form-admission-body">
+        <Accordion defaultActiveKey="0">
+            <Accordion.Item eventKey="0">
+                <Accordion.Header><h1 className="formsection">General Details</h1></Accordion.Header>
+                <Accordion.Body>
                 <div className='row'>
                     <div className='col-md-4'>
                         <label className="form_label" for="firstName">First Name </label><br></br>
-                        <input className="form_input" type="text" id="firstName" value={firstName} onChange = {(e) => handleInputChange(e)} placeholder="First Name"/>
+                        <input className="form-control" type="text" id="firstName" value={firstName} onChange = {(e) => handleInputChange(e)} placeholder="First Name"/>
                     </div>
                     <div className='col-md-4'>
                         <label className="form_label" for="lastName">Last Name </label><br></br>
-                        <input className="form_input" type="text" id="lastName" value={lastName} onChange = {(e) => handleInputChange(e)} placeholder="Last Name"/>
+                        <input className="form-control" type="text" id="lastName" value={lastName} onChange = {(e) => handleInputChange(e)} placeholder="Last Name"/>
                     </div>
                     <div className='col-md-4'>
                         <label className="form_label" for="dob">Date of Birth </label><br></br>
-                        <input  type="date" name="" id="dob" className="form_input" value={dob} onChange = {(e) => handleInputChange(e)} placeholder="Date of Birth"/>
+                        <input  type="date" name="" id="dob" className="form-control" value={dob} onChange = {(e) => handleInputChange(e)} placeholder="Date of Birth"/>
                     </div>
                 </div>
-                <div className='fieldRowPadding'></div>
                 <div className='row'>
                     <div className='row'>
                         <div className='col-md-4'>
                             <label className="form_label" for="email">Email </label><br></br>
-                            <input  type="email" id="email" className="form_input" value={email} onChange = {(e) => handleInputChange(e)} placeholder="Email"/>
+                            <input  type="email" id="email" className="form-control" value={email} onChange = {(e) => handleInputChange(e)} placeholder="Email"/>
                         </div>
                         <div className='col-md-4' style={{paddingLeft: "1.5%"}}>
                             <label className="form_label" for="phoneNumber">Phone Number </label><br></br>
-                            <input className="form_input" type="number" id="phoneNumber" value={phoneNumber} onChange = {(e) => handleInputChange(e)} placeholder="Phone Number"/>
+                            <input className="form-control" type="number" id="phoneNumber" value={phoneNumber} onChange = {(e) => handleInputChange(e)} placeholder="Phone Number"/>
                         </div>
                         <div className='col-md-4' style={{paddingLeft: "2%"}}>
                             <label className="form_label" for="gender">Gender </label><br></br>
@@ -330,14 +331,15 @@ function AdmissionForm(){
                         </div>
                     </div>
                 </div>
-            </div>
-            <div style={{paddingTop: "1%"}}></div>
-            <div className='admission_border'>
-                <h1 style={{color: "#785fa0"}}>Admission Information</h1>
-                <div className='row'>
+                </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="1">
+                <Accordion.Header> <h1 className="formsection">Admission Information</h1></Accordion.Header>
+                <Accordion.Body>
+                  <div className='row'>
                     <div className='col-md-4'>
                         <label className="form_label" for="applicationType">Application Type </label><br></br>
-                        <select className="form_input" id="applicationType" value={applicationType} onChange = {(e) => handleInputChange(e)}>
+                        <select className="form-control" id="applicationType" value={applicationType} onChange = {(e) => handleInputChange(e)}>
                             <option value={0}>-Select-</option>
                             <option value={1}>Freshman</option>
                             <option value={2}>Transferee</option>
@@ -346,7 +348,7 @@ function AdmissionForm(){
                     </div>
                     <div className='col-md-4'>
                         <label className="form_label" for="semester">Semester </label><br></br>
-                        <select className="form_input" id="semester" value={semester} onChange = {(e) => handleInputChange(e)}>
+                        <select className="form-control" id="semester" value={semester} onChange = {(e) => handleInputChange(e)}>
                             <option value={0}>-Select-</option>
                             <option value={1}>Semester 1</option>
                             <option value={2}>Semester 2</option>
@@ -360,7 +362,7 @@ function AdmissionForm(){
                     </div>
                     <div className='col-md-4'>
                         <label className="form_label" for="courseAppliedFor">Course Applied Type </label><br></br>
-                        <select className="form_input" id="courseAppliedFor" value={courseAppliedFor} onChange = {(e) => handleInputChange(e)}>
+                        <select className="form-control" id="courseAppliedFor" value={courseAppliedFor} onChange = {(e) => handleInputChange(e)}>
                             <option value={0}>-Select-</option>
                             <option value={1}>ECE</option>
                             <option value={2}>EEE</option>
@@ -369,119 +371,117 @@ function AdmissionForm(){
                             <option value={5}>MECH</option>
                         </select>
                     </div>
-                </div>
-            </div>
-            <div style={{paddingTop: "1%"}}></div>
-            <div className='admission_border'>
-                <h1 style={{color: "#785fa0"}}>High School Education</h1>
-                <div className='row'>
+                 </div>
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="2">
+             <Accordion.Header> <h1 className="formsection">High School Education</h1></Accordion.Header>
+             <Accordion.Body>
+             <div className='row'>
                     <div className='col-md-4'>
                         <label className="form_label" for="lastHighSchoolName">School Name </label><br></br>
-                        <input className="form_input" type="text" id="lastHighSchoolName" value={lastHighSchoolName} onChange = {(e) => handleInputChange(e)} placeholder="Name Of Last High School Attended"/>
+                        <input className="form-control" type="text" id="lastHighSchoolName" value={lastHighSchoolName} onChange = {(e) => handleInputChange(e)} placeholder="Name Of Last High School Attended"/>
                     </div>
                     <div className='col-md-4'>
                         <label className="form_label" for="graduatedYear">Graduated Year </label><br></br>
-                        <input  type="date" name="" id="graduatedYear" className="form_input" value={graduatedYear} onChange = {(e) => handleInputChange(e)} placeholder="Graduated Year"/>
+                        <input  type="date" name="" id="graduatedYear" className="form-control" value={graduatedYear} onChange = {(e) => handleInputChange(e)} placeholder="Graduated Year"/>
                     </div>
                     <div className='col-md-4'>
                         <label className="form_label" for="highSchoolPercentage">Percentage </label><br></br>
-                        <input className="form_input" type="number" id="highSchoolPercentage" value={highSchoolPercentage} onChange = {(e) => handleInputChange(e)} placeholder="Percentage"/>
+                        <input className="form-control" type="number" id="highSchoolPercentage" value={highSchoolPercentage} onChange = {(e) => handleInputChange(e)} placeholder="Percentage"/>
                     </div>
                 </div>
-                <div style={{paddingTop: "1%"}}></div>
                 <div className='row'>
                     <div className='col-md-4'>
                         <label className="form_label" for="highSchoolAddress">Address </label><br></br>
-                        <input  type="text" name="" id="highSchoolAddress" className="form_input" value={highSchoolAddress} onChange = {(e) => handleInputChange(e)} placeholder="Address"/>
+                        <input  type="text" name="" id="highSchoolAddress" className="form-control" value={highSchoolAddress} onChange = {(e) => handleInputChange(e)} placeholder="Address"/>
                     </div>
                     <div className='col-md-4'>
                         <label className="form_label" for="highSchoolCity">City </label><br></br>
-                        <input  type="text" name="" id="highSchoolCity" className="form_input" value={highSchoolCity} onChange = {(e) => handleInputChange(e)} placeholder="City"/>
+                        <input  type="text" name="" id="highSchoolCity" className="form-control" value={highSchoolCity} onChange = {(e) => handleInputChange(e)} placeholder="City"/>
                     </div>
                     <div className='col-md-4'>
                         <label className="form_label" for="highSchoolState">State </label><br></br>
-                        <input  type="text" name="" id="highSchoolState" className="form_input" value={highSchoolState} onChange = {(e) => handleInputChange(e)} placeholder="State"/>
+                        <input  type="text" name="" id="highSchoolState" className="form-control" value={highSchoolState} onChange = {(e) => handleInputChange(e)} placeholder="State"/>
                     </div>
                 </div>
-                <div className='fieldRowPadding'></div>
                 <div className='row'>
                     <div className='col-md-4'>
                         <label className="form_label" for="highSchoolZipCode">Zip Code </label><br></br>
-                        <input  type="text" name="" id="highSchoolZipCode" className="form_input" value={highSchoolZipCode} onChange = {(e) => handleInputChange(e)} placeholder="Zip Code"/>
+                        <input  type="text" name="" id="highSchoolZipCode" className="form-control" value={highSchoolZipCode} onChange = {(e) => handleInputChange(e)} placeholder="Zip Code"/>
                     </div>
                     <div className='col-md-4'>
                         <label className="form_label" for="highSchoolCountry">Country </label><br></br>
-                        <select className="form_input" id="highSchoolCountry" value={highSchoolCountry} onChange = {(e) => handleInputChange(e)}>
+                        <select className="form-control" id="highSchoolCountry" value={highSchoolCountry} onChange = {(e) => handleInputChange(e)}>
                           {countries.map((option) => (<option value={option.value}>{option.label}</option>))}
                         </select>
                     </div>
                     <div className='col-md-4'></div>
                 </div>
-            </div>
-            <div className='fieldRowPadding'></div>
-            <div className='admission_border'>
-                <h1 style={{color: "#785fa0"}}>Parent Details</h1>
-                <div className='row'>
+            </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="3">
+             <Accordion.Header> <h1 className="formsection">Parental Details</h1></Accordion.Header>
+             <Accordion.Body>
+             <div className='row'>
                     <div className='col-md-4'>
                         <label className="form_label" for="fatherName">Father Name </label><br></br>
-                        <input className="form_input" type="text" id="fatherName" value={fatherName} onChange = {(e) => handleInputChange(e)} placeholder="Father Name"/>
+                        <input className="form-control" type="text" id="fatherName" value={fatherName} onChange = {(e) => handleInputChange(e)} placeholder="Father Name"/>
                     </div>
                     <div className='col-md-4'>
                         <label className="form_label" for="motherName">Mother Name </label><br></br>
-                        <input className="form_input" type="text" id="motherName" value={motherName} onChange = {(e) => handleInputChange(e)} placeholder="Mother Name"/>
+                        <input className="form-control" type="text" id="motherName" value={motherName} onChange = {(e) => handleInputChange(e)} placeholder="Mother Name"/>
                     </div>
                     <div className='col-md-4'>
                         <label className="form_label" for="guardianPhoneNumber">Phone Number </label><br></br>
-                        <input className="form_input" type="number" id="guardianPhoneNumber" value={guardianPhoneNumber} onChange = {(e) => handleInputChange(e)} placeholder="Phone Number"/>
+                        <input className="form-control" type="number" id="guardianPhoneNumber" value={guardianPhoneNumber} onChange = {(e) => handleInputChange(e)} placeholder="Phone Number"/>
                     </div>
                 </div>
-                <div className='fieldRowPadding'></div>
                 <div className='row'>
                     <div className='col-md-4'>
                         <label className="form_label" for="guardianOccupation">Occupation </label><br></br>
-                        <input  type="text" name="" id="guardianOccupation" className="form_input" value={guardianOccupation} onChange = {(e) => handleInputChange(e)} placeholder="Occupation"/>
+                        <input  type="text" name="" id="guardianOccupation" className="form-control" value={guardianOccupation} onChange = {(e) => handleInputChange(e)} placeholder="Occupation"/>
                     </div>
                     <div className='col-md-4'>
                         <label className="form_label" for="guardianIncome">Income </label><br></br>
-                        <input  type="number" name="" id="guardianIncome" className="form_input" value={guardianIncome} onChange = {(e) => handleInputChange(e)} placeholder="Income"/>
+                        <input  type="number" name="" id="guardianIncome" className="form-control" value={guardianIncome} onChange = {(e) => handleInputChange(e)} placeholder="Income"/>
                     </div>
                     <div className='col-md-4'>
                         <label className="form_label" for="guardianAddress">Address </label><br></br>
-                        <input  type="text" name="" id="guardianAddress" className="form_input" value={guardianAddress} onChange = {(e) => handleInputChange(e)} placeholder="Address"/>
+                        <input  type="text" name="" id="guardianAddress" className="form-control" value={guardianAddress} onChange = {(e) => handleInputChange(e)} placeholder="Address"/>
                     </div>
                 </div>
-                <div className='fieldRowPadding'></div>
                 <div className='row'>
                     <div className='col-md-4'>
                         <label className="form_label" for="guardianCity">City </label><br></br>
-                        <input  type="text" name="" id="guardianCity" className="form_input" value={guardianCity} onChange = {(e) => handleInputChange(e)} placeholder="City"/>
+                        <input  type="text" name="" id="guardianCity" className="form-control" value={guardianCity} onChange = {(e) => handleInputChange(e)} placeholder="City"/>
                     </div>
                     <div className='col-md-4'>
                         <label className="form_label" for="guardianState">State </label><br></br>
-                        <input  type="text" name="" id="guardianState" className="form_input" value={guardianState} onChange = {(e) => handleInputChange(e)} placeholder="State"/>
+                        <input  type="text" name="" id="guardianState" className="form-control" value={guardianState} onChange = {(e) => handleInputChange(e)} placeholder="State"/>
                     </div>
                     <div className='col-md-4'>
                         <label className="form_label" for="guardianZipCode">Zip Code </label><br></br>
-                        <input  type="text" name="" id="guardianZipCode" className="form_input" value={guardianZipCode} onChange = {(e) => handleInputChange(e)} placeholder="Zip Code"/>
+                        <input  type="text" name="" id="guardianZipCode" className="form-control" value={guardianZipCode} onChange = {(e) => handleInputChange(e)} placeholder="Zip Code"/>
                     </div>
                 </div>
-                <div className='fieldRowPadding'></div>
                 <div className='row'>
                     <div className='col-md-4'>
                         <label className="form_label" for="guardianCountry">Country </label><br></br>
-                        <select className="form_input" id="guardianCountry" value={guardianCountry} onChange = {(e) => handleInputChange(e)}>
+                        <select className="form-control" id="guardianCountry" value={guardianCountry} onChange = {(e) => handleInputChange(e)}>
                           {countries.map((option) => (<option value={option.value}>{option.label}</option>))}
                         </select>
                     </div>
                     <div className='col-md-4'></div>
                     <div className='col-md-4'></div>
                 </div>
-            </div>
+            </Accordion.Body>
+            </Accordion.Item>
+            </Accordion>
+            
             <div className="admission_footer">
-                <div style={{ paddingLeft: "80%" }}>
-                    <button onClick={(e)=>handleSaveSubmit(e)} type="submit" class="btn_student_save">Save</button>
-                    <span style={{paddingLeft: "5%"}}></span>
-                    <button onClick={(e)=>handleCancelSubmit(e)} type="submit" class="btn_student_cancel">Cancel</button>
+                <div style={{ width: "25%", marginLeft: "39%" }}>
+                    <button onClick={(e)=>handleSaveSubmit(e)} type="submit" class="btn_student_save">Submit</button>
                 </div>
             </div>
         </div>

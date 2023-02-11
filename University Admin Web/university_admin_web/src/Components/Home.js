@@ -2,7 +2,21 @@ function Home(){
     
     return(
         <div>
+             <div className="shadow-sm p-1 mb-1 marq">
+                <div className='row'>
+                    <div className='col-md-1' style={{height: "97%"}}><img src={process.env.PUBLIC_URL + "/Img/news.png"} /></div>
+                    <div className='col-md-11' style={{paddingLeft: "62px"}}>
+                    <marquee direction = "left" loop="" >
+                    <div>  ADMISSIONS OPEN UG & PG-2023-APPLY NOW  |  Alumni Meet (2023)-19th Alumni Meet- Registration Form |
+                            MMSC 20th Graduation Day | The last date for payment of admission fee for PG candidates extended upto 17-02-2023.|
+                            Recruitment for Enginnering candidates</div> 
+                    </marquee>
+                    </div>
+                </div>
+                </div>
+                
             <div class="row align-items-start">
+           
                 <div class="col">
                 <img src={process.env.PUBLIC_URL + "/Img/college1.png"} />
                 </div>
