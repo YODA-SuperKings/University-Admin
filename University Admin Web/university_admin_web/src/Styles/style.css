@@ -20,15 +20,12 @@ body{
 .form-registration{
   background-color: white;
   border-radius: 5px;
-  width: 96% !important;
-  margin: 0px auto;
-  padding: 20px;
-  padding-left: 50px;
+  width: 55% !important;
+  margin: 0px 0px 0px 316px;
 }
 
 .form-registration-body{
-  text-align: left;
-  padding: 20px 10px;
+  margin: 35px 17px 0px 21px;
 }
 
 .form-registration-body > *{
@@ -48,7 +45,7 @@ body{
 
 .btn_register{
   height: 40px;
-  width: 90%;
+  width: 100%;
   background-color: #785fa0;
   color: white;
   font-size: large;
@@ -345,7 +342,7 @@ main{
   color: #785fa0;
 }
 .payment_border{
-  border: solid #785fa0 1px !important;
+  border-bottom: solid #785fa0 1px !important;
   width: 96% !important;
 }
 
@@ -363,11 +360,9 @@ main{
 }
 
 .studentName_label, .registrationNumber_label{
-  width: auto;
-  text-align: center;
   color: #785fa0;
-  font-size: xx-large;
-  font-weight: bolder;
+  font-size: larger;
+  font-weight: bold;
 }
 /*Payment - End*/
 
