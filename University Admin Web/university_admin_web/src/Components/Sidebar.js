@@ -1,10 +1,15 @@
 import React, {useState} from 'react';
-import { FaBars, FaTh, FaUserAlt, FaUserGraduate, FaSignOutAlt } from 'react-icons/fa';
-import { MdOutlinePayment } from 'react-icons/md';
+import { FaBars, FaTh, FaUserAlt, FaUserGraduate, FaSignOutAlt,FaDiscourse,FaUniversity,FaRegRegistered,FaRegCalendarTimes,FaRegNewspaper } from 'react-icons/fa';
+import { MdOutlinePayment,MdLibraryBooks,MdOutlineHolidayVillage,MdCastForEducation } from 'react-icons/md';
 import { HiDocumentDuplicate } from 'react-icons/hi';
 import { AiOutlineLogin } from 'react-icons/ai';
-import { GrHomeRounded } from 'react-icons/gr';
-import { TbFileCertificate } from 'react-icons/tb';
+import { BiDollar } from 'react-icons/bi';
+import { FcDepartment } from 'react-icons/fc';
+import { ImHome3 } from 'react-icons/im';
+import { BsNewspaper } from 'react-icons/bs';
+import { TiTicket } from 'react-icons/ti';
+import { CgProfile } from 'react-icons/cg';
+import { TbFileCertificate,TbPaperBag } from 'react-icons/tb';
 import { NavLink } from 'react-router-dom';
 import Login from './Login';
 
@@ -12,7 +17,7 @@ const menuItem = [
     {
         path: "/Home",
         name: "Home",
-        icon: <GrHomeRounded/>
+        icon: <ImHome3/>
     },
     /*--------Admission---------------------*/
     {
@@ -23,27 +28,27 @@ const menuItem = [
     {
         path: "/ProgramsOffered",
         name: "Programs Offered",
-        icon: <GrHomeRounded/>
+        icon: <FaDiscourse/>
     },
     {
         path: "/AffiliatedColleges",
         name: "Affiliated Colleges",
-        icon: <GrHomeRounded/>
+        icon: <FaUniversity/>
     },
     {
         path: "/Syllabus",
         name: "Syllabus",
-        icon: <GrHomeRounded/>
+        icon: <MdLibraryBooks/>
     },
     {
         path: "/FeeStructure",
         name: "Fee Structure",
-        icon: <GrHomeRounded/>
+        icon: <MdOutlinePayment/>
     },
     {
         path: "/HolidayCalendar",
         name: "Holiday Calendar",
-        icon: <GrHomeRounded/>
+        icon: <MdOutlineHolidayVillage/>
     },
     {
         path: "/CertificateVerfication",
@@ -57,7 +62,7 @@ const menuItem = [
      {
         path: "/Department",
         name: "Department",
-        icon: <MdOutlinePayment/>
+        icon: <FcDepartment/>
     },
     {
         path: "/StudentInformation",
@@ -67,23 +72,23 @@ const menuItem = [
     {
         path: "/StudentAttendance",
         name: "Student Attendance",
-        icon: <FaUserAlt/>
+        icon: <FaRegRegistered/>
     },
     {
         path: "/StudentModelPaper",
         name: "Model Papers",
-        icon: <FaUserAlt/>
+        icon: <BsNewspaper/>
     },
     {
         path: "/Evaluation",
-        name: "Exam Evaluation",
-        icon: <MdOutlinePayment/>
+        name: " Exam Evaluation",
+        icon: <TbPaperBag/>
     },
      /*------------------Student--------------------------*/
      {
         path: "/StudentProfile",
-        name: "Student Profile",
-        icon: <MdOutlinePayment/>
+        name: " Student Profile",
+        icon: <CgProfile/>
     },
     {
         path: "/Document",
@@ -93,31 +98,31 @@ const menuItem = [
     {
         path: "/StudentPaymentDetails",
         name: "Pay Fees",
-        icon: <MdOutlinePayment/>
+        icon: <BiDollar/>
     },
     /*------------------People End--------------------------*/
     /*------------------Examination--------------------------*/
     {
         path: "/ExamTimeTable",
         name: "Exam Time Table",
-        icon: <MdOutlinePayment/>
+        icon: <FaRegCalendarTimes/>
     },
     {
         path: "/ExamResult",
         name: "Exam Result",
-        icon: <MdOutlinePayment/>
+        icon: <MdCastForEducation/>
     },
      /*------------------Examination End--------------------------*/
   /*------------------Downloads--------------------------*/
   {
     path: "/HallTicketDownload",
     name: "Hall Ticket Download",
-    icon: <MdOutlinePayment/>
+    icon: <TiTicket/>
 },
 {
     path: "/MarkSheetDownload",
     name: "Mark Sheet Download",
-    icon: <MdOutlinePayment/>
+    icon: <FaRegNewspaper/>
 },
  /*------------------Downloads End--------------------------*/
     {
@@ -134,7 +139,6 @@ const menuItem = [
 ]
 
 function Sidebar({children}){
-    debugger;
     const [isOpen, setIsOpen] = useState(true);
     const toggle = () => setIsOpen(!isOpen);
     const [components, setComponents] = useState(["Sample Component"]); 
