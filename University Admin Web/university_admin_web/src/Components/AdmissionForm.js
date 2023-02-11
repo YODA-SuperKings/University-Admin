@@ -127,7 +127,6 @@ function AdmissionForm(){
      }, [])
 
      const saveAdmission = () => {
-        debugger;
         let toastColor = '';
         const postBody = {
             FirstName: firstName,
