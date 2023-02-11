@@ -35,7 +35,21 @@ function StudentPaymentDetails(){
         //getPaymentHistoryGridData();
         setGridData(gridVals);
      }, [])
+     const downloadFeeReceipt = () => {
+        // using Java Script method to get PDF file
+        fetch('FeeReceipt.pdf').then(response => {
+            response.blob().then(blob => {
+                // Creating new object of PDF file
 
+                const fileURL = window.URL.createObjectURL(blob);
+               // Setting various property values
+                let alink = document.createElement('a');
+                alink.href = fileURL;
+                alink.download = 'FeeReceipt.pdf';
+                alink.click();
+            })
+        })
+    }
     return(
         <div className="form-payment">
             <div><h1 className='payment_header'>Payment Details</h1></div>
@@ -77,7 +91,7 @@ function StudentPaymentDetails(){
                             <td>{d.AmountPaid}</td>
                             <td>{d.AcademicYear}</td>
                             <td>
-                                <span style={{fontSize: "large", cursor: 'pointer', color: '#785fa0'}}><AiOutlineDownload/> Download</span>
+                                <span style={{fontSize: "large", cursor: 'pointer', color: '#785fa0'}} onClick={downloadFeeReceipt}><AiOutlineDownload/> Download</span>
                             </td>
                         </tr>
                     )}
