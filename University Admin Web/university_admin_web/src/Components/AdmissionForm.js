@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import toast from 'react-simple-toasts';
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 function AdmissionForm(){
@@ -15,7 +15,7 @@ function AdmissionForm(){
     const [phoneNumber, setPhoneNumber] = useState(null);
     //Admission Information
     const [applicationType, setApplicationType] = useState(null);
-    const [admissionApplicationFor, setAdmissionApplicationFor] = useState(null);
+    const [semester, setSemester] = useState(null);
     const [courseAppliedFor, setCourseAppliedFor] = useState(null);
     //High School Education
     const [lastHighSchoolName, setLastHighSchoolName] = useState(null);
@@ -29,12 +29,15 @@ function AdmissionForm(){
     //Parent Details
     const [fatherName, setFatherName] = useState(null);
     const [motherName, setMotherName] = useState(null);
+    const [guardianOccupation, setGuardianOccupation] = useState(null);
+    const [guardianIncome, setGuardianIncome] = useState(null);
     const [guardianPhoneNumber, setGuardianPhoneNumber] = useState(null);
     const [guardianAddress, setGuardianAddress] = useState(null);
     const [guardianCity, setGuardianCity] = useState(null);
     const [guardianState, setGuardianState] = useState(null);
     const [guardianZipCode, setGuardianZipCode] = useState(null);
     const [guardianCountry, setGuardianCountry] = useState(null);
+    const [countries, setCountries] = useState([]);
 
     const handleInputChange = (e) => {
         const {id , value} = e.target;
@@ -56,8 +59,8 @@ function AdmissionForm(){
         //Admission information
         if(id === "applicationType")
             setApplicationType(value);
-        if(id === "admissionApplicationFor")
-            setAdmissionApplicationFor(value);
+        if(id === "semester")
+            setSemester(value);
         if(id === "courseAppliedFor")
             setCourseAppliedFor(value);
         //High School Education
@@ -82,6 +85,10 @@ function AdmissionForm(){
             setFatherName(value);
         if(id === "motherName")
             setMotherName(value);
+        if(id === "guardianOccupation")
+            setGuardianOccupation(value);
+        if(id === "guardianIncome")
+            setGuardianIncome(value);
         if(id === "guardianPhoneNumber")
             setGuardianPhoneNumber(value);
         if(id === "guardianAddress")
@@ -95,6 +102,87 @@ function AdmissionForm(){
         if(id === "guardianCountry")
             setGuardianCountry(value);
     }
+
+    const getCountries= () => {
+        fetch('https://localhost:44343/api/Countries/GetCountries', 
+        { 
+            method: 'GET',
+            withCredentials: true, 
+            crossorigin: true,
+            headers: {
+            Accept: 'application/json','Content-Type': 'application/json'
+            },
+        }) 
+        .then((res) => res.json())
+        .then((data) => {
+            setCountries(data);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    }
+
+    useEffect(() => {
+        getCountries();
+     }, [])
+
+     const saveAdmission = () => {
+        debugger;
+        let toastColor = '';
+        const postBody = {
+            FirstName: firstName,
+            LastName: lastName,
+            DateofBirth: dob,
+            Email: email,
+            PhoneNumber: phoneNumber,
+            Gender: (male !== null) ? "Male" : "Female",
+            ApplicationType: applicationType,
+            Semester: semester,
+            CourseAppliedType: courseAppliedFor,
+            SchoolName: lastHighSchoolName,
+            GraduatedYear: graduatedYear,
+            Percentage: parseFloat(highSchoolPercentage),
+            Address: highSchoolAddress,
+            City: highSchoolCity,
+            State: highSchoolState,
+            ZipCode: highSchoolZipCode,
+            Country: highSchoolCountry,
+            FatherName: fatherName,
+            MotherName: motherName,
+            Occupation: guardianOccupation,
+            Income: parseFloat(guardianIncome),
+            FatherPhoneNumber: guardianPhoneNumber,
+            CurrentAddress: guardianAddress,
+            CurrentCity: guardianCity,
+            CurrentState: guardianState,
+            CurrentZipCode: guardianZipCode,
+            CurrentCountry: guardianCountry
+        };
+        fetch('https://localhost:44343/api/Student/CreateStudent', 
+        { 
+            method: 'POST',
+            body: JSON.stringify(postBody),
+            withCredentials: true, 
+            crossorigin: true,
+            headers: {
+            Accept: 'application/json','Content-Type': 'application/json'
+            },
+        }) 
+        .then((res) => res.json())
+        .then((data) => {
+            if(data === "Email already exists.")
+                toastColor = 'Red';
+            else{
+                toastColor = 'Green';
+            }
+            toast(<><b style={{ color: toastColor }}>{data}</b></>, { position: 'top-right' });
+            console.log(data);
+        })
+        .catch((error) => {
+            toast(<><b style={{ color: 'Red' }}>{error}</b></>, { position: 'top-right' });
+            console.error(error);
+        });
+     };
 
     const handleSaveSubmit  = (e) => {
         if(firstName === null || firstName === "")
@@ -121,7 +209,7 @@ function AdmissionForm(){
         {
             toast(<><b style={{ color: 'Red' }}>Application Type Required.</b></>, { position: 'top-right' });
         }
-        else if(admissionApplicationFor === null)
+        else if(semester === null)
         {
             toast(<><b style={{ color: 'Red' }}>Admission Application For Required.</b></>, { position: 'top-right' });
         }
@@ -194,12 +282,13 @@ function AdmissionForm(){
             toast(<><b style={{ color: 'Red' }}>Parent Details - Country Required.</b></>, { position: 'top-right' });
         }
         else{
-
+            saveAdmission();
+            navigate("/");
         }
     }
 
     const handleCancelSubmit  = (e) => {
-        
+        navigate("/");
     }
 
     return (
@@ -257,8 +346,8 @@ function AdmissionForm(){
                         </select>
                     </div>
                     <div className='col-md-4'>
-                        <label className="form_label" for="admissionApplicationFor">Semester </label><br></br>
-                        <select className="form_input" id="admissionApplicationFor" value={admissionApplicationFor} onChange = {(e) => handleInputChange(e)}>
+                        <label className="form_label" for="semester">Semester </label><br></br>
+                        <select className="form_input" id="semester" value={semester} onChange = {(e) => handleInputChange(e)}>
                             <option value={0}>-Select-</option>
                             <option value={1}>Semester 1</option>
                             <option value={2}>Semester 2</option>
@@ -322,13 +411,12 @@ function AdmissionForm(){
                         <input  type="text" name="" id="highSchoolZipCode" className="form_input" value={highSchoolZipCode} onChange = {(e) => handleInputChange(e)} placeholder="Zip Code"/>
                     </div>
                     <div className='col-md-4'>
-                        <label className="form_label" for="highSchoolCity">City </label><br></br>
-                        <input  type="text" name="" id="highSchoolCity" className="form_input" value={highSchoolCity} onChange = {(e) => handleInputChange(e)} placeholder="City"/>
-                    </div>
-                    <div className='col-md-4'>
                         <label className="form_label" for="highSchoolCountry">Country </label><br></br>
-                        <input  type="text" name="" id="highSchoolCountry" className="form_input" value={highSchoolCountry} onChange = {(e) => handleInputChange(e)} placeholder="Country"/>
+                        <select className="form_input" id="highSchoolCountry" value={highSchoolCountry} onChange = {(e) => handleInputChange(e)}>
+                          {countries.map((option) => (<option value={option.value}>{option.label}</option>))}
+                        </select>
                     </div>
+                    <div className='col-md-4'></div>
                 </div>
             </div>
             <div className='fieldRowPadding'></div>
@@ -351,9 +439,20 @@ function AdmissionForm(){
                 <div className='fieldRowPadding'></div>
                 <div className='row'>
                     <div className='col-md-4'>
+                        <label className="form_label" for="guardianOccupation">Occupation </label><br></br>
+                        <input  type="text" name="" id="guardianOccupation" className="form_input" value={guardianOccupation} onChange = {(e) => handleInputChange(e)} placeholder="Occupation"/>
+                    </div>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="guardianIncome">Income </label><br></br>
+                        <input  type="number" name="" id="guardianIncome" className="form_input" value={guardianIncome} onChange = {(e) => handleInputChange(e)} placeholder="Income"/>
+                    </div>
+                    <div className='col-md-4'>
                         <label className="form_label" for="guardianAddress">Address </label><br></br>
                         <input  type="text" name="" id="guardianAddress" className="form_input" value={guardianAddress} onChange = {(e) => handleInputChange(e)} placeholder="Address"/>
                     </div>
+                </div>
+                <div className='fieldRowPadding'></div>
+                <div className='row'>
                     <div className='col-md-4'>
                         <label className="form_label" for="guardianCity">City </label><br></br>
                         <input  type="text" name="" id="guardianCity" className="form_input" value={guardianCity} onChange = {(e) => handleInputChange(e)} placeholder="City"/>
@@ -362,20 +461,21 @@ function AdmissionForm(){
                         <label className="form_label" for="guardianState">State </label><br></br>
                         <input  type="text" name="" id="guardianState" className="form_input" value={guardianState} onChange = {(e) => handleInputChange(e)} placeholder="State"/>
                     </div>
-                </div>
-                <div className='fieldRowPadding'></div>
-                <div className='row'>
                     <div className='col-md-4'>
                         <label className="form_label" for="guardianZipCode">Zip Code </label><br></br>
                         <input  type="text" name="" id="guardianZipCode" className="form_input" value={guardianZipCode} onChange = {(e) => handleInputChange(e)} placeholder="Zip Code"/>
                     </div>
+                </div>
+                <div className='fieldRowPadding'></div>
+                <div className='row'>
                     <div className='col-md-4'>
                         <label className="form_label" for="guardianCountry">Country </label><br></br>
-                        <input  type="text" name="" id="guardianCountry" className="form_input" value={guardianCountry} onChange = {(e) => handleInputChange(e)} placeholder="Country"/>
+                        <select className="form_input" id="guardianCountry" value={guardianCountry} onChange = {(e) => handleInputChange(e)}>
+                          {countries.map((option) => (<option value={option.value}>{option.label}</option>))}
+                        </select>
                     </div>
-                    <div className='col-md-4'>
-                        
-                    </div>
+                    <div className='col-md-4'></div>
+                    <div className='col-md-4'></div>
                 </div>
             </div>
             <div className="admission_footer">
