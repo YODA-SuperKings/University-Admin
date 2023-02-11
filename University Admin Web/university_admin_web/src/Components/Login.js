@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import toast from 'react-simple-toasts';
+import Sidebar from './Sidebar';
 
-function Login(){
+function Login(props){
     const navigate = useNavigate();
     const [email, setEmail] = useState(null);
     const [password,setPassword] = useState(null);
@@ -20,37 +21,33 @@ function Login(){
     }
 
     const handleSubmit  = (e) => {
-        navigate("/Sidebar");
-        // e.preventDefault()
-        // localStorage.setItem('LoggedInEmail', email);
-        // fetch('https://localhost:44342/api/Users/AuthenticateUser?email='+email+'&password=' + password, 
-        // { 
-        //     method: 'GET',
-        //     withCredentials: true, 
-        //     crossorigin: true,
-        //     headers: {
-        //     Accept: 'application/json','Content-Type': 'application/json'
-        //     },
-        // }) 
-        // .then((res) => res.json())
-        // .then((data) => {
-        //     if (data) {
-        //         toast(<><b style={{ color: 'Green' }}>Login Succesfully.</b></>, { position: 'top-right' });
-        //         setauthenticated(true)
-        //         localStorage.setItem("authenticated", true);
-        //         if(data.registrationType === 1)
-        //             navigate("/CollegeDashboard");
-        //         else if(data.registrationType === 2)
-        //             navigate("/CompanyDashboard");
-        //     }
-        //     else
-        //     {
-        //         toast(<><b style={{ color: 'Red' }}>Invalid login credentials.</b></>, { position: 'top-right' });
-        //     }
-        // })
-        // .catch((error) => {
-        //     console.error(error);
-        // });
+        e.preventDefault()
+        fetch('https://localhost:44343/api/Users/AuthenticateUser?username='+email+'&password=' + password, 
+        { 
+            method: 'GET',
+            withCredentials: true, 
+            crossorigin: true,
+            headers: {
+            Accept: 'application/json','Content-Type': 'application/json'
+            },
+        }) 
+        .then((res) => res.json())
+        .then((data) => {
+            if (data !== 0) {
+                debugger;
+                toast(<><b style={{ color: 'Green' }}>Login Succesfully.</b></>, { position: 'top-right' });
+                setauthenticated(true)
+                localStorage.setItem("authenticated", true);
+                localStorage.setItem('LoginType', data);
+            }
+            else
+            {
+                toast(<><b style={{ color: 'Red' }}>Invalid login credentials.</b></>, { position: 'top-right' });
+            }
+        })
+        .catch((error) => {
+            console.error(error);
+        });
     }
 
     return(

@@ -6,6 +6,7 @@ import { AiOutlineLogin } from 'react-icons/ai';
 import { GrHomeRounded } from 'react-icons/gr';
 import { TbFileCertificate } from 'react-icons/tb';
 import { NavLink } from 'react-router-dom';
+import Login from './Login';
 
 const menuItem = [
     {
@@ -46,7 +47,7 @@ const menuItem = [
     },
     {
         path: "/CertificateVerfication",
-        name: "Certificate Verfication",
+        name: "Certificate Verfication", 
         icon: <TbFileCertificate/>
     },
     /*------------------Admission End--------------------------*/
@@ -75,13 +76,13 @@ const menuItem = [
     },
     {
         path: "/Evaluation",
-        name: " Exam Evaluation",
+        name: "Exam Evaluation",
         icon: <MdOutlinePayment/>
     },
      /*------------------Student--------------------------*/
      {
         path: "/StudentProfile",
-        name: " Student Profile",
+        name: "Student Profile",
         icon: <MdOutlinePayment/>
     },
     {
@@ -119,14 +120,9 @@ const menuItem = [
     icon: <MdOutlinePayment/>
 },
  /*------------------Downloads End--------------------------*/
-   
-   
-    
-    
-    
     {
         path: "/Login",
-        name: "Login",
+        name: "Log In",
         icon: <AiOutlineLogin/>
     },
     {
@@ -138,8 +134,43 @@ const menuItem = [
 ]
 
 function Sidebar({children}){
+    debugger;
     const [isOpen, setIsOpen] = useState(true);
     const toggle = () => setIsOpen(!isOpen);
+    const [components, setComponents] = useState(["Sample Component"]); 
+    const menuItemFinal = [];
+    let tempmenu = []
+    let loginType = localStorage.getItem("LoginType");
+
+    function dummyClick(){
+        debugger;
+        setComponents([...components, "Sample Component"]) 
+    }
+    
+    tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Department","Pay Fees","Exam Time Table","Exam Result","Log In"]
+    if(loginType === 1)
+    {
+        tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Certificate Verfication","Department",
+        "Student Details","Student Attendance","Model Papers","Exam Evaluation","Student Profile","Document","Pay Fees","Exam Time Table","Exam Result","Hall Ticket Download",
+        "Mark Sheet Download","Log out"]
+    }
+    else  if(loginType === 2 || loginType === 3)
+    {
+        tempmenu = ["Certificate Verfication","Department","Student Details","Student Attendance","Model Papers","Exam Evaluation","Document","Log out"]
+    }
+    else  if(loginType === 4)
+    {
+        tempmenu = ["Certificate Verfication","Model Papers","Student Profile","Document","Pay Fees","Exam Time Table","Exam Result","Hall Ticket Download","Mark Sheet Download","Log out"]
+    }
+
+    menuItem.forEach(mi => {
+        tempmenu.forEach(item =>{
+            if(item === mi.name){
+                menuItemFinal.push(mi);
+            }
+        })
+    });
+
     return(
       <div className='Sidebar_container'>
         <div style={{width: isOpen ? "250px" : "50px"}} className='sidebar'>
@@ -147,10 +178,11 @@ function Sidebar({children}){
                 <h1 style={{display: isOpen ? "block" : "none"}} className='logo'><FaUserGraduate/></h1>
                 <div style={{marginLeft: isOpen ? "150px" : "0px", cursor:'pointer'}} className='bars'>
                     <FaBars onClick={toggle}/>
+                    <button onClick={dummyClick} text="Call Component"/> 
                 </div>
             </div>
             {
-                menuItem.map((item,index) => (
+                menuItemFinal.map((item,index) => (
                     <NavLink to={item.path} key={index} className="link" activeClassName="active">
                         <div className='icon'>{item.icon}</div>
                         <div style={{display: isOpen ? "block" : "none"}} className='linkText'>{item.name}</div>

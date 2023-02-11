@@ -12,7 +12,7 @@ function Banner() {
           <h1 className="universityheader text-nowrap"> MMSC University, Chennai</h1>
         </div>
       </div>
-      <div class="shadow-sm p-1 mb-1 marq">
+      <div className="shadow-sm p-1 mb-1 marq">
       <marquee direction = "left" loop="" >
         <div>Test Message</div>
       </marquee>
