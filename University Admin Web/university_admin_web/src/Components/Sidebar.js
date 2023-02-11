@@ -150,29 +150,29 @@ function Sidebar({children}){
     let tempmenu = []
     let loginType = localStorage.getItem("LoginType");
     
-    tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Department","Pay Fees","Exam Time Table","Exam Result","Log In", "Registration"]
-    if(loginType === 1)
-    {
-        tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Certificate Verfication","Department",
-        "Student Details","Student Attendance","Model Papers","Exam Evaluation","Student Profile","Document","Pay Fees","Exam Time Table","Exam Result","Hall Ticket Download",
-        "Mark Sheet Download","Log out"]
-    }
-    else  if(loginType === 2 || loginType === 3)
-    {
-        tempmenu = ["Certificate Verfication","Department","Student Details","Student Attendance","Model Papers","Exam Evaluation","Document","Log out"]
-    }
-    else  if(loginType === 4)
-    {
-        tempmenu = ["Certificate Verfication","Model Papers","Student Profile","Document","Pay Fees","Exam Time Table","Exam Result","Hall Ticket Download","Mark Sheet Download","Log out"]
-    }
+    // tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Department","Pay Fees","Exam Time Table","Exam Result","Log In", "Registration"]
+    // if(loginType === 1)
+    // {
+    //     tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Certificate Verfication","Department",
+    //     "Student Details","Student Attendance","Model Papers","Exam Evaluation","Student Profile","Document","Pay Fees","Exam Time Table","Exam Result","Hall Ticket Download",
+    //     "Mark Sheet Download","Log out"]
+    // }
+    // else  if(loginType === 2 || loginType === 3)
+    // {
+    //     tempmenu = ["Certificate Verfication","Department","Student Details","Student Attendance","Model Papers","Exam Evaluation","Document","Log out"]
+    // }
+    // else  if(loginType === 4)
+    // {
+    //     tempmenu = ["Certificate Verfication","Model Papers","Student Profile","Document","Pay Fees","Exam Time Table","Exam Result","Hall Ticket Download","Mark Sheet Download","Log out"]
+    // }
 
-    menuItem.forEach(mi => {
-        tempmenu.forEach(item =>{
-            if(item === mi.name){
-                menuItemFinal.push(mi);
-            }
-        })
-    });
+    // menuItem.forEach(mi => {
+    //     tempmenu.forEach(item =>{
+    //         if(item === mi.name){
+    //             menuItemFinal.push(mi);
+    //         }
+    //     })
+    // });
 
     return(
       <div className='Sidebar_container'>
@@ -184,7 +184,7 @@ function Sidebar({children}){
                 </div>
             </div>
             {
-                menuItemFinal.map((item,index) => (
+                menuItem.map((item,index) => (
                     <NavLink to={item.path} key={index} className="link" activeClassName="active">
                         <div className='icon'>{item.icon}</div>
                         <div style={{display: isOpen ? "block" : "none"}} className='linkText'>{item.name}</div>

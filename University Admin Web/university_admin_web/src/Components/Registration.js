@@ -182,97 +182,81 @@ function Registration(){
     
     return(
         <div className="form-registration">
-            <div><h1 className='registration_header'>Registration</h1></div>
             <div className="form-registration-body">
                 <div className='row'>
-                    <div className='col-md-4'>
+                    <div className='col-md-6'>
                         <label class="form_label" for="code">Code </label><br/>
                         <input type="text" class="form-control" id="code" value={code} onChange = {(e) => handleInputChange(e)} placeholder="Code"/>
                     </div>
-                    <div className='col-md-4'>
+                    <div className='col-md-6'>
                         <label class="form_label" for="nameOfInstitute">Name Of Institute </label><br/>
                         <input type="text" class="form-control" id="nameOfInstitute" value={nameOfInstitute} onChange = {(e) => handleInputChange(e)} placeholder="Name Of Institute"/>
                     </div>
-                    <div className='col-md-4'></div>
                 </div>
-                <div style={{paddingTop: "1%"}}></div>
                 <div className='row'>
-                    <div className='col-md-4'>
+                    <div className='col-md-6'>
                         <label class="form_label" for="userName">User Name </label><br/>
                         <input type="text" class="form-control" id="userName" value={userName} onChange = {(e) => handleInputChange(e)} placeholder="User Name"/>
                     </div>
-                    <div className='col-md-4'>
+                    <div className='col-md-6'>
                         <label class="form_label" for="password">Password </label><br/>
                         <input type="password" class="form-control" id="password" value={password} onChange = {(e) => handleInputChange(e)} placeholder="Password"/>
                     </div>
-                    <div className='col-md-4'></div>
                 </div>
-                <div style={{paddingTop: "1%"}}></div>
                 <div className='row'>
-                    <div className='col-md-4'>
+                    <div className='col-md-6'>
                     <label class="form_label" for="confirmPassword">Confirm Password </label><br/>
                         <input type="password" class="form-control" id="confirmPassword" value={confirmPassword} onChange = {(e) => handleInputChange(e)} placeholder="Confirm Password"/>
                     </div>
-                    <div className='col-md-4'>
+                    <div className='col-md-6'>
                         <label class="form_label" for="email">Email </label><br/>
                         <input type="email" class="form-control" id="email" value={email} onChange = {(e) => handleInputChange(e)} placeholder="Email"/>
                     </div>
-                    <div className='col-md-4'></div>
                 </div>
-                <div style={{paddingTop: "1%"}}></div>
                 <div className='row'>
-                    <div className='col-md-4'>
+                    <div className='col-md-6'>
                         <label class="form_label" for="phoneNumber">Phone Number </label><br/>
                         <input type="number" class="form-control" id="phoneNumber" value={phoneNumber} onChange = {(e) => handleInputChange(e)} placeholder="Phone Number"/>
                     </div>
-                    <div className='col-md-4'>
+                    <div className='col-md-6'>
                         <label class="form_label" for="address">Address </label><br/>
                         <input type="text" class="form-control" id="address" value={address} onChange = {(e) => handleInputChange(e)} placeholder="Address"/>
                     </div>
-                    <div className='col-md-4'></div>
                 </div>
-                <div style={{paddingTop: "1%"}}></div>
                 <div className='row'>
-                    <div className='col-md-4'>
+                    <div className='col-md-6'>
                     <label class="form_label" for="city">City </label><br/>
                         <input type="text" class="form-control" id="city" value={city} onChange = {(e) => handleInputChange(e)} placeholder="City"/>
                     </div>
-                    <div className='col-md-4'>
+                    <div className='col-md-6'>
                     <label class="form_label" for="district">District </label><br/>
                         <input type="text" class="form-control" id="district" value={district} onChange = {(e) => handleInputChange(e)} placeholder="District"/>
                     </div>
-                    <div className='col-md-4'></div>
                 </div>
-                <div style={{paddingTop: "1%"}}></div>
                 <div className='row'>
-                    <div className='col-md-4'>
+                    <div className='col-md-6'>
                         <label class="form_label" for="zipCode">Zip Code </label><br/>
                         <input type="text" class="form-control" id="zipCode" value={zipCode} onChange = {(e) => handleInputChange(e)} placeholder="Zip Code"/>
                     </div>
-                    <div className='col-md-4'>
+                    <div className='col-md-6'>
                         <label class="form_label" for="state">State </label><br/>
                         <input type="text" class="form-control" id="state" value={state} onChange = {(e) => handleInputChange(e)} placeholder="State"/>
                     </div>
-                    <div className='col-md-4'></div>
                 </div>
-                <div style={{paddingTop: "1%"}}></div>
                 <div className='row'>
-                    <div className='col-md-4'>
+                    <div className='col-md-6'>
                         <label class="form_label" for="type">Type </label><br/>
-                        <select className="form_input" id="type" value={type} onChange = {(e) => handleInputChange(e)}>
+                        <select className="form-control" id="type" value={type} onChange = {(e) => handleInputChange(e)}>
                             <option value={0}>-Select-</option>
                             <option value={1}>Self Finance</option>
                             <option value={2}>Aided</option>
                             <option value={3}>Government</option>
                         </select>
                     </div>
-                    <div className='col-md-4'></div>
-                    <div className='col-md-4'></div>
-                </div>
-            </div>
-            <div className="registration_footer">
-                <div style={{ paddingLeft: "80%" }}>
-                    <button onClick={(e)=>Register(e)} type="submit" class="btn_register">Register</button>
+                    <div className='col-md-6'>
+                        <label class="form_label" for="type"></label><br/>
+                        <button onClick={(e)=>Register(e)} type="submit" class="btn_register">Register</button>
+                    </div>
                 </div>
             </div>
         </div>
