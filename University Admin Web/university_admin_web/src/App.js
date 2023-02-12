@@ -19,6 +19,7 @@ import ProgramsOffered from './Components/ProgramsOffered';
 import AffiliatedColleges from './Components/AffiliatedColleges';
 import LogOut from './Components/LogOut';
 import Syllabus from './Components/Syllabus';
+import StudentAttendance from './Components/StudentAttendance';
 
 function App() {
   const reloadPage = () => {
@@ -47,6 +48,7 @@ function App() {
             <Route path="ProgramsOffered" element={<ProgramsOffered />} />
             <Route path="AffiliatedColleges" element={<AffiliatedColleges />} />
             <Route path="Syllabus" element={<Syllabus />} />
+            <Route path="StudentAttendance" element={<StudentAttendance />} />
             <Route path="LogOut" element={<LogOut />} />
           </Routes>
         </Sidebar>
