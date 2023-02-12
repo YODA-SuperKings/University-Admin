@@ -36,6 +36,8 @@ function Login(props){
                 setauthenticated(true)
                 localStorage.setItem("authenticated", true);
                 localStorage.setItem('LoginType', data);
+                if(data === 4)
+                    localStorage.setItem('RegistrationNumber', UserName);
                 navigate("/Home");
                 props.onSubmit();
             }
