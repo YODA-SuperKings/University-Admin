@@ -7,6 +7,9 @@ function Banner() {
     {
       navigate("/Home");
     }
+    else if(localStorage.getItem("authenticated") === "false"){
+      navigate("/Login");
+    }
  }, [])
  
     return (

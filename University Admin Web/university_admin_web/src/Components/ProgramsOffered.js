@@ -1,8 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import Table from 'react-bootstrap/Table';
+import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 
 function ProgramsOffered() {
+    debugger;
+
     const [gridData, setGridData] = useState([]);
+    
     const getCollegeInfoGridData  = (e) => {
         fetch('https://localhost:44343/api/ProgramsOffered/GetProgramsOffered', 
         { 
@@ -26,27 +30,34 @@ function ProgramsOffered() {
         getCollegeInfoGridData();
      }, [])
 
+     
+     const [expanded, setExpanded] = useState(true);
     return ( 
-        <div className="form-collegeInfo">
-            <div><h1 className='document_header'>PROGRAMS OFFERED</h1></div>
-            <div className="form-collegeInfo-body">
-                <Table responsive bordered hover>
-                    <thead>
-                        <tr>
-                         <th>SNO</th>
-                         <th>Course Name</th>
-                        </tr>
-                    </thead>
-                    <tbody> 
-                        {gridData.map(d =>
-                            <tr key = {d.id}>
-                                <td>{d.slno}</td>
-                                <td>{d.courseName}</td>
-                            </tr>
-                        )}
-                    </tbody>
-                </Table>
-            </div>
+        <div style={{margin: "42px"}}>
+            <article className='programspnl'>
+                
+              <header style={{backgroundColor: "#785fa0"}}>
+              <div className='row'>
+              <div className='col'>
+                  <button className='btnprogram' onClick={() => setExpanded(!expanded)}>
+                    {expanded ? <AiOutlineMinus /> : <AiOutlinePlus />}
+                 </button>
+                  </div>
+                <div className='col'>
+                    <h4 onClick={() => setExpanded(!expanded)} className='programspnl-title'>UG</h4>
+                </div>
+              </div>
+             </header><br/>
+             <div class="programlist">
+             {expanded && <ul class="fa-ul">
+               {
+                gridData.map((item,index) => (
+                 <li>{item.courseName}</li>
+                )) 
+               } 
+               </ul>}
+             </div>
+            </article>
         </div>
     );
 }
