@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { AiOutlineDownload } from 'react-icons/ai';
 import Table from 'react-bootstrap/Table';
 import Modal from 'react-bootstrap/Modal';
 
@@ -10,13 +11,9 @@ function CertificateVerfication(){
     const [candidateName, setCandidateName] = useState(null);
     const [courseBranch, setCourseBranch] = useState(null);
     const [monthAndYearOfPassing, setMonthAndYearOfPassing] = useState(null);
-    const gridVals = [{id: 1, RegistratioNumber: "KEC12457885", CandidateName: "Jim", CourseOrBranch: "B.E ECE", MonthAndYearOfPassing: "05/2015", Status: "Verified" },
-    {id: 2, RegistratioNumber: "KEC12457887", CandidateName: "Carey", CourseOrBranch: "B-Tech IT", MonthAndYearOfPassing: "07/2014", Status: "Not Verified" }]
-
-    const gridCVDocumentVals = [{id: 1, documentType: "Professional Certificate" }]
 
     const getCertificateVerificationGridData  = (e) => {
-        fetch('https://localhost:44342/api/Student/GetStudents', 
+        fetch('https://localhost:44343/api/Document/GetDocument', 
         { 
             method: 'GET',
             withCredentials: true, 
@@ -35,21 +32,66 @@ function CertificateVerfication(){
         });
     }
 
+    const getDocumentGridData  = (regNo) => {
+        fetch('https://localhost:44343/api/Document/GetDocumentByID?registrationNo=' + regNo, 
+        { 
+            method: 'GET',
+            withCredentials: true, 
+            crossorigin: true,
+            headers: {
+            Accept: 'application/json','Content-Type': 'application/json'
+            },
+        }) 
+        .then((res) => res.json())
+        .then((data) => {
+            setGridCVDocumentData(data);
+            console.log(data);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    }
+
     const rowData = (id, RegistratioNumber, CandidateName, CourseOrBranch, MonthAndYearOfPassing) => {
         setRegistrationNumber(RegistratioNumber);
         setCandidateName(CandidateName);
         setCourseBranch(CourseOrBranch);
         setMonthAndYearOfPassing(MonthAndYearOfPassing);
-        setGridCVDocumentData(gridCVDocumentVals);
+        getDocumentGridData(RegistratioNumber);
         setModalShow(true);
     }
 
-    const Accept = () => {
-
+    const downloadDocument = () => {
+        fetch('Document.pdf').then(response => {
+            response.blob().then(blob => {
+                const fileURL = window.URL.createObjectURL(blob);
+                let alink = document.createElement('a');
+                alink.href = fileURL;
+                alink.download = 'FeeReceipt.pdf';
+                alink.click();
+            })
+        })
     }
 
-    const Reject = () => {
-
+    const Verify = () => {
+        fetch('https://localhost:44343/api/Document/UpdateDocument?registrationCode=' + registrationNumber , 
+        { 
+            method: 'POST',
+            withCredentials: true, 
+            crossorigin: true,
+            headers: {
+            Accept: 'application/json','Content-Type': 'application/json'
+            },
+        }) 
+        .then((res) => res.json())
+        .then((data) => {
+            getDocumentGridData();
+            setModalShow(false);
+            console.log(data);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
     }
 
     function ViewCertificateVerificationModal(props) {
@@ -104,18 +146,18 @@ function CertificateVerfication(){
               <Table responsive bordered hover>
                 <thead>
                     <tr>
-                        <th>SNo.</th>
                         <th>Document Type</th>
+                        <th>File Name</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {gridCVDocumentData.map(d =>
                         <tr key = {d.id}>
-                            <td>{d.id}</td>
                             <td>{d.documentType}</td>
+                            <td>{d.filePath}</td>
                             <td>
-                                <button variant="primary" type="submit" class="btn_CVDocument_view">View</button>
+                                <span style={{fontSize: "large", cursor: 'pointer', color: '#785fa0'}} onClick={downloadDocument}><AiOutlineDownload/> Download</span>
                             </td>
                         </tr>
                     )}
@@ -123,16 +165,14 @@ function CertificateVerfication(){
             </Table>
             </Modal.Body>
             <Modal.Footer>
-                <button variant="primary" onClick={(e)=>Accept(e)} type="submit" class="btn_certificateVerification_accept">Accept</button>
-                <button variant="primary" onClick={(e)=>Reject(e)} type="submit" class="btn_certificateVerification_reject">Reject</button>
+                <button variant="primary" onClick={(e)=>Verify()} type="submit" class="btn_certificateVerification_accept">Verify</button>
             </Modal.Footer>
           </Modal>
         );
       }
 
       useEffect(() => {
-        //getCertificateVerificationGridData();
-        setGridData(gridVals);
+        getCertificateVerificationGridData();
      }, [])
 
     return(
@@ -143,7 +183,6 @@ function CertificateVerfication(){
             <Table id="tblGridCetificateVerification" responsive bordered hover>
                 <thead>
                     <tr>
-                        <th>SNo.</th>
                         <th>Registration No.</th>
                         <th>Candidate Name</th>
                         <th>Course / Branch</th>
@@ -155,14 +194,13 @@ function CertificateVerfication(){
                 <tbody>
                     {gridData.map(d =>
                         <tr key = {d.id}>
-                            <td>{d.id}</td>
-                            <td>{d.RegistratioNumber}</td>
-                            <td>{d.CandidateName}</td>
-                            <td>{d.CourseOrBranch}</td>
-                            <td>{d.MonthAndYearOfPassing}</td>
-                            <td>{d.Status}</td>
+                            <td>{d.registrationNo}</td>
+                            <td>{d.candidateName}</td>
+                            <td>{d.course}</td>
+                            <td>{d.graduatedYear}</td>
+                            <td>{d.status}</td>
                             <td>
-                                <button variant="primary" onClick={() => rowData(d.id, d.RegistratioNumber, d.CandidateName, d.CourseOrBranch, d.MonthAndYearOfPassing)} type="submit" class="btn_certificateVerification_view">View</button>
+                                <button variant="primary" onClick={() => rowData(d.id, d.registrationNo, d.candidateName, d.course, d.graduatedYear)} type="submit" class="btn_certificateVerification_view">View</button>
                                 <ViewCertificateVerificationModal show={modalShow} onHide={() => setModalShow(false)} />
                             </td>
                         </tr>

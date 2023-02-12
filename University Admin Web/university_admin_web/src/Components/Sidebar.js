@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { FaBars, FaTh, FaUserAlt, FaUserGraduate, FaSignOutAlt,FaDiscourse,FaUniversity,FaRegRegistered,FaRegCalendarTimes,FaRegNewspaper,FaRegHandPointRight } from 'react-icons/fa';
+import { FaBars, FaTh, FaUserAlt, FaUserGraduate, FaSignOutAlt,FaDiscourse,FaUniversity,FaRegRegistered,FaRegCalendarTimes,FaRegNewspaper,FaRegHandPointRight,FaSchool } from 'react-icons/fa';
 import { MdOutlinePayment,MdLibraryBooks,MdOutlineHolidayVillage,MdCastForEducation } from 'react-icons/md';
 import { HiDocumentDuplicate } from 'react-icons/hi';
 import { AiOutlineLogin } from 'react-icons/ai';
@@ -21,7 +21,7 @@ const menuItem = [
     {
         path: "/CollegeInfo",
         name: "College Info",
-        icon: <FaSignOutAlt/>
+        icon: <FaSchool />
     },
     /*--------Admission---------------------*/
     {
