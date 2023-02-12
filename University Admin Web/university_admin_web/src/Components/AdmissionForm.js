@@ -15,7 +15,7 @@ function AdmissionForm(){
     const [phoneNumber, setPhoneNumber] = useState(null);
     //Admission Information
     const [applicationType, setApplicationType] = useState(null);
-    const [semester, setSemester] = useState(null);
+    const [collegeName, setCollegeName] = useState(null);
     const [courseAppliedFor, setCourseAppliedFor] = useState(null);
     //High School Education
     const [lastHighSchoolName, setLastHighSchoolName] = useState(null);
@@ -38,6 +38,47 @@ function AdmissionForm(){
     const [guardianZipCode, setGuardianZipCode] = useState(null);
     const [guardianCountry, setGuardianCountry] = useState(null);
     const [countries, setCountries] = useState([]);
+    const [college, setCollege] = useState([]);
+    const [courseAll, setCourseAll] = useState([]);
+   
+    const getCollege= () => {
+        debugger;
+        fetch('https://localhost:44343/api/CollegeRegistration/GetCollegeRegistration', 
+        { 
+            method: 'GET',
+            withCredentials: true, 
+            crossorigin: true,
+            headers: {
+            Accept: 'application/json','Content-Type': 'application/json'
+            },
+        }) 
+        .then((res) => res.json())
+        .then((data) => {
+            setCollege(data);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    }
+
+    const getCourseAll= () => {
+        fetch('https://localhost:44343/api/ProgramsOffered/GetProgramsOffered', 
+        { 
+            method: 'GET',
+            withCredentials: true, 
+            crossorigin: true,
+            headers: {
+            Accept: 'application/json','Content-Type': 'application/json'
+            },
+        }) 
+        .then((res) => res.json())
+        .then((data) => {
+            setCourseAll(data);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    }
 
     const handleInputChange = (e) => {
         const {id , value} = e.target;
@@ -59,8 +100,8 @@ function AdmissionForm(){
         //Admission information
         if(id === "applicationType")
             setApplicationType(value);
-        if(id === "semester")
-            setSemester(value);
+        if(id === "collegeName")
+            setCollegeName(value);
         if(id === "courseAppliedFor")
             setCourseAppliedFor(value);
         //High School Education
@@ -124,6 +165,8 @@ function AdmissionForm(){
 
     useEffect(() => {
         getCountries();
+        getCollege();
+        getCourseAll();
      }, [])
 
      const saveAdmission = () => {
@@ -136,7 +179,7 @@ function AdmissionForm(){
             PhoneNumber: phoneNumber,
             Gender: (male !== null) ? "Male" : "Female",
             ApplicationType: applicationType,
-            Semester: semester,
+            CollegeName: collegeName,
             CourseAppliedType: courseAppliedFor,
             SchoolName: lastHighSchoolName,
             GraduatedYear: graduatedYear,
@@ -208,9 +251,9 @@ function AdmissionForm(){
         {
             toast(<><b style={{ color: 'Red' }}>Application Type Required.</b></>, { position: 'top-right' });
         }
-        else if(semester === null)
+        else if(collegeName === null)
         {
-            toast(<><b style={{ color: 'Red' }}>Admission Application For Required.</b></>, { position: 'top-right' });
+            toast(<><b style={{ color: 'Red' }}>College Name Required.</b></>, { position: 'top-right' });
         }
         else if(courseAppliedFor === null)
         {
@@ -338,6 +381,13 @@ function AdmissionForm(){
                 <Accordion.Body>
                   <div className='row'>
                     <div className='col-md-4'>
+                        <label className="form_label" for="collegeName">Institute Name </label><br></br>
+                        <select className="form-control" id="collegeName" value={collegeName} onChange = {(e) => handleInputChange(e)}>
+                           <option value={0}>-Select-</option>
+                           {college.map((option) => (<option value={option.code}>{option.nameofInstitute}</option>))}
+                        </select>
+                    </div>
+                    <div className='col-md-4'>
                         <label className="form_label" for="applicationType">Application Type </label><br></br>
                         <select className="form-control" id="applicationType" value={applicationType} onChange = {(e) => handleInputChange(e)}>
                             <option value={0}>-Select-</option>
@@ -347,28 +397,10 @@ function AdmissionForm(){
                         </select>
                     </div>
                     <div className='col-md-4'>
-                        <label className="form_label" for="semester">Semester </label><br></br>
-                        <select className="form-control" id="semester" value={semester} onChange = {(e) => handleInputChange(e)}>
-                            <option value={0}>-Select-</option>
-                            <option value={1}>Semester 1</option>
-                            <option value={2}>Semester 2</option>
-                            <option value={3}>Semester 3</option>
-                            <option value={4}>Semester 4</option>
-                            <option value={5}>Semester 5</option>
-                            <option value={6}>Semester 6</option>
-                            <option value={7}>Semester 7</option>
-                            <option value={8}>Semester 8</option>
-                        </select>
-                    </div>
-                    <div className='col-md-4'>
                         <label className="form_label" for="courseAppliedFor">Course Applied Type </label><br></br>
                         <select className="form-control" id="courseAppliedFor" value={courseAppliedFor} onChange = {(e) => handleInputChange(e)}>
-                            <option value={0}>-Select-</option>
-                            <option value={1}>ECE</option>
-                            <option value={2}>EEE</option>
-                            <option value={3}>IT</option>
-                            <option value={4}>CSE</option>
-                            <option value={5}>MECH</option>
+                             <option value={0}>-Select-</option>
+                            {courseAll.map((option) => (<option value={option.slno}>{option.courseName}</option>))}
                         </select>
                     </div>
                  </div>

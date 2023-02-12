@@ -392,6 +392,7 @@ main{
   text-align: center;
   font-size: xx-large;
   color: #785fa0;
+  text-transform: uppercase;
 }
 
 .btn_add_document{
@@ -707,4 +708,5 @@ main{
 .studentAttendance_th{
 width:100%;
 }
+
 /*StudentAttendance - End*/

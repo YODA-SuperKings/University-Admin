@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { GrDocumentPdf } from 'react-icons/gr';
 import { useNavigate } from "react-router-dom";
 
 
@@ -22,10 +23,9 @@ function HolidayCalendar() {
       
 
     return(
-        <div className="form-affiliatedColleges">
-        <div>
-        <h1 className='affiliatedColleges_header'><span style={{fontSize: "large", cursor: 'pointer', color: '#785fa0'}} onClick={downloadHolidayCalender}> Holiday Calendar</span></h1>
-        </div>
+        <div style={{marginLeft: "277px"}}>
+          <h1><span style={{fontSize: "large", cursor: 'pointer', color: 'rgb(255 255 255)'}} onClick={downloadHolidayCalender}><GrDocumentPdf/> Holiday Calendar Download</span></h1>
+          <img src={process.env.PUBLIC_URL + "/Img/holidaycalendar.jpg"} />
         </div>
     )
 }

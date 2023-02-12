@@ -157,11 +157,11 @@ function Sidebar({children}){
     if(loginType === "1")
     {
         tempmenu = ["Home","College Info","Student Details","Certificate Verfication","Student Attendance","Model Papers","Exam Evaluation","Student Profile",
-        "Pay Fees","Exam Result","Log Out"]
+        "Payment","Exam Result","Log Out"]
     }
     else  if(loginType === "2")
     {
-        tempmenu = ["Home","Student Details","Certificate Verfication","Student Attendance","Model Papers","Exam Evaluation","Pay Fees","Exam Result","Log Out"]
+        tempmenu = ["Home","Student Details","Certificate Verfication","Student Attendance","Model Papers","Exam Evaluation","Payment","Exam Result","Log Out"]
     }
     else  if(loginType === "3")
     {
@@ -169,7 +169,7 @@ function Sidebar({children}){
     }
     else  if(loginType === "4")
     {
-        tempmenu = ["Home","Student Profile","Document","Pay Fees","Model Papers","Exam Time Table","Exam Result","Hall Ticket Download","Download","Log Out"]
+        tempmenu = ["Home","Student Profile","Document","Payment","Model Papers","Exam Time Table","Exam Result","Hall Ticket Download","Download","Log Out"]
     }
     
     menuItem.forEach(mi => {
