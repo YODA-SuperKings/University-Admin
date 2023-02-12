@@ -682,3 +682,29 @@ main{
   color: #785fa0;
 }
 /*Syllabus - End*/
+
+/*StudentAttendance - Start*/
+.form-studentAttendance{
+  background-color: white;
+  border-radius: 5px;
+  width: 100% !important;
+  margin: 0px auto;
+  padding: 20px;
+  padding-left: 50px;
+}
+
+.form-studentAttendance-body{
+  text-align: left;
+  padding: 20px 10px;
+}
+
+
+.studentAttendance_header{
+  text-align: left;
+  font-size: 5pt;
+  color: #785fa0;
+}
+.studentAttendance_th{
+width:100%;
+}
+/*StudentAttendance - End*/
