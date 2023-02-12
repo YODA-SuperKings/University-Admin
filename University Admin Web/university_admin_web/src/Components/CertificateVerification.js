@@ -85,7 +85,7 @@ function CertificateVerfication(){
         }) 
         .then((res) => res.json())
         .then((data) => {
-            getDocumentGridData();
+            getCertificateVerificationGridData();
             setModalShow(false);
             console.log(data);
         })
