@@ -65,6 +65,7 @@ function Syllabus() {
                         <th>Credit</th>
                         <th>CIA</th>
                         <th>ESE</th>
+                        <th>Total</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -77,6 +78,7 @@ function Syllabus() {
                             <td>{d.credit}</td>
                             <td>{d.cia}</td>
                             <td>{d.ese}</td>
+                            <td>{parseInt(d.ese) + parseInt(d.cia)}</td>
                         </tr>
                     )}
                 </tbody>
