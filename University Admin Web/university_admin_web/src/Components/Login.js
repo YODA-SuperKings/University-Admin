@@ -35,7 +35,11 @@ function Login(props){
                 toast(<><b style={{ color: 'Green' }}>Login Succesfully.</b></>, { position: 'top-right' });
                 setauthenticated(true)
                 localStorage.setItem("authenticated", true);
-                localStorage.setItem('LoginType', data);
+                localStorage.setItem('LoginType', data.LoginType);
+                localStorage.setItem("RegistrationNo", data.RegistrationNo );
+                localStorage.setItem("StudentName", data.FirstName+' '+data.LastName );
+                localStorage.setItem("DeptCourse",  data.courseName);
+                localStorage.setItem("Year", data.GraduatedYear);
                 navigate("/Home");
                 props.onSubmit();
             }

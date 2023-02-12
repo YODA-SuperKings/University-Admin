@@ -5,14 +5,12 @@ import Table from 'react-bootstrap/Table';
 
 function StudentPaymentDetails(){
     const navigate = useNavigate();
-    const [studentName, setStudentName] = useState("Jim Carey");
-    const [registrationNumber, setRegistrationNumber] = useState(12345);
     const [gridData, setGridData] = useState([]);
     const gridVals = [{id: 1, Date: "01/01/2023", PaymentMode: "Online", FeesDescription: "Term Fee - 1", AmountPaid: "94000", AcademicYear: "2022 - 2023" },
     {id: 2, Date: "01/02/2023", PaymentMode: "Online", FeesDescription: "Term Fee - 2", AmountPaid: "54000", AcademicYear: "2022 - 2023" }]
 
     const getPaymentHistoryGridData  = (e) => {
-        fetch('https://localhost:44342/api/Student/GetStudents', 
+        fetch('https://localhost:44342/api/Payment/GetPayment', 
         { 
             method: 'GET',
             withCredentials: true, 
@@ -25,6 +23,7 @@ function StudentPaymentDetails(){
         .then((data) => {
             setGridData(data);
             console.log(data);
+           
         })
         .catch((error) => {
             console.error(error);
@@ -50,24 +49,39 @@ function StudentPaymentDetails(){
             })
         })
     }
+    const [studentName, setStudentName] = localStorage.getItem("StudentName");
+    const [registrationNumber, setRegistrationNumber] = localStorage.getItem("RegistrationNo");
+    const [deptCourse, setDeptCourse] = localStorage.getItem("DeptCourse");
+    const [year, setYear] = localStorage.getItem("Year");
     return(
         <div className="form-payment">
-            <div><h1 className='payment_header'>Payment Details</h1></div>
+            <div><h1 className='payment_header'>Payment History</h1></div>
             <div className="form-payment-body">
                 <div className='payment_border'>
                     <div className='row'>
-                        <div className='col-md-6'>
-                            <label className="studentName_label" for="studentName">Student :&nbsp;</label>
-                            <label className="studentName_label" type="number" id="studentName">{studentName}</label>
-                        </div>
+                        
                         <div className='col-md-6'>
                             <label className="registrationNumber_label" for="registrationNumber">Registration Number :&nbsp;</label>
                             <label className="registrationNumber_label" type="number" id="registrationNumber">{registrationNumber}</label>
                         </div>
+                        <div className='col-md-6'>
+                            <label className="studentName_label" for="studentName">Student :&nbsp;</label>
+                            <label className="studentName_label" type="number" id="studentName">{studentName}</label>
+                        </div>
+                     </div>
+                    <div className='row'>
+                        <div className='col-md-6'>
+                            <label className="deptCourse_label" for="deptCourse">Dept&Course:&nbsp;</label>
+                            <label className="deptCourse_label" type="number" id="deptCourse">{studentName}</label>
+                        </div>
+                        <div className='col-md-6'>
+                            <label className="year_label" for="year">Year:&nbsp;</label>
+                            <label className="year_label" type="number" id="year">{registrationNumber}</label>
+                        </div>
                     </div>
                 </div>
                 <br></br>
-                <span style={{paddingLeft: "87%"}}></span>
+                <span style={{paddingLeft: "50%"}}></span>
                 <button variant="primary" onClick={() => navigate("/Payment")} type="submit" class="btn_add_document">Pay Fees</button>
                 <Table id="tblGridCetificateVerification" responsive bordered hover>
                 <thead>
