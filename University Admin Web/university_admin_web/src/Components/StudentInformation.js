@@ -53,7 +53,7 @@ function StudentInformation(){
         <div className="form-studentInformation">
             <div><h1 className='document_header'>Student Information</h1></div>
             <div className="form-studentInformation-body">
-            <Table responsive bordered hover>
+            <Table responsive bordered hover variant="light">
                 <thead>
                     <tr>
                         <th>Student Name</th>

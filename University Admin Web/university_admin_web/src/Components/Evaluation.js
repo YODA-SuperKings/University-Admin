@@ -55,7 +55,7 @@ function Evaluation(){
         <div><h1 className='document_header'>Exam Evaluation</h1></div>
         <div className="form-evaluation-body">
         <span style={{paddingLeft: "87%"}}></span>
-       <Table responsive bordered hover>
+       <Table responsive bordered hover variant="light">
             <thead>
                 <tr>
                     <th>S.No</th>

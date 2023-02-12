@@ -143,7 +143,7 @@ function CertificateVerfication(){
                 <div className='col-md-4'></div>
               </div>
               <div style={{paddingTop: "1%"}}></div>
-              <Table responsive bordered hover>
+              <Table responsive bordered hover variant="light">
                 <thead>
                     <tr>
                         <th>Document Type</th>
@@ -180,7 +180,7 @@ function CertificateVerfication(){
             <div><h1 className='document_header'>Certificate Verification</h1></div>
             <div className="form-document-body">
             <span style={{paddingLeft: "87%"}}></span>
-            <Table id="tblGridCetificateVerification" responsive bordered hover>
+            <Table id="tblGridCetificateVerification" responsive bordered hover variant="light">
                 <thead>
                     <tr>
                         <th>Registration No.</th>

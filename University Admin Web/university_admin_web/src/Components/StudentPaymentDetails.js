@@ -5,12 +5,14 @@ import Table from 'react-bootstrap/Table';
 
 function StudentPaymentDetails(){
     const navigate = useNavigate();
+    const [studentName, setStudentName] = useState(null);
+    const [registrationNumber, setRegistrationNumber] = useState(localStorage.getItem('RegistrationNumber'));
+    const [deptCourse, setDeptCourse] = useState(null);
+    const [year, setYear] = useState(null);
     const [gridData, setGridData] = useState([]);
-    const gridVals = [{id: 1, Date: "01/01/2023", PaymentMode: "Online", FeesDescription: "Term Fee - 1", AmountPaid: "94000", AcademicYear: "2022 - 2023" },
-    {id: 2, Date: "01/02/2023", PaymentMode: "Online", FeesDescription: "Term Fee - 2", AmountPaid: "54000", AcademicYear: "2022 - 2023" }]
 
     const getPaymentHistoryGridData  = (e) => {
-        fetch('https://localhost:44342/api/Payment/GetPayment', 
+        fetch('https://localhost:44343/api/Payment/GetPayment', 
         { 
             method: 'GET',
             withCredentials: true, 
@@ -30,18 +32,38 @@ function StudentPaymentDetails(){
         });
     }
 
+    const getStudentData  = (e) => {
+        fetch('https://localhost:44343/api/Users/GetStudentByUserID?registrationNo=' + registrationNumber, 
+        { 
+            method: 'GET',
+            withCredentials: true, 
+            crossorigin: true,
+            headers: {
+            Accept: 'application/json','Content-Type': 'application/json'
+            },
+        }) 
+        .then((res) => res.json())
+        .then((data) => {
+            debugger;
+            setRegistrationNumber(registrationNumber);
+            setStudentName(data.firstName + ' ' + data.lastName);
+            setDeptCourse(data.courseAppliedType);
+            setYear(data.graduatedYear);
+            console.log(data);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    }
+
     useEffect(() => {
-        //getPaymentHistoryGridData();
-        setGridData(gridVals);
+        getStudentData();
+        getPaymentHistoryGridData();
      }, [])
      const downloadFeeReceipt = () => {
-        // using Java Script method to get PDF file
         fetch('FeeReceipt.pdf').then(response => {
             response.blob().then(blob => {
-                // Creating new object of PDF file
-
                 const fileURL = window.URL.createObjectURL(blob);
-               // Setting various property values
                 let alink = document.createElement('a');
                 alink.href = fileURL;
                 alink.download = 'FeeReceipt.pdf';
@@ -49,10 +71,7 @@ function StudentPaymentDetails(){
             })
         })
     }
-    const [studentName, setStudentName] = localStorage.getItem("StudentName");
-    const [registrationNumber, setRegistrationNumber] = localStorage.getItem("RegistrationNo");
-    const [deptCourse, setDeptCourse] = localStorage.getItem("DeptCourse");
-    const [year, setYear] = localStorage.getItem("Year");
+    
     return(
         <div className="form-payment">
             <div><h1 className='payment_header'>Payment History</h1></div>
@@ -71,22 +90,21 @@ function StudentPaymentDetails(){
                      </div>
                     <div className='row'>
                         <div className='col-md-6'>
-                            <label className="deptCourse_label" for="deptCourse">Dept&Course:&nbsp;</label>
-                            <label className="deptCourse_label" type="number" id="deptCourse">{studentName}</label>
+                            <label className="studentName_label" for="deptCourse">Dept & Course :&nbsp;</label>
+                            <label className="studentName_label" type="number" id="deptCourse">{deptCourse}</label>
                         </div>
                         <div className='col-md-6'>
-                            <label className="year_label" for="year">Year:&nbsp;</label>
-                            <label className="year_label" type="number" id="year">{registrationNumber}</label>
+                            <label className="studentName_label" for="year">Year :&nbsp;</label>
+                            <label className="studentName_label" type="number" id="year">{year}</label>
                         </div>
                     </div>
                 </div>
                 <br></br>
-                <span style={{paddingLeft: "50%"}}></span>
-                <button variant="primary" onClick={() => navigate("/Payment")} type="submit" class="btn_add_document">Pay Fees</button>
-                <Table id="tblGridCetificateVerification" responsive bordered hover>
+                <span style={{paddingLeft: "89%"}}></span>
+                <button variant="primary" onClick={() => navigate("/Payment")} type="submit" class="btn_pay_Fees">Pay Fees</button>
+                <Table responsive bordered hover variant="light">
                 <thead>
                     <tr>
-                        <th>SNo.</th>
                         <th>Date</th>
                         <th>Payment Mode</th>
                         <th>Fees Description</th>
@@ -98,12 +116,11 @@ function StudentPaymentDetails(){
                 <tbody>
                     {gridData.map(d =>
                         <tr key = {d.id}>
-                            <td>{d.id}</td>
-                            <td>{d.Date}</td>
-                            <td>{d.PaymentMode}</td>
-                            <td>{d.FeesDescription}</td>
-                            <td>{d.AmountPaid}</td>
-                            <td>{d.AcademicYear}</td>
+                            <td>{d.currentDate}</td>
+                            <td>{d.paymentMode}</td>
+                            <td>{d.feeDescription}</td>
+                            <td>{d.amount}</td>
+                            <td>{d.academicYear}</td>
                             <td>
                                 <span style={{fontSize: "large", cursor: 'pointer', color: '#785fa0'}} onClick={downloadFeeReceipt}><AiOutlineDownload/> Download</span>
                             </td>

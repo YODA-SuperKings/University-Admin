@@ -23,7 +23,7 @@ function StudentAttendance(){
             <div><h1 className='document_header'>Student Attendance</h1></div>
             <div className="form-studentAttendance-body">
             <span style={{paddingLeft: "87%"}}></span>
-            <Table  responsive bordered hover>
+            <Table  responsive bordered hover variant="light">
                 <thead>
                     <tr>
                         <th>SNo.</th>

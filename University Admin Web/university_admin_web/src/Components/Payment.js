@@ -1,38 +1,90 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import toast from 'react-simple-toasts';
 import { useNavigate } from "react-router-dom";
 
 function Payment(){
     const navigate = useNavigate();
-    const [cardNumber, setCardNumber] = useState(null);
-    const [cvvNumber, setCvvNumber] = useState(null);
-    const [paymentAmount, setPaymentAmount] = useState(0);
+    const [feeType, setFeeType] = useState(null);
+    const [feeTypeList, setFeeTypeList] = useState([]);
+    const [feeDescription, setFeeDescription] = useState(null);
+    const [academicYear, setAcademicYear] = useState("2023 - 2024");
+    const [amount, setAmount] = useState(null);
+    const [registrationNumber, setRegistrationNumber] = useState(localStorage.getItem('RegistrationNumber'));
 
     const handleInputChange = (e) => {
         const {id , value} = e.target;
-        if(id === "cardNumber")
-            setCardNumber(value);
-        if(id === "cvvNumber")
-            setCvvNumber(value);
-        if(id === "paymentAmount")
-            setPaymentAmount(value);
+        if(id === "feeType")
+        {
+            setFeeType(value);
+            feeTypeList.find((item) => { 
+                if(item.id === value) 
+                    setAmount(item.amount);
+            });
+        }
+        if(id === "feeDescription")
+            setFeeDescription(value);
+    }
+
+    const getFeeType= () => {
+        fetch('https://localhost:44343/api/Fee/GetFee', 
+        { 
+            method: 'GET',
+            withCredentials: true, 
+            crossorigin: true,
+            headers: {
+            Accept: 'application/json','Content-Type': 'application/json'
+            },
+        }) 
+        .then((res) => res.json())
+        .then((data) => {
+            setFeeTypeList(data);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    }
+
+    const paymentProceedApi = () => {
+        const postBody = {
+            RegistrationNo: registrationNumber,
+            PaymentMode: "Online",
+            FeeDescription: feeDescription,
+            Amount: amount,
+            AcademicYear: academicYear,
+            FeeID: feeType
+        }
+        fetch('https://localhost:44343/api/Payment/CreatePayment', 
+            { 
+                method: 'POST',
+                body: JSON.stringify(postBody),
+                withCredentials: true, 
+                crossorigin: true,
+                headers: {
+                Accept: 'application/json','Content-Type': 'application/json'
+                },
+            }) 
+            .then((res) => res.json())
+            .then((data) => {
+                toast(<><b style={{ color: 'Green' }}>{data}</b></>, { position: 'top-right' });
+                console.log(data);
+            })
+            .catch((error) => {
+                toast(<><b style={{ color: 'Red' }}>{error}</b></>, { position: 'top-right' });
+                console.error(error);
+            });
     }
 
     const proceedPayment  = (e) => {
-        if(cardNumber === null || cardNumber === "")
+        if(feeType === null)
         {
-            toast(<><b style={{ color: 'Red' }}>Card Number Required.</b></>, { position: 'top-right' });
+            toast(<><b style={{ color: 'Red' }}>Fee Type Required.</b></>, { position: 'top-right' });
         }
-        else if(cvvNumber === null || cvvNumber === "")
+        if(amount === null || amount <= 0)
         {
-            toast(<><b style={{ color: 'Red' }}>CVV Number Required.</b></>, { position: 'top-right' });
-        }
-        else if(paymentAmount === null || paymentAmount === "")
-        {
-            toast(<><b style={{ color: 'Red' }}>Payment Amount Required.</b></>, { position: 'top-right' });
+            toast(<><b style={{ color: 'Red' }}>Amount Required.</b></>, { position: 'top-right' });
         }
         else{
-            toast(<><b style={{ color: 'Green' }}>Fees paid succesfully.</b></>, { position: 'top-right' });
+            paymentProceedApi();
             navigate("/StudentPaymentDetails");
         }
     }
@@ -41,6 +93,10 @@ function Payment(){
         navigate("/StudentPaymentDetails");
     }
 
+    useEffect(() => {
+        getFeeType();
+     }, [])
+
     return(
         <div className="form-payment">
             <div><h1 className='payment_header'>Payment Details</h1></div>
@@ -48,20 +104,29 @@ function Payment(){
                 <div className='payment_border'>
                     <div className='row'>
                         <div className='col-md-4'>
-                            <label className="form_label" for="cardNumber">Card Number </label><br></br>
-                            <input className="form_input" type="number" id="cardNumber" value={cardNumber} onChange = {(e) => handleInputChange(e)} placeholder="Card Number"/>
+                            <label className="form_label" for="feeType">Fee Type </label><br></br>
+                            <select className="form-control" id="feeType" value={feeType} onChange = {(e) => handleInputChange(e)}>
+                            <option value={0}>-Select-</option>
+                            {feeTypeList.map((option) => (<option value={option.id}>{option.feeType}</option>))}
+                            </select>
                         </div>
                     </div>
                     <div className='row'>
                         <div className='col-md-4'>
-                            <label className="form_label" for="cvvNumber">CVV Number </label><br></br>
-                            <input className="form_input" type="number" id="cvvNumber" value={cvvNumber} onChange = {(e) => handleInputChange(e)} placeholder="CVV Number"/>
+                            <label className="form_label" for="feeDescription">Fee Description </label><br></br>
+                            <input className="form_input" type="text" id="feeDescription" value={feeDescription} onChange = {(e) => handleInputChange(e)} placeholder="Fee Description"/>
                         </div>
                     </div>
                     <div className='row'>
                         <div className='col-md-4'>
-                            <label className="form_label" for="paymentAmount">Payment Amount </label><br></br>
-                            <input className="form_input" type="number" id="paymentAmount" value={paymentAmount} onChange = {(e) => handleInputChange(e)} placeholder="Payment Amount"/>
+                            <label className="form_label" for="academicYear">Academic Year </label><br></br>
+                            <input className="form_input" style={{backgroundColor:'lightgrey'}} type="text" id="academicYear" value={academicYear} readOnly />
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className='col-md-4'>
+                            <label className="form_label" for="amount">Amount </label><br></br>
+                            <input className="form_input" style={{backgroundColor:'lightgrey'}} type="text" id="amount" value={amount} readOnly/>
                         </div>
                     </div>
                 </div>

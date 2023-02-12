@@ -31,7 +31,7 @@ function AffiliatedColleges()
         <div className="form-affiliatedColleges">
             <div><h1 className='document_header'>Affiliated Colleges</h1></div>
             <div className="form-affiliatedColleges-body">
-            <Table responsive bordered hover>
+            <Table responsive bordered hover variant="light">
                 <thead>
                     <tr>
                         <th>District</th>

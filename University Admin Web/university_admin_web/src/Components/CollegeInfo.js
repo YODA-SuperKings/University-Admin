@@ -59,7 +59,7 @@ function CollegeInfo(){
         <div className="form-collegeInfo">
             <div><h1 className='document_header'>Collge Information</h1></div>
             <div className="form-collegeInfo-body">
-                <Table responsive bordered hover>
+                <Table responsive bordered hover variant="light">
                     <thead>
                         <tr>
                             <th>Code</th>
