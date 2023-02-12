@@ -14,6 +14,7 @@ function AdmissionForm(){
     const [email, setEmail] = useState(null);
     const [phoneNumber, setPhoneNumber] = useState(null);
     //Admission Information
+    const [collegeName, setCollegeName] = useState(null);
     const [applicationType, setApplicationType] = useState(null);
     const [semester, setSemester] = useState(null);
     const [courseAppliedFor, setCourseAppliedFor] = useState(null);
@@ -57,6 +58,8 @@ function AdmissionForm(){
         if(id === "phoneNumber")
             setPhoneNumber(value);
         //Admission information
+        if(id === "collegeName")
+            setCollegeName(value);
         if(id === "applicationType")
             setApplicationType(value);
         if(id === "semester")
@@ -134,7 +137,8 @@ function AdmissionForm(){
             DateofBirth: dob,
             Email: email,
             PhoneNumber: phoneNumber,
-            Gender: (male !== null) ? "Male" : "Female",
+            Gender: (male === null) ? "Male" : "Female",
+            CollegeName: collegeName,
             ApplicationType: applicationType,
             Semester: semester,
             CourseAppliedType: courseAppliedFor,
@@ -203,6 +207,10 @@ function AdmissionForm(){
         else if(phoneNumber === null || phoneNumber === "")
         {
             toast(<><b style={{ color: 'Red' }}>Phone Number Required.</b></>, { position: 'top-right' });
+        }
+        else if(collegeName === null || collegeName === "")
+        {
+            toast(<><b style={{ color: 'Red' }}>College Name Required.</b></>, { position: 'top-right' });
         }
         else if(applicationType === null)
         {
@@ -282,12 +290,12 @@ function AdmissionForm(){
         }
         else{
             saveAdmission();
-            navigate("/");
+            navigate("/Home");
         }
     }
 
     const handleCancelSubmit  = (e) => {
-        navigate("/");
+        navigate("/Home");
     }
 
     return (
@@ -336,41 +344,49 @@ function AdmissionForm(){
             <Accordion.Item eventKey="1">
                 <Accordion.Header> <h1 className="formsection">Admission Information</h1></Accordion.Header>
                 <Accordion.Body>
-                  <div className='row'>
+                <div className='row'>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="collegeName">College Name </label><br></br>
+                        <input className="form-control" type="text" id="collegeName" value={collegeName} onChange = {(e) => handleInputChange(e)} placeholder="College Name"/>
+                    </div>
                     <div className='col-md-4'>
                         <label className="form_label" for="applicationType">Application Type </label><br></br>
                         <select className="form-control" id="applicationType" value={applicationType} onChange = {(e) => handleInputChange(e)}>
-                            <option value={0}>-Select-</option>
-                            <option value={1}>Freshman</option>
-                            <option value={2}>Transferee</option>
-                            <option value={3}>Other</option>
+                            <option value={"0"}>-Select-</option>
+                            <option value={"Freshman"}>Freshman</option>
+                            <option value={"Transferee"}>Transferee</option>
+                            <option value={"Other"}>Other</option>
                         </select>
                     </div>
+                    <div className='col-md-4'></div>
+                </div>
+                  <div className='row'>
                     <div className='col-md-4'>
                         <label className="form_label" for="semester">Semester </label><br></br>
                         <select className="form-control" id="semester" value={semester} onChange = {(e) => handleInputChange(e)}>
-                            <option value={0}>-Select-</option>
-                            <option value={1}>Semester 1</option>
-                            <option value={2}>Semester 2</option>
-                            <option value={3}>Semester 3</option>
-                            <option value={4}>Semester 4</option>
-                            <option value={5}>Semester 5</option>
-                            <option value={6}>Semester 6</option>
-                            <option value={7}>Semester 7</option>
-                            <option value={8}>Semester 8</option>
+                            <option value={"0"}>-Select-</option>
+                            <option value={"Semester 1"}>Semester 1</option>
+                            <option value={"Semester 2"}>Semester 2</option>
+                            <option value={"Semester 3"}>Semester 3</option>
+                            <option value={"Semester 4"}>Semester 4</option>
+                            <option value={"Semester 5"}>Semester 5</option>
+                            <option value={"Semester 6"}>Semester 6</option>
+                            <option value={"Semester 7"}>Semester 7</option>
+                            <option value={"Semester 8"}>Semester 8</option>
                         </select>
                     </div>
                     <div className='col-md-4'>
                         <label className="form_label" for="courseAppliedFor">Course Applied Type </label><br></br>
                         <select className="form-control" id="courseAppliedFor" value={courseAppliedFor} onChange = {(e) => handleInputChange(e)}>
-                            <option value={0}>-Select-</option>
-                            <option value={1}>ECE</option>
-                            <option value={2}>EEE</option>
-                            <option value={3}>IT</option>
-                            <option value={4}>CSE</option>
-                            <option value={5}>MECH</option>
+                            <option value={"0"}>-Select-</option>
+                            <option value={"ECE"}>ECE</option>
+                            <option value={"EEE"}>EEE</option>
+                            <option value={"IT"}>IT</option>
+                            <option value={"CSE"}>CSE</option>
+                            <option value={"MECH"}>MECH</option>
                         </select>
                     </div>
+                    <div className='col-md-4'></div>
                  </div>
               </Accordion.Body>
             </Accordion.Item>

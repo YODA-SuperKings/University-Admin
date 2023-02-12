@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Table from 'react-bootstrap/Table';
+import { FcApproval } from 'react-icons/fc';
 
 function StudentInformation(){
     const [gridData, setGridData] = useState([]);
-    const gridVals = [{id: 1, studentName: "Rio", registrationNumber: "KEC55215487", dob: "01/01/2007", gender: "Male", email: "rio@gmail.com", phone: 8745219965, course: "IT", instituteName: "SRM", university: "SRM", percentage: 75 }]
     const getStudentsGridData  = (e) => {
-        fetch('https://localhost:44342/api/Student/GetStudents', 
+        fetch('https://localhost:44343/api/Student/GetStudent', 
         { 
             method: 'GET',
             withCredentials: true, 
@@ -26,9 +26,28 @@ function StudentInformation(){
     }
 
     useEffect(() => {
-        //getStudentsGridData();
-        setGridData(gridVals);
+        getStudentsGridData();
      }, [])
+
+     const UpdateStudent = (regNo) => {
+        fetch('https://localhost:44343/api/Student/UpdateStudent?registrationCode=' + regNo , 
+        { 
+            method: 'POST',
+            withCredentials: true, 
+            crossorigin: true,
+            headers: {
+            Accept: 'application/json','Content-Type': 'application/json'
+            },
+        }) 
+        .then((res) => res.json())
+        .then((data) => {
+            getStudentsGridData();
+            console.log(data);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    }
 
     return(
         <div className="form-studentInformation">
@@ -39,13 +58,12 @@ function StudentInformation(){
                     <tr>
                         <th>Student Name</th>
                         <th>Registration Number</th>
+                        <th>College Name</th>
                         <th>DOB</th>
                         <th>Gender</th>
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Course</th>
-                        <th>Institute Name</th>
-                        <th>University</th>
                         <th>Percentage</th>
                         <th>Action</th>
                     </tr>
@@ -53,18 +71,17 @@ function StudentInformation(){
                 <tbody>
                     {gridData.map(d =>
                         <tr key = {d.id}>
-                            <td>{d.studentName}</td>
-                            <td>{d.registrationNumber}</td>
-                            <td>{d.dob}</td>
+                            <td>{d.firstName + ' ' + d.lastName}</td>
+                            <td>{d.registrationNo}</td>
+                            <td>{d.collegeName}</td>
+                            <td>{d.dateofBirth}</td>
                             <td>{d.gender}</td>
                             <td>{d.email}</td>
-                            <td>{d.phone}</td>
-                            <td>{d.course}</td>
-                            <td>{d.instituteName}</td>
-                            <td>{d.university}</td>
+                            <td>{d.phoneNumber}</td>
+                            <td>{d.courseAppliedType}</td>
                             <td>{d.percentage}</td>
                             <td>
-                                <button type="submit" class="btn">View</button>
+                                <span style={{fontSize: "large", cursor: 'pointer', color: '#785fa0'}}><FcApproval onClick={() => UpdateStudent(d.registrationNo)}/></span>
                             </td>
                         </tr>
                     )}
