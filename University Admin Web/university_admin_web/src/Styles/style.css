@@ -367,6 +367,15 @@ main{
   font-size: larger;
   font-weight: bold;
 }
+
+.btn_pay_Fees{
+  height: 35px;
+  width: 10%;
+  background-color: #785fa0;
+  color: white;
+  font-size: large;
+  text-align: center;
+}
 /*Payment - End*/
 
 /*Document - Start*/
