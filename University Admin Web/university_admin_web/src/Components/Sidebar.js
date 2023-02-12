@@ -96,7 +96,7 @@ const menuItem = [
     },
     {
         path: "/StudentPaymentDetails",
-        name: "Pay Fees",
+        name: "Payment",
         icon: <BiDollar/>
     },
     /*------------------People End--------------------------*/

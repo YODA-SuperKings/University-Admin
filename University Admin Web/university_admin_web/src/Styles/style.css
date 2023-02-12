@@ -603,6 +603,57 @@ main{
   font-size: xx-large;
   color: #785fa0;
 }
+
+.programspnl {
+  padding: 1rem 1.5rem;
+  border: 2px solid var(--clr-grey-special);
+  margin-bottom: 1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--light-shadow);
+}
+.programspnl h4 {
+  text-transform: none;
+  line-height: 1.5;
+}
+.programspnl p {
+  color: white;
+  margin-bottom: 0;
+  margin: 0rem 0rem 0rem 1.5rem;
+}
+.programspnl header {
+  display: flex;
+  align-items: center;
+}
+.programspnl header h4 {
+  margin-bottom: 0;
+}
+.programspnl-title {
+  cursor: pointer;
+  color: white;
+}
+.btnprogram {
+  background-color: rgb(120, 95, 160) !important;
+  border-color: transparent;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--clr-red-special);
+  cursor: pointer;
+  margin-left: 1rem;
+  align-self: center;
+  min-width: 2rem;
+}
+
+.programlist{
+  font-family: inherit;
+  color: white;
+  font-size: x-large;
+  line-height: 2em;
+}
+/*College Info - End*/
 /*Affiliated Colleges - End*/
 
 /*Syllabus - Start*/
