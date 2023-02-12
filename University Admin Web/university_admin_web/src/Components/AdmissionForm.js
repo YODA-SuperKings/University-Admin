@@ -16,7 +16,6 @@ function AdmissionForm(){
     //Admission Information
     const [collegeName, setCollegeName] = useState(null);
     const [applicationType, setApplicationType] = useState(null);
-    const [collegeName, setCollegeName] = useState(null);
     const [courseAppliedFor, setCourseAppliedFor] = useState(null);
     //High School Education
     const [lastHighSchoolName, setLastHighSchoolName] = useState(null);
@@ -402,20 +401,6 @@ function AdmissionForm(){
                             <option value={"Freshman"}>Freshman</option>
                             <option value={"Transferee"}>Transferee</option>
                             <option value={"Other"}>Other</option>
-                        </select>
-                    </div>
-                    <div className='col-md-4'>
-                        <label className="form_label" for="semester">Semester </label><br></br>
-                        <select className="form-control" id="semester" value={semester} onChange = {(e) => handleInputChange(e)}>
-                            <option value={0}>-Select-</option>
-                            <option value={1}>Semester 1</option>
-                            <option value={2}>Semester 2</option>
-                            <option value={3}>Semester 3</option>
-                            <option value={4}>Semester 4</option>
-                            <option value={5}>Semester 5</option>
-                            <option value={6}>Semester 6</option>
-                            <option value={7}>Semester 7</option>
-                            <option value={8}>Semester 8</option>
                         </select>
                     </div>
                     <div className='col-md-4'>
