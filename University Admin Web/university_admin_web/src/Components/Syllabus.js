@@ -14,6 +14,11 @@ function Syllabus() {
         }
     }
 
+    useEffect(() => {
+        setSyllabus('I');
+        getSyllabus('I');
+     }, [])
+
     const getSyllabus= (id) => {
         fetch('https://localhost:44343/api/Syllabus/GetSyllabusByID?semesterType=' + id, 
         { 
@@ -41,7 +46,7 @@ function Syllabus() {
             <div className='row'>
                 <div className='col-md-4'>
                     <label className="form_label" for="syllabus">Syllabus </label><br></br>
-                        <select className="form-control" id="syllabus" value={syllabus} onChange = {(e) => handleInputChange(e)}>
+                        <select className="form-control" id="syllabus" style={{width: "43%"}} value={syllabus} onChange = {(e) => handleInputChange(e)}>
                             <option value={"0"}>-Select-</option>
                             <option value={"I"}>Semester 1</option>
                             <option value={"II"}>Semester 2</option>

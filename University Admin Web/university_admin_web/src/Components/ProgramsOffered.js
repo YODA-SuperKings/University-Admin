@@ -3,12 +3,11 @@ import Table from 'react-bootstrap/Table';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 
 function ProgramsOffered() {
-    debugger;
-
-    const [gridData, setGridData] = useState([]);
+    const [ugData, setugData] = useState([]);
+    const [pgData, setpgData] = useState([]);
     
     const getCollegeInfoGridData  = (e) => {
-        fetch('https://localhost:44343/api/ProgramsOffered/GetProgramsOffered', 
+        fetch('https://localhost:44343/api/ProgramsOffered/GetProgramsOfferedByID?couseType=' + e, 
         { 
             method: 'GET',
             withCredentials: true, 
@@ -19,7 +18,12 @@ function ProgramsOffered() {
         }) 
         .then((res) => res.json())
         .then((data) => {
-            setGridData(data);
+            if(e === 'UG'){
+                setugData(data);
+            }
+            else{
+                setpgData(data);
+            }
         })
         .catch((error) => {
             console.error(error);
@@ -27,11 +31,13 @@ function ProgramsOffered() {
     }
 
     useEffect(() => {
-        getCollegeInfoGridData();
+        getCollegeInfoGridData('UG');
+        getCollegeInfoGridData('PG');
      }, [])
 
      
      const [expanded, setExpanded] = useState(true);
+     const [pgexpanded, setpgexpanded] = useState(true);
     return ( 
         <div style={{margin: "42px"}}>
             <article className='programspnl'>
@@ -51,7 +57,32 @@ function ProgramsOffered() {
              <div class="programlist">
              {expanded && <ul class="fa-ul">
                {
-                gridData.map((item,index) => (
+                ugData.map((item,index) => (
+                 <li>{item.courseName}</li>
+                )) 
+               } 
+               </ul>}
+             </div>
+            </article>
+
+            <article className='programspnl'>
+                
+              <header style={{backgroundColor: "#785fa0"}}>
+              <div className='row'>
+              <div className='col'>
+                  <button className='btnprogram' onClick={() => setpgexpanded(!pgexpanded)}>
+                    {pgexpanded ? <AiOutlineMinus /> : <AiOutlinePlus />}
+                 </button>
+                  </div>
+                <div className='col'>
+                    <h4 onClick={() => setpgexpanded(!pgexpanded)} className='programspnl-title'>PG</h4>
+                </div>
+              </div>
+             </header><br/>
+             <div class="programlist">
+             {pgexpanded && <ul class="fa-ul">
+               {
+                pgData.map((item,index) => (
                  <li>{item.courseName}</li>
                 )) 
                } 

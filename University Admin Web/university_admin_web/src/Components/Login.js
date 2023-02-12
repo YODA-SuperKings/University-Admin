@@ -35,11 +35,7 @@ function Login(props){
                 toast(<><b style={{ color: 'Green' }}>Login Succesfully.</b></>, { position: 'top-right' });
                 setauthenticated(true)
                 localStorage.setItem("authenticated", true);
-                localStorage.setItem('LoginType', data.LoginType);
-                localStorage.setItem("RegistrationNo", data.RegistrationNo );
-                localStorage.setItem("StudentName", data.FirstName+' '+data.LastName );
-                localStorage.setItem("DeptCourse",  data.courseName);
-                localStorage.setItem("Year", data.GraduatedYear);
+                localStorage.setItem('LoginType', data);
                 navigate("/Home");
                 props.onSubmit();
             }
@@ -63,10 +59,6 @@ function Login(props){
             <label for="password" class="form_label">Password </label><br/>
             <input type="password" class="form-control" id="password" value={password} onChange = {(e) => handleInputChange(e)} placeholder="Password"/><br/>
             <button style={{width: "100%"}} onClick={(e)=>handleSubmit(e)} type="button" class="btn_student_save">SIGN IN</button>
-            {/* <div style={{margin: "10px"}}>
-              <Link to="/Registration">Sign Up</Link>
-              <Link style={{marginLeft: "52%"}}>Forgot Password ?</Link>
-            </div> */}
             </div>
         </div>
     )
