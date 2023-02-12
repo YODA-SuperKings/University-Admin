@@ -60,7 +60,7 @@ function Syllabus() {
                 </div>
             </div>
             <br></br>
-            <Table responsive bordered hover>
+            <Table responsive bordered hover variant="light">
                 <thead>
                     <tr>
                         <th>Course Code</th>

@@ -105,7 +105,7 @@ function Document(){
                 </div>
               </div>
 
-            <Table responsive bordered hover>
+            <Table responsive bordered hover variant="light">
                 <thead>
                     <tr>
                         <th>Document Type</th>

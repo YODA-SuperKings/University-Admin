@@ -62,7 +62,7 @@ function Department(){
         <span style={{paddingLeft: "87%"}}></span>
             <button variant="primary" onClick={() => setModalShow(true)} type="submit" class="btn_add_document">Add Department</button>
             <AddDocumentModal show={modalShow} onHide={() => setModalShow(false)}/>
-        <Table responsive bordered hover>
+        <Table responsive bordered hover variant="light">
             <thead>
                 <tr>
                     <th>Department</th>

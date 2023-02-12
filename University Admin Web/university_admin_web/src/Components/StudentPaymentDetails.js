@@ -80,7 +80,7 @@ function StudentPaymentDetails(){
                 <br></br>
                 <span style={{paddingLeft: "89%"}}></span>
                 <button variant="primary" onClick={() => navigate("/Payment")} type="submit" class="btn_pay_Fees">Pay Fees</button>
-                <Table id="tblGridCetificateVerification" responsive bordered hover>
+                <Table responsive bordered hover variant="light">
                 <thead>
                     <tr>
                         <th>SNo.</th>
