@@ -4,10 +4,30 @@ import Table from 'react-bootstrap/Table';
 function AffiliatedColleges()
 {
     const [gridData, setGridData] = useState([]);
-    const gridVals = [{id: 1, district: "Chennai", government: "2", aided: "1", selfFinanced: "11", total: "14" },{id: 2, district: "Coimbatore", government: "5", aided: "7", selfFinanced: "3", total: "15" }]
+    const getAffiliatedColleges= (id) => {
+        fetch('https://localhost:44343/api/AffiliatedColleges/GetAffiliatedColleges', 
+        { 
+            method: 'GET',
+            withCredentials: true, 
+            crossorigin: true,
+            headers: {
+            Accept: 'application/json','Content-Type': 'application/json'
+            },
+        }) 
+        .then((res) => res.json())
+        .then((data) => {
+            debugger;
+            setGridData(data);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    }
+
     useEffect(() => {
-        setGridData(gridVals);
+        getAffiliatedColleges();
      }, [])
+
     return(
         <div className="form-affiliatedColleges">
             <div><h1 className='affiliatedColleges_header'>Affiliated Colleges</h1></div>
@@ -29,7 +49,7 @@ function AffiliatedColleges()
                             <td>{d.government}</td>
                             <td>{d.aided}</td>
                             <td>{d.selfFinanced}</td>
-                            <td>{d.total}</td>
+                            <td>{parseInt(d.government) + parseInt(d.aided) + parseInt(d.selfFinanced)}</td>
                         </tr>
                     )}
                 </tbody>

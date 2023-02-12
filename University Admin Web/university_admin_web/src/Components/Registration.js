@@ -247,10 +247,10 @@ function Registration(){
                     <div className='col-md-6'>
                         <label class="form_label" for="type">Type </label><br/>
                         <select className="form-control" id="type" value={type} onChange = {(e) => handleInputChange(e)}>
-                            <option value={0}>-Select-</option>
-                            <option value={1}>Self Finance</option>
-                            <option value={2}>Aided</option>
-                            <option value={3}>Government</option>
+                            <option value={"0"}>-Select-</option>
+                            <option value={"Self Finance"}>Self Finance</option>
+                            <option value={"Aided"}>Aided</option>
+                            <option value={"Government"}>Government</option>
                         </select>
                     </div>
                     <div className='col-md-6'>
