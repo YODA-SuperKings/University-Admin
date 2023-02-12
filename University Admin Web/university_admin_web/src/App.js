@@ -17,11 +17,13 @@ import StudentPaymentDetails from './Components/StudentPaymentDetails';
 import CollegeInfo from './Components/CollegeInfo';
 import ProgramsOffered from './Components/ProgramsOffered';
 import AffiliatedColleges from './Components/AffiliatedColleges';
+import LogOut from './Components/LogOut';
 
 function App() {
   const reloadPage = () => {
     window.location.reload();
   }
+
   return (
     <div className="App">
         <BrowserRouter>
@@ -43,6 +45,7 @@ function App() {
             <Route path="CollegeInfo" element={<CollegeInfo />} />
             <Route path="ProgramsOffered" element={<ProgramsOffered />} />
             <Route path="AffiliatedColleges" element={<AffiliatedColleges />} />
+            <Route path="LogOut" element={<LogOut />} />
           </Routes>
         </Sidebar>
       </BrowserRouter>

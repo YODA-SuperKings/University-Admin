@@ -1,5 +1,14 @@
-
+import React, {useEffect} from 'react';
+import { useNavigate } from "react-router-dom";
 function Banner() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if(window.location.pathname === '/')
+    {
+      navigate("/Home");
+    }
+ }, [])
+ 
     return (
     <div>
       <div className="row shadow-sm p-1 mb-1 university_banner">

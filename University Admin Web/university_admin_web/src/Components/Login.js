@@ -36,6 +36,7 @@ function Login(props){
                 setauthenticated(true)
                 localStorage.setItem("authenticated", true);
                 localStorage.setItem('LoginType', data);
+                navigate("/Home");
                 props.onSubmit();
             }
             else
@@ -52,7 +53,7 @@ function Login(props){
         
         <div className="form-login">
             <div style={{margin :"0px 23px 0px 23px"}}>
-            <img src={process.env.PUBLIC_URL + "/Img/user.png"}  className="img_sec"/>
+            <img src={process.env.PUBLIC_URL + "/Img/user.png"}  className="img_sec"/><br/>
             <label for="UserName"  class="form_label">User Name </label><br/>
             <input  type="UserName" class="form-control" id="UserName" value={UserName} onChange = {(e) => handleInputChange(e)} placeholder="User Name"/><br/>
             <label for="password" class="form_label">Password </label><br/>

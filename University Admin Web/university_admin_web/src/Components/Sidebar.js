@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { FaBars, FaTh, FaUserAlt, FaUserGraduate, FaSignOutAlt,FaDiscourse,FaUniversity,FaRegRegistered,FaRegCalendarTimes,FaRegNewspaper } from 'react-icons/fa';
+import { FaBars, FaTh, FaUserAlt, FaUserGraduate, FaSignOutAlt,FaDiscourse,FaUniversity,FaRegRegistered,FaRegCalendarTimes,FaRegNewspaper,FaRegHandPointRight } from 'react-icons/fa';
 import { MdOutlinePayment,MdLibraryBooks,MdOutlineHolidayVillage,MdCastForEducation } from 'react-icons/md';
 import { HiDocumentDuplicate } from 'react-icons/hi';
 import { AiOutlineLogin } from 'react-icons/ai';
@@ -11,13 +11,17 @@ import { TiTicket } from 'react-icons/ti';
 import { CgProfile } from 'react-icons/cg';
 import { TbFileCertificate,TbPaperBag } from 'react-icons/tb';
 import { NavLink } from 'react-router-dom';
-import Login from './Login';
 
 const menuItem = [
     {
         path: "/Home",
         name: "Home",
         icon: <ImHome3/>
+    },
+    {
+        path: "/CollegeInfo",
+        name: "College Info",
+        icon: <FaSignOutAlt/>
     },
     /*--------Admission---------------------*/
     {
@@ -51,6 +55,11 @@ const menuItem = [
         icon: <MdOutlineHolidayVillage/>
     },
     {
+        path: "/StudentInformation",
+        name: "Student Details",
+        icon: <FaUserAlt/>
+    },
+    {
         path: "/CertificateVerfication",
         name: "Certificate Verfication", 
         icon: <TbFileCertificate/>
@@ -65,29 +74,19 @@ const menuItem = [
         icon: <FcDepartment/>
     },
     {
-        path: "/StudentInformation",
-        name: "Student Details",
-        icon: <FaUserAlt/>
-    },
-    {
         path: "/StudentAttendance",
         name: "Student Attendance",
         icon: <FaRegRegistered/>
     },
     {
-        path: "/StudentModelPaper",
-        name: "Model Papers",
-        icon: <BsNewspaper/>
-    },
-    {
         path: "/Evaluation",
-        name: " Exam Evaluation",
+        name: "Exam Evaluation",
         icon: <TbPaperBag/>
     },
      /*------------------Student--------------------------*/
      {
         path: "/StudentProfile",
-        name: " Student Profile",
+        name: "Student Profile",
         icon: <CgProfile/>
     },
     {
@@ -102,6 +101,11 @@ const menuItem = [
     },
     /*------------------People End--------------------------*/
     /*------------------Examination--------------------------*/
+    {
+        path: "/StudentModelPaper",
+        name: "Model Papers",
+        icon: <BsNewspaper/>
+    },
     {
         path: "/ExamTimeTable",
         name: "Exam Time Table",
@@ -121,55 +125,51 @@ const menuItem = [
 },
 {
     path: "/MarkSheetDownload",
-    name: "Mark Sheet Download",
+    name: "Download",
     icon: <FaRegNewspaper/>
 },
  /*------------------Downloads End--------------------------*/
+    {
+    path: "/Registration",
+    name: "Registration",
+    icon: <FaRegHandPointRight/>
+    },
     {
         path: "/Login",
         name: "Log In",
         icon: <AiOutlineLogin/>
     },
     {
-        path: "/",
-        name: "Log out",
-        icon: <FaSignOutAlt/>
-    },
-    {
-        path: "/Registration",
-        name: "Registration",
-        icon: <FaSignOutAlt/>
-    },
-    {
-        path: "/CollegeInfo",
-        name: "College Info",
+        path: "/LogOut",
+        name: "Log Out",
         icon: <FaSignOutAlt/>
     }
-    
 ]
 
 function Sidebar({children}){
-    debugger;
     const [isOpen, setIsOpen] = useState(true);
     const toggle = () => setIsOpen(!isOpen);
     let menuItemFinal = [];
     let tempmenu = []
     let loginType = localStorage.getItem("LoginType");
     
-    tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Department","Pay Fees","Exam Time Table","Exam Result","Log In", "Registration", "College Info"]
+    tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Department","Exam Time Table","Exam Result","Registration","Log In"]
     if(loginType === "1")
     {
-        tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Certificate Verfication","Department",
-        "Student Details","Student Attendance","Model Papers","Exam Evaluation","Student Profile","Document","Pay Fees","Exam Time Table","Exam Result","Hall Ticket Download",
-        "Mark Sheet Download","Log out"]
+        tempmenu = ["Home","College Info","Student Details","Certificate Verfication","Student Attendance","Model Papers","Exam Evaluation","Student Profile",
+        "Pay Fees","Exam Result","Log Out"]
     }
-    else  if(loginType === "2" || loginType === "3")
+    else  if(loginType === "2")
     {
-        tempmenu = ["Certificate Verfication","Department","Student Details","Student Attendance","Model Papers","Exam Evaluation","Document","Log out"]
+        tempmenu = ["Home","Student Details","Certificate Verfication","Student Attendance","Model Papers","Exam Evaluation","Pay Fees","Exam Result","Log Out"]
+    }
+    else  if(loginType === "3")
+    {
+        tempmenu = ["Home","Student Details","Student Attendance","Model Papers","Exam Evaluation","Log Out"]
     }
     else  if(loginType === "4")
     {
-        tempmenu = ["Certificate Verfication","Model Papers","Student Profile","Document","Pay Fees","Exam Time Table","Exam Result","Hall Ticket Download","Mark Sheet Download","Log out"]
+        tempmenu = ["Home","Student Profile","Document","Pay Fees","Model Papers","Exam Time Table","Exam Result","Hall Ticket Download","Download","Log Out"]
     }
     
     menuItem.forEach(mi => {
