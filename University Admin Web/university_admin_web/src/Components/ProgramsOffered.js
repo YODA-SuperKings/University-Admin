@@ -6,8 +6,9 @@ function ProgramsOffered() {
     const [ugData, setugData] = useState([]);
     const [pgData, setpgData] = useState([]);
     
-    const getCollegeInfoGridData  = (e) => {
-        fetch('https://localhost:44343/api/ProgramsOffered/GetProgramsOfferedByID?couseType=' + e, 
+    const getGridData  = (e) => {
+        debugger;
+        fetch('https://localhost:44343/api/ProgramsOffered/GetProgramsOffered', 
         { 
             method: 'GET',
             withCredentials: true, 
@@ -18,12 +19,24 @@ function ProgramsOffered() {
         }) 
         .then((res) => res.json())
         .then((data) => {
-            if(e === 'UG'){
-                setugData(data);
-            }
-            else{
-                setpgData(data);
-            }
+            const tempData =[];
+
+            data.find((item) =>{
+                if (item.type === 'UG')
+                {
+                    tempData.push(item);
+                }
+            } );
+            setugData(tempData);
+
+            const tempData1 =[];
+            data.find((item) =>{
+                if (item.type === 'PG')
+                {
+                    tempData1.push(item);
+                }
+            } );
+            setpgData(tempData1);
         })
         .catch((error) => {
             console.error(error);
@@ -31,8 +44,7 @@ function ProgramsOffered() {
     }
 
     useEffect(() => {
-        getCollegeInfoGridData('UG');
-        getCollegeInfoGridData('PG');
+        getGridData();
      }, [])
 
      
