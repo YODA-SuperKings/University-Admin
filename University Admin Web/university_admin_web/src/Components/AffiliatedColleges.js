@@ -16,7 +16,6 @@ function AffiliatedColleges()
         }) 
         .then((res) => res.json())
         .then((data) => {
-            debugger;
             setGridData(data);
         })
         .catch((error) => {

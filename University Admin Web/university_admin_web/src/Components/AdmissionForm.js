@@ -14,6 +14,7 @@ function AdmissionForm(){
     const [email, setEmail] = useState(null);
     const [phoneNumber, setPhoneNumber] = useState(null);
     //Admission Information
+    const [collegeName, setCollegeName] = useState(null);
     const [applicationType, setApplicationType] = useState(null);
     const [collegeName, setCollegeName] = useState(null);
     const [courseAppliedFor, setCourseAppliedFor] = useState(null);
@@ -98,6 +99,8 @@ function AdmissionForm(){
         if(id === "phoneNumber")
             setPhoneNumber(value);
         //Admission information
+        if(id === "collegeName")
+            setCollegeName(value);
         if(id === "applicationType")
             setApplicationType(value);
         if(id === "collegeName")
@@ -177,7 +180,8 @@ function AdmissionForm(){
             DateofBirth: dob,
             Email: email,
             PhoneNumber: phoneNumber,
-            Gender: (male !== null) ? "Male" : "Female",
+            Gender: (male === null) ? "Male" : "Female",
+            CollegeName: collegeName,
             ApplicationType: applicationType,
             CollegeName: collegeName,
             CourseAppliedType: courseAppliedFor,
@@ -246,6 +250,10 @@ function AdmissionForm(){
         else if(phoneNumber === null || phoneNumber === "")
         {
             toast(<><b style={{ color: 'Red' }}>Phone Number Required.</b></>, { position: 'top-right' });
+        }
+        else if(collegeName === null || collegeName === "")
+        {
+            toast(<><b style={{ color: 'Red' }}>College Name Required.</b></>, { position: 'top-right' });
         }
         else if(applicationType === null)
         {
@@ -325,12 +333,12 @@ function AdmissionForm(){
         }
         else{
             saveAdmission();
-            navigate("/");
+            navigate("/Home");
         }
     }
 
     const handleCancelSubmit  = (e) => {
-        navigate("/");
+        navigate("/Home");
     }
 
     return (
@@ -390,10 +398,24 @@ function AdmissionForm(){
                     <div className='col-md-4'>
                         <label className="form_label" for="applicationType">Application Type </label><br></br>
                         <select className="form-control" id="applicationType" value={applicationType} onChange = {(e) => handleInputChange(e)}>
+                            <option value={"0"}>-Select-</option>
+                            <option value={"Freshman"}>Freshman</option>
+                            <option value={"Transferee"}>Transferee</option>
+                            <option value={"Other"}>Other</option>
+                        </select>
+                    </div>
+                    <div className='col-md-4'>
+                        <label className="form_label" for="semester">Semester </label><br></br>
+                        <select className="form-control" id="semester" value={semester} onChange = {(e) => handleInputChange(e)}>
                             <option value={0}>-Select-</option>
-                            <option value={1}>Freshman</option>
-                            <option value={2}>Transferee</option>
-                            <option value={3}>Other</option>
+                            <option value={1}>Semester 1</option>
+                            <option value={2}>Semester 2</option>
+                            <option value={3}>Semester 3</option>
+                            <option value={4}>Semester 4</option>
+                            <option value={5}>Semester 5</option>
+                            <option value={6}>Semester 6</option>
+                            <option value={7}>Semester 7</option>
+                            <option value={8}>Semester 8</option>
                         </select>
                     </div>
                     <div className='col-md-4'>
@@ -403,6 +425,7 @@ function AdmissionForm(){
                             {courseAll.map((option) => (<option value={option.slno}>{option.courseName}</option>))}
                         </select>
                     </div>
+                    <div className='col-md-4'></div>
                  </div>
               </Accordion.Body>
             </Accordion.Item>
