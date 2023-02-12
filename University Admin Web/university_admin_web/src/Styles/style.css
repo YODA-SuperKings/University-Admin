@@ -579,7 +579,7 @@ main{
 }
 /*College Info - End*/
 
-/*College Info - Start*/
+/*Affiliated Colleges - Start*/
 .form-affiliatedColleges{
   background-color: white;
   border-radius: 5px;
@@ -654,3 +654,30 @@ main{
   line-height: 2em;
 }
 /*College Info - End*/
+/*Affiliated Colleges - End*/
+
+/*Syllabus - Start*/
+.form-syllabus{
+  background-color: white;
+  border-radius: 5px;
+  width: 96% !important;
+  margin: 0px auto;
+  padding: 20px;
+  padding-left: 50px;
+}
+
+.form-syllabus-body{
+  text-align: left;
+  padding: 20px 10px;
+}
+
+.form-syllabus-body > *{
+  padding: 5px;
+}
+
+.syllabus_header{
+  text-align: center;
+  font-size: xx-large;
+  color: #785fa0;
+}
+/*Syllabus - End*/
