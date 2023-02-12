@@ -20,7 +20,7 @@ function StudentAttendance(){
 
     return(
         <div className="form-studentAttendance">
-            <div><h1 className='studentAttendance_header'>Student Attendance</h1></div>
+            <div><h1 className='document_header'>Student Attendance</h1></div>
             <div className="form-studentAttendance-body">
             <span style={{paddingLeft: "87%"}}></span>
             <Table  responsive bordered hover>

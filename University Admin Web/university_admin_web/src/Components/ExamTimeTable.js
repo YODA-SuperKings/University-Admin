@@ -6,14 +6,10 @@ function ExamTimeTable() {
 
 
     return(
-        <div className="form-affiliatedColleges">
-        <div>
-        <div class="col">
-        <div className='col-md-6'><img src={process.env.PUBLIC_URL + "/Img/UGExamTimeTable.png"} /></div>
-       <img src={process.env.PUBLIC_URL + "/Img/PGExamTimeTable.png"} />
-        </div>
-        </div>
-        </div>
+        <div className="examtimetable">
+          <img style={{width:"95%"}} src={process.env.PUBLIC_URL + "/Img/UGExamTimeTable.png"} />
+          <img style={{width:"95%"}} src={process.env.PUBLIC_URL + "/Img/PGExamTimeTable.png"} />
+         </div>
     )
 }
 

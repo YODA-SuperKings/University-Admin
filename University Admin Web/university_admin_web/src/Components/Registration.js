@@ -181,7 +181,8 @@ function Registration(){
     }
     
     return(
-        <div className="form-registration">
+        <div className="registrationpnl">
+            <p className='form_label' style={{margin:"0px 0px 21px 326px",paddingTop:"3%",fontSize: "x-large"}}>Registration</p>
             <div className="form-registration-body">
                 <div className='row'>
                     <div className='col-md-6'>
@@ -189,8 +190,8 @@ function Registration(){
                         <input type="text" class="form-control" id="code" value={code} onChange = {(e) => handleInputChange(e)} placeholder="Code"/>
                     </div>
                     <div className='col-md-6'>
-                        <label class="form_label" for="nameOfInstitute">Name Of Institute </label><br/>
-                        <input type="text" class="form-control" id="nameOfInstitute" value={nameOfInstitute} onChange = {(e) => handleInputChange(e)} placeholder="Name Of Institute"/>
+                        <label class="form_label" for="nameOfInstitute">Institute Name</label><br/>
+                        <input type="text" class="form-control" id="nameOfInstitute" value={nameOfInstitute} onChange = {(e) => handleInputChange(e)} placeholder="Institute Name"/>
                     </div>
                 </div>
                 <div className='row'>
@@ -253,10 +254,11 @@ function Registration(){
                             <option value={"Government"}>Government</option>
                         </select>
                     </div>
-                    <div className='col-md-6'>
-                        <label class="form_label" for="type"></label><br/>
-                        <button onClick={(e)=>Register(e)} type="submit" class="btn_register">Register</button>
-                    </div>
+                    <div className='col-md-6'></div>
+                </div>
+                <div className='col-md-6'>
+                    <label class="form_label" for="type"></label><br/>
+                    <button onClick={(e)=>Register(e)} type="submit" style={{width: "21%",marginLeft: "298px"}} class="btn_register">Submit</button>
                 </div>
             </div>
         </div>

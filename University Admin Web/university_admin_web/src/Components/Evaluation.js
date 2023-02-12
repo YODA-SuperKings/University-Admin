@@ -52,7 +52,7 @@ function Evaluation(){
     return(
        
         <div className="form-evaluation">
-        <div><h1 className='evaluation_header'>Evaluation</h1></div>
+        <div><h1 className='document_header'>Exam Evaluation</h1></div>
         <div className="form-evaluation-body">
         <span style={{paddingLeft: "87%"}}></span>
        <Table responsive bordered hover>

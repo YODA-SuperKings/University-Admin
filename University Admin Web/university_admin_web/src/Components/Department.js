@@ -2,11 +2,12 @@ import React, {useState, useEffect} from 'react';
 import { useNavigate, Link } from "react-router-dom";
 import Table from 'react-bootstrap/Table';
 import Modal from 'react-bootstrap/Modal';
+import { GrTextAlignCenter } from 'react-icons/gr';
 function Department(){
     const [gridData, setGridData] = useState([]);
-    const gridVals = [{id: 1, department: "IT", course: "B.Tech" }]
     const [department, setDepartment] = useState(null);
     const [course, setCourse] = useState(null);
+
     const handleInputChange = (e) => {
         const {id , value} = e.target;
         if(id === "department")
@@ -14,9 +15,41 @@ function Department(){
         if(id === "course")
         setCourse(value);
     }
+
+    const getCourseAll= () => {
+      debugger;
+      fetch('https://localhost:44343/api/Department/GetDepartment', 
+      { 
+          method: 'GET',
+          withCredentials: true, 
+          crossorigin: true,
+          headers: {
+          Accept: 'application/json','Content-Type': 'application/json'
+          },
+      }) 
+      .then((res) => res.json())
+      .then((data) => {
+
+        const tempData1 =[];
+        
+        data.sort((a, b) => a.slno - b.slno);
+
+        data.find((item) =>{
+          if (tempData1.length <= 9)
+          {
+              tempData1.push(item);
+          }
+          } );
+        
+         setGridData(tempData1);
+      })
+      .catch((error) => {
+          console.error(error);
+      });
+  }
+
     useEffect(() => {
-        //getDepartmentGridData();
-        setGridData(gridVals);
+        getCourseAll();
      }, [])
      const handleSaveSubmit = (e) => {
         
@@ -57,27 +90,23 @@ function Department(){
     return(
        
         <div className="form-department">
-        <div><h1 className='department_header'>Department Information</h1></div>
+        <div><h1 className='document_header'>Department Information</h1></div>
         <div className="form-department-body">
         <span style={{paddingLeft: "87%"}}></span>
-            <button variant="primary" onClick={() => setModalShow(true)} type="submit" class="btn_add_document">Add Department</button>
+            {/* <button variant="primary" onClick={() => setModalShow(true)} type="submit" class="btn_add_document">Add Department</button> */}
             <AddDocumentModal show={modalShow} onHide={() => setModalShow(false)}/>
         <Table responsive bordered hover>
             <thead>
                 <tr>
+                    <th>Si No</th>
                     <th>Department</th>
-                    <th>Course</th>
-                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 {gridData.map(d =>
                     <tr key = {d.id}>
-                        <td>{d.department}</td>
-                        <td>{d.course}</td>
-                        <td>
-                            <button type="submit" class="btn">View</button>
-                        </td>
+                        <td>{d.slno}</td>
+                        <td>{d.departmentName}</td>
                     </tr>
                 )}
             </tbody>

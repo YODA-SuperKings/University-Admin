@@ -258,7 +258,7 @@ main{
   background-color: white;
   border-radius: 5px;
   width: 96% !important;
-  margin: 0px auto;
+  margin: 46px 0px 0px 32px;
 }
 
 .form-admission-body{
@@ -300,7 +300,7 @@ main{
   background-color: white;
   border-radius: 5px;
   width: 96% !important;
-  margin: 0px auto;
+  margin: 46px 0px 0px 32px;
   padding: 20px;
   padding-left: 50px;
 }
@@ -441,7 +441,7 @@ main{
   background-color: white;
   border-radius: 5px;
   width: 96% !important;
-  margin: 0px auto;
+  margin: 46px 0px 0px 32px;
   padding: 20px;
   padding-left: 50px;
 }
@@ -468,6 +468,7 @@ main{
   color: white;
   font-size: large;
   text-align: center;
+  border-radius: 70px;
 }
 
 .btn_certificateVerification_accept, .btn_certificateVerification_reject{
@@ -484,7 +485,7 @@ main{
   background-color: white;
   border-radius: 5px;
   width: 96% !important;
-  margin: 0px auto;
+  margin: 46px 0px 0px 32px;
   padding: 20px;
   padding-left: 50px;
 }
@@ -509,7 +510,7 @@ main{
   background-color: white;
   border-radius: 5px;
   width: 96% !important;
-  margin: 0px auto;
+  margin: 46px 0px 0px 32px;
   padding: 20px;
   padding-left: 50px;
 }
@@ -535,7 +536,7 @@ main{
   background-color: white;
   border-radius: 5px;
   width: 96% !important;
-  margin: 0px auto;
+  margin: 46px 0px 0px 32px;
   padding: 20px;
   padding-left: 50px;
 }
@@ -585,7 +586,7 @@ main{
   background-color: white;
   border-radius: 5px;
   width: 96% !important;
-  margin: 0px auto;
+  margin: 46px 0px 0px 32px;
   padding: 20px;
   padding-left: 50px;
 }
@@ -688,10 +689,8 @@ main{
 .form-studentAttendance{
   background-color: white;
   border-radius: 5px;
-  width: 100% !important;
-  margin: 0px auto;
+  margin: 46px 0px 0px 32px;
   padding: 20px;
-  padding-left: 50px;
 }
 
 .form-studentAttendance-body{
@@ -707,6 +706,21 @@ main{
 }
 .studentAttendance_th{
 width:100%;
+}
+
+.registrationpnl{
+  background-color: white;
+  width: 787px;
+  height: 706px;
+  border-radius: var(--bs-border-radius);
+  margin: 89px 8px 5px 460px;
+}
+
+.examtimetable{
+  background-color: white;
+  border-radius: 5px;
+  width: 96% !important;
+  margin: 46px 16px 0px 33px;
 }
 
 /*StudentAttendance - End*/

@@ -29,7 +29,7 @@ function AffiliatedColleges()
 
     return(
         <div className="form-affiliatedColleges">
-            <div><h1 className='affiliatedColleges_header'>Affiliated Colleges</h1></div>
+            <div><h1 className='document_header'>Affiliated Colleges</h1></div>
             <div className="form-affiliatedColleges-body">
             <Table responsive bordered hover>
                 <thead>

@@ -40,7 +40,7 @@ function FeeStructure() {
 
     return(
         <div className="form-affiliatedColleges">
-        <div><h1 className='affiliatedColleges_header'>Fee Structure</h1></div>
+        <div><h1 className='document_header'>Fee Structure</h1></div>
         <div className="form-affiliatedColleges-body">
             <Table responsive bordered hover>
                 <thead>

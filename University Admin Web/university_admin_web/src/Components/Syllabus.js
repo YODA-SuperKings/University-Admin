@@ -31,7 +31,6 @@ function Syllabus() {
         }) 
         .then((res) => res.json())
         .then((data) => {
-            debugger;
             setGridData(data);
         })
         .catch((error) => {
@@ -41,7 +40,7 @@ function Syllabus() {
 
     return(
         <div className="form-affiliatedColleges">
-        <div><h1 className='affiliatedColleges_header'>Syllabus</h1></div>
+        <div><h1 className='document_header'>Syllabus</h1></div>
         <div className="form-affiliatedColleges-body">
             <div className='row'>
                 <div className='col-md-4'>

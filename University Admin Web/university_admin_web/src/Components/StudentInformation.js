@@ -51,7 +51,7 @@ function StudentInformation(){
 
     return(
         <div className="form-studentInformation">
-            <div><h1 className='studentInformation_header'>Student Information</h1></div>
+            <div><h1 className='document_header'>Student Information</h1></div>
             <div className="form-studentInformation-body">
             <Table responsive bordered hover>
                 <thead>
@@ -81,7 +81,7 @@ function StudentInformation(){
                             <td>{d.courseAppliedType}</td>
                             <td>{d.percentage}</td>
                             <td>
-                                <span style={{fontSize: "large", cursor: 'pointer', color: '#785fa0'}}><FcApproval onClick={() => UpdateStudent(d.registrationNo)}/></span>
+                                {d.isActive?"" : <span style={{fontSize: "large", cursor: 'pointer', color: '#785fa0',marginLeft: "18px"}}><FcApproval onClick={() => UpdateStudent(d.registrationNo)}/></span>}
                             </td>
                         </tr>
                     )}

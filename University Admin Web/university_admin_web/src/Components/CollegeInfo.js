@@ -57,14 +57,13 @@ function CollegeInfo(){
 
     return(
         <div className="form-collegeInfo">
-            <div><h1 className='collegeInfo_header'>Collge Information</h1></div>
+            <div><h1 className='document_header'>Collge Information</h1></div>
             <div className="form-collegeInfo-body">
                 <Table responsive bordered hover>
                     <thead>
                         <tr>
-                            <th>College Code</th>
-                            <th>Name of Institute</th>
-                            <th>Name of College Admin</th>
+                            <th>Code</th>
+                            <th>Institute Name</th>
                             <th>College Type</th>
                             <th>Email</th>
                             <th>Phone Number</th>
@@ -80,7 +79,6 @@ function CollegeInfo(){
                             <tr key = {d.id}>
                                 <td>{d.code}</td>
                                 <td>{d.nameofInstitute}</td>
-                                <td>{d.userName}</td>
                                 <td>{d.type}</td>
                                 <td>{d.email}</td>
                                 <td>{d.phoneNumber}</td>
@@ -89,7 +87,7 @@ function CollegeInfo(){
                                 <td>{d.district}</td>
                                 <td>{d.state}</td>
                                 <td>
-                                    <span style={{fontSize: "large", cursor: 'pointer', color: '#785fa0'}}><FcApproval onClick={() => ApproveCollege(d.id, d.code)}/></span>
+                                   {d.isActive?"":<span style={{fontSize: "large", cursor: 'pointer', color: '#785fa0',marginLeft: "18px"}}><FcApproval onClick={() => ApproveCollege(d.id, d.code)}/></span>} 
                                 </td>
                             </tr>
                         )}
