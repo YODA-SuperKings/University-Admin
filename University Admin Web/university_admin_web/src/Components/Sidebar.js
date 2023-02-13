@@ -124,7 +124,7 @@ const menuItem = [
     icon: <TiTicket/>
 },
 {
-    path: "/MarkSheetDownload",
+    path: "/Download",
     name: "Download",
     icon: <FaRegNewspaper/>
 },
