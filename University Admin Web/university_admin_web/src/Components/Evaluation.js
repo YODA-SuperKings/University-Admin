@@ -21,6 +21,7 @@ function Evaluation(){
         {
             setSemester(value);
             getCourseData(value);
+            getExamMarksGridData(registrationNumber,value);
         }
         if(id === "courseName")
             setCourseName(value);
@@ -40,7 +41,11 @@ function Evaluation(){
         }) 
         .then((res) => res.json())
         .then((data) => {
-            setRegistrationNoList(data);
+            if(data !== null)
+            {
+                setRegistrationNoList(data);
+                setRegistrationNumber(data[0].value);
+            }
         })
         .catch((error) => {
             console.error(error);
@@ -48,7 +53,6 @@ function Evaluation(){
     }
 
     const getCourseData = (semester) => {
-        debugger;
         fetch('https://localhost:44343/api/Syllabus/GetSyllabusByID?semesterType=' + semester, 
         { 
             method: 'GET',
@@ -60,7 +64,11 @@ function Evaluation(){
         }) 
         .then((res) => res.json())
         .then((data) => {
-            setCourseNameList(data);
+            if(data !== null)
+            {
+                setCourseNameList(data);
+                setCourseName(data[0].courseCode);
+            }
         })
         .catch((error) => {
             console.error(error);
