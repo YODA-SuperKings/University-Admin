@@ -11,6 +11,7 @@ function Evaluation(){
     const [studentList, setStudentList] = useState([]);
     const [registrationNoList, setRegistrationNoList] = useState([]);
     const [courseNameList, setCourseNameList] = useState([]);
+    let loginType = localStorage.getItem("LoginType");
     
     const handleInputChange = (e) => {
         const {id , value} = e.target;
@@ -120,8 +121,24 @@ function Evaluation(){
         });
     }
 
+    const Publish = () => {
+
+    }
+
     useEffect(() => {
             getStudentsData();
+            if(loginType === "1"){
+                document.getElementById("divcourseName").style.display = "none";
+                document.getElementById("divmark").style.display = "none";
+                document.getElementById("divSaveMark").style.display = "none";
+                document.getElementById("divPublish").style.display = "block";
+            }
+            else{
+                document.getElementById("divcourseName").style.display = "block";
+                document.getElementById("divmark").style.display = "block";
+                document.getElementById("divSaveMark").style.display = "block";
+                document.getElementById("divPublish").style.display = "none";
+            }
      }, [])
     
     return(
@@ -149,18 +166,21 @@ function Evaluation(){
                             <option value={"VIII"}>Semester 8</option>
                         </select>
                 </div>
-                <div className='col-md-4'style={{width: "20%"}}>
+                <div id="divcourseName" className='col-md-4'style={{width: "20%"}}>
                     <label className="form_label" for="courseName">Course Name </label><br></br>
                     <select className="form-control" id="courseName" value={courseName} onChange = {(e) => handleInputChange(e)}>
                         {courseNameList.map((option) => (<option value={option.courseCode}>{option.courseTitle}</option>))}
                     </select>
                 </div>
-                <div className='col-md-4' style={{width: "20%"}}>
+                <div id="divmark" className='col-md-4' style={{width: "20%"}}>
                     <label className="form_label" for="mark">Mark </label><br></br>
                     <input  type="text" name="" id="mark" className="form-control" value={mark} onChange = {(e) => handleInputChange(e)} placeholder="Mark"/>
                 </div>
-                <div className='col-md-4' style={{width: "20%", paddingTop: "25px"}}>
+                <div id="divSaveMark" className='col-md-4' style={{width: "20%", paddingTop: "25px"}}>
                     <button variant="primary" onClick={(e)=>SaveMark(e)} type="submit" class="btn_add_document">Save Mark</button>
+                </div>
+                <div id="divPublish" className='col-md-4' style={{width: "20%", paddingTop: "25px"}}>
+                    <button variant="primary" onClick={(e)=>Publish(e)} type="submit" class="btn_add_document">Publish</button>
                 </div>
             </div>
             <br></br>
