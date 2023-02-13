@@ -4,7 +4,7 @@ import { MdOutlinePayment,MdLibraryBooks,MdOutlineHolidayVillage,MdCastForEducat
 import { HiDocumentDuplicate } from 'react-icons/hi';
 import { AiOutlineLogin } from 'react-icons/ai';
 import { BiDollar } from 'react-icons/bi';
-import { FcDepartment } from 'react-icons/fc';
+import { FcDepartment,FcBusinessContact } from 'react-icons/fc';
 import { ImHome3 } from 'react-icons/im';
 import { BsNewspaper } from 'react-icons/bs';
 import { TiTicket } from 'react-icons/ti';
@@ -122,18 +122,24 @@ const menuItem = [
     path: "/HallTicketDownload",
     name: "Hall Ticket Download",
     icon: <TiTicket/>
-},
-{
-    path: "/MarkSheetDownload",
-    name: "Download",
-    icon: <FaRegNewspaper/>
-},
+    },
+    {
+        path: "/MarkSheetDownload",
+        name: "Download",
+        icon: <FaRegNewspaper/>
+    },
+    {
+        path: "/ConductUs",
+        name: "Conduct Us",
+        icon: <FcBusinessContact/>
+    },
  /*------------------Downloads End--------------------------*/
     {
     path: "/Registration",
     name: "Registration",
     icon: <FaRegHandPointRight/>
     },
+   
     {
         path: "/Login",
         name: "Log In",
@@ -153,7 +159,7 @@ function Sidebar({children}){
     let tempmenu = []
     let loginType = localStorage.getItem("LoginType");
     
-    tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Department","Exam Time Table","Exam Result","Registration","Log In"]
+    tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Department","Exam Time Table","Exam Result","Registration","Conduct Us","Log In"]
     if(loginType === "1")
     {
         tempmenu = ["Home","College Info","Student Details","Certificate Verfication","Student Attendance","Model Papers","Exam Evaluation","Student Profile",

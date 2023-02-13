@@ -1,13 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import Table from 'react-bootstrap/Table';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
+import { BsArrowDownRightSquare } from 'react-icons/bs'
+import { useNavigate } from "react-router-dom";
 
 function ProgramsOffered() {
+    const navigate = useNavigate();
     const [ugData, setugData] = useState([]);
     const [pgData, setpgData] = useState([]);
+
+    const ShowAdmissionForm = (e) =>{
+        navigate("/AdmissionForm");
+    }
     
     const getGridData  = (e) => {
-        debugger;
         fetch('https://localhost:44343/api/ProgramsOffered/GetProgramsOffered', 
         { 
             method: 'GET',
@@ -70,7 +76,7 @@ function ProgramsOffered() {
              {expanded && <ul class="fa-ul">
                {
                 ugData.map((item,index) => (
-                 <li>{item.courseName}</li>
+                 <li>{item.courseName}<span className='li_icon'><BsArrowDownRightSquare onClick={() => ShowAdmissionForm(item.slno)}/></span></li>
                 )) 
                } 
                </ul>}
@@ -95,7 +101,7 @@ function ProgramsOffered() {
              {pgexpanded && <ul class="fa-ul">
                {
                 pgData.map((item,index) => (
-                 <li>{item.courseName}</li>
+                 <li>{item.courseName}<span className='li_icon'><BsArrowDownRightSquare onClick={() => ShowAdmissionForm(item.slno)}/></span></li>
                 )) 
                } 
                </ul>}

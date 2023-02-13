@@ -23,6 +23,8 @@ import FeeStructure from './Components/FeeStructure';
 import StudentAttendance from './Components/StudentAttendance';
 import HolidayCalendar from './Components/HolidayCalendar';
 import ExamTimeTable from './Components/ExamTimeTable';
+import ConductUs from './Components/ConductUs';
+import StudentProfile from './Components/StudentProfile';
 
 function App() {
   const reloadPage = () => {
@@ -38,6 +40,7 @@ function App() {
             <Route path="Home" element={<Home />} />
             <Route path="AdmissionForm" element={<AdmissionForm />} />
             <Route path="StudentInformation" element={<StudentInformation />} />
+            <Route path="StudentProfile" element={<StudentProfile />} />
             <Route path="Payment" element={<Payment />} />
             <Route path="Document" element={<Document />} />
             <Route path="Department" element={<Department />} />
@@ -55,6 +58,7 @@ function App() {
             <Route path="StudentAttendance" element={<StudentAttendance />} />
             <Route path="HolidayCalendar" element={<HolidayCalendar />} />
             <Route path="ExamTimeTable" element={<ExamTimeTable />} />
+            <Route path="ConductUs" element={<ConductUs />} />
             <Route path="LogOut" element={<LogOut />} />
           </Routes>
         </Sidebar>

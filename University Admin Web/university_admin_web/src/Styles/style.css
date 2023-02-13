@@ -733,3 +733,183 @@ width:100%;
 }
 
 /*StudentAttendance - End*/
+
+.all-browsers {
+  margin: 0;
+  padding: 5px;
+  background-color: lightgray;
+}
+
+.all-browsers > h1, .browser {
+  margin: 10px;
+  padding: 5px;
+}
+
+.browser {
+  background: white;
+}
+
+.browser > h2, p {
+  margin: 4px;
+  font-size: 90%;
+}
+
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: #785fa0;
+  color: white;
+}
+
+.font-sz {
+  font-size: 11px;
+}
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+.listline li::before{
+  display: inline-block;
+  content: "";
+  border-top: 1px solid #fff;
+  width: 8px;
+  position: relative;
+  top: 9px;
+  margin: 0 11px;
+  transform: translateY(-1rem);
+}
+
+.footerpnl{
+  font-family: "Alegreya SC", serif;
+  text-align: left;
+  font-size: xx-large;
+  font-weight: 800;
+  color: #785fa0;
+}
+
+.textinfo{
+  font-family: "Alegreya SC", serif;
+  color: black;
+  font-size: x-large;
+}
+
+.footerheader{
+  text-align: left !important;
+  padding: 3px;
+  background-color: #785fa0;
+  color: white;
+}
+
+.studentInfo{
+  background-color: white;
+  border-radius: 5px;
+  width: 96% !important;
+  margin: 53px 0px 0px 33px;
+  padding: 20px;
+  padding-left: 50px;
+  line-height: 45px;;
+}
+
+.studentInfo_body{
+  text-align: left;
+  padding: 20px 10px;
+}
+
+.panel {
+	margin-bottom: 20px;
+	background-color: #fff;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .05)
+}
+
+.panel-heading {
+	padding: 10px 15px;
+	border-bottom: 1px solid transparent;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px
+}
+
+.panel-title {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 16px;
+	color: inherit
+}
+
+.panel-body {
+	padding: 15px
+}
+
+.panel-primary {
+	border-color: #337ab7
+}
+
+.panel-primary>.panel-heading {
+	color: #fff;
+	background-color: #337ab7;
+	border-color: #337ab7
+}
+
+.panel-primary>.panel-heading+.panel-collapse>.panel-body {
+	border-top-color: #337ab7
+}
+
+.panel-primary>.panel-heading .badge {
+	color: #337ab7;
+	background-color: #fff
+}
+
+.panel-primary>.panel-footer+.panel-collapse>.panel-body {
+	border-bottom-color: #337ab7
+}
+
+.panel-info {
+	border-color: #bce8f1;
+  margin: 37px 0px 0px 19px;
+}
+
+.panel-info>.panel-heading {
+	color: #31708f;
+	background-color: #d9edf7;
+	border-color: #bce8f1
+}
+
+.panel-info>.panel-heading+.panel-collapse>.panel-body {
+	border-top-color: #bce8f1
+}
+
+.panel-info>.panel-heading .badge {
+	color: #d9edf7;
+	background-color: #31708f
+}
+
+.elementor-8659 .elementor-element.elementor-element-778d0bc0 .elementor-image-box-title {
+  margin-bottom: 14px;
+  font-family: "Butler", Sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: capitalize;
+  line-height: 30px;
+}
+
+.elementor-image-box-description {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: #000000;
+}
+
+.elementor-8659 .elementor-element.elementor-element-602deae5 .elementor-image-box-title {
+  font-size: 20px;
+  line-height: 0.1em;
+}
+
+.li_icon{
+  margin-left: 3%;
+  color: rgb(251 255 0);
+  font-size: 31px;
+  font-weight: bold;
+}
