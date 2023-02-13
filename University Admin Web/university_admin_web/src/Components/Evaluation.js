@@ -86,7 +86,6 @@ function Evaluation(){
     }
 
     const SaveMark = () => {
-        debugger;
         let toastColor = '';
         const postBody = {
             RegistrationNo: registrationNumber,
@@ -106,7 +105,6 @@ function Evaluation(){
         }) 
         .then((res) => res.json())
         .then((data) => {
-            debugger;
             if(data === "Mark already exists.")
                 toastColor = 'Red';
             else{
