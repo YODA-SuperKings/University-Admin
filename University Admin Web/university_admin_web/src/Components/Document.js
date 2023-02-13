@@ -4,8 +4,8 @@ import Table from 'react-bootstrap/Table';
 import toast from 'react-simple-toasts';
 
 function Document(){
-    const [studentName, setStudentName] = useState("Jim Carey");
-    const [registrationNumber, setRegistrationNumber] = useState(null);
+    const [studentName, setStudentName] = useState(null);
+    const [registrationNumber, setRegistrationNumber] = useState(localStorage.getItem("RegistrationNumber"));
     const [modalShow, setModalShow] = React.useState(false);
     const [gridData, setGridData] = useState([]);
     const [documentType, setDocumentType] = useState(null);
@@ -20,7 +20,7 @@ function Document(){
     }
 
     const getDocumentGridData  = (e) => {
-        fetch('https://localhost:44343/api/Document/GetDocument', 
+        fetch('https://localhost:44343/api/Document/GetDocumentByID?registrationNo=' + registrationNumber, 
         { 
             method: 'GET',
             withCredentials: true, 
@@ -31,6 +31,7 @@ function Document(){
         }) 
         .then((res) => res.json())
         .then((data) => {
+            setStudentName(data[0].candidateName);
             setRegistrationNumber(data[0].registrationNo)
             setGridData(data);
             console.log(data);

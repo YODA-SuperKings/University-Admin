@@ -24,6 +24,7 @@ import StudentAttendance from './Components/StudentAttendance';
 import HolidayCalendar from './Components/HolidayCalendar';
 import ExamTimeTable from './Components/ExamTimeTable';
 import StudentModelPaper from './Components/StudentModelPaper';
+import ExamResult from './Components/ExamResult';
 
 function App() {
   const reloadPage = () => {
@@ -56,6 +57,7 @@ function App() {
             <Route path="StudentAttendance" element={<StudentAttendance />} />
             <Route path="HolidayCalendar" element={<HolidayCalendar />} />
             <Route path="ExamTimeTable" element={<ExamTimeTable />} />
+            <Route path="ExamResult" element={<ExamResult />} />
             <Route path="StudentModelPaper" element={<StudentModelPaper />} />
             <Route path="LogOut" element={<LogOut />} />
           </Routes>

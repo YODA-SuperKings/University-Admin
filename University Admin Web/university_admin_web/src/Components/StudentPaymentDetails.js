@@ -44,7 +44,6 @@ function StudentPaymentDetails(){
         }) 
         .then((res) => res.json())
         .then((data) => {
-            debugger;
             setRegistrationNumber(registrationNumber);
             setStudentName(data.firstName + ' ' + data.lastName);
             setDeptCourse(data.courseAppliedType);
@@ -78,7 +77,6 @@ function StudentPaymentDetails(){
             <div className="form-payment-body">
                 <div className='payment_border'>
                     <div className='row'>
-                        
                         <div className='col-md-6'>
                             <label className="registrationNumber_label" for="registrationNumber">Registration Number :&nbsp;</label>
                             <label className="registrationNumber_label" type="number" id="registrationNumber">{registrationNumber}</label>

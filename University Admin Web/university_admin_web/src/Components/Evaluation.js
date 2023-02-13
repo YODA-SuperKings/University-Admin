@@ -1,93 +1,151 @@
 import React, {useState, useEffect} from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { useNavigate, Link } from "react-router-dom";
 import Table from 'react-bootstrap/Table';
-import Modal from 'react-bootstrap/Modal';
+
 function Evaluation(){
     const [gridData, setGridData] = useState([]);
-    const gridVals = [{id: 1, sno:"1", studentName: "Suriya", sub1: 10, sub2: 10, sub3: 10, sub4: 10,total: 40,cgpa:"85%",result:"A Grade"}]
-    const [sno, setSNo] = useState(null);
+    const [registrationNumber, setRegistrationNumber] = useState(null);
     const [studentName, setStudentName] = useState(null);
-    const [sub1, setSub1] = useState(null);
-    const [sub2, setSub2] = useState(null);
-    const [sub3, setSub3] = useState(null);
-    const [sub4, setSub4] = useState(null);
-    const [total, setTotal] = useState(null);
-    const [cgpa, setCGPA] = useState(null);
-    const [result, setResult] = useState(null);
+    const [courseCode, setCourseCode] = useState(null);
+    const [semester, setSemester] = useState(null);
+    const [courseName, setCourseName] = useState(null);
+    const [mark, setMark] = useState(null);
+    const [studentList, setStudentList] = useState([]);
+    const [registrationNoList, setRegistrationNoList] = useState([]);
+    const [courseNameList, setCourseNameList] = useState([]);
+    let arry = [];
     
     const handleInputChange = (e) => {
         const {id , value} = e.target;
-        if(id === "sno")
-        setSNo(value);
-        if(id === "studentName")
-        setStudentName(value);
-        if(id === "sub1")
-        setSub1(value);
-        if(id === "sub2")
-        setSub2(value);
-        if(id === "sub3")
-        setSub3(value);
-        if(id === "sub4")
-        setSub4(value);
-        if(id === "sub4")
-        setSub4(value);
-        if(id === "total")
-        setTotal(value);
-        if(id === "cgpa")
-        setCGPA(value);
-        if(id === "result")
-        setResult(value);
-        
+        if(id === "semester" && value !== 0)
+        {
+            setSemester(value);
+            getCourseData(value);
+        }
+        if(id === "mark")
+            setMark(value);
     }
-    useEffect(() => {
-        //getEvaluationGridData();
-        setGridData(gridVals);
+
+    const getStudentsData = () => {
+        fetch('https://localhost:44343/api/Student/GetRegistrationNumbers', 
+        { 
+            method: 'GET',
+            withCredentials: true, 
+            crossorigin: true,
+            headers: {
+            Accept: 'application/json','Content-Type': 'application/json'
+            },
+        }) 
+        .then((res) => res.json())
+        .then((data) => {
+            setRegistrationNoList(data);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    }
+
+    const getCourseData = (semester) => {
+        fetch('https://localhost:44343/api/Syllabus/GetSyllabusByID?semesterType=' + semester, 
+        { 
+            method: 'GET',
+            withCredentials: true, 
+            crossorigin: true,
+            headers: {
+            Accept: 'application/json','Content-Type': 'application/json'
+            },
+        }) 
+        .then((res) => res.json())
+        .then((data) => {
+            debugger;
+            const tempData =[];
+            data.find((item) =>{
+                if (item.semesterType === semester)
+                {
+                    tempData.push(item); 
+                } 
+            });
+            setCourseNameList(data);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    }
+
+    const getExamMarksGridData = (id) => {
+        fetch('https://localhost:44343/api/Examinations/GetExaminationsBySemesterID?semesterType=' + id, 
+        { 
+            method: 'GET',
+            withCredentials: true, 
+            crossorigin: true,
+            headers: {
+            Accept: 'application/json','Content-Type': 'application/json'
+            },
+        }) 
+        .then((res) => res.json())
+        .then((data) => {
+            setGridData(data);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    }
+      useEffect(() => {
+            getStudentsData();
+           
+            getExamMarksGridData("I");
      }, [])
-     const handleSaveSubmit = (e) => {
-        
-     }
-     
     
     return(
-       
         <div className="form-evaluation">
-        <div><h1 className='document_header'>Exam Evaluation</h1></div>
+        <div><h1 className='evaluation_header'>Exam Evaluation</h1></div>
         <div className="form-evaluation-body">
-        <span style={{paddingLeft: "87%"}}></span>
-       <Table responsive bordered hover variant="light">
-            <thead>
-                <tr>
-                    <th>S.No</th>
-                    <th>Student Name</th>
-                    <th>Sub 1</th>
-                    <th>Sub 2</th>
-                    <th>Sub 3</th>
-                    <th>Sub 4</th>
-                    <th>Total</th>
-                    <th>CGPA</th>
-                    <th>Result</th>
-                </tr>
-            </thead>
-            <tbody>
-                {gridData.map(d =>
-                    <tr key = {d.id}>
-                        <td>{d.sno}</td>
-                        <td>{d.studentName}</td>
-                        <td>{d.sub1}</td>
-                        <td>{d.sub2}</td>
-                        <td>{d.sub3}</td>
-                        <td>{d.sub4}</td>
-                        <td>{d.total}</td>
-                        <td>{d.cgpa}</td>
-                        <td>{d.result}</td>
-                        <td>
-                            <button type="submit" class="btn">View</button>
-                        </td>
+            <div className='row'>
+                <div className='col-md-4'>
+                    <label className="form_label" for="registrationNumber">Registration Number </label><br></br>
+                    <select className="form-control" id="registrationNumber" value={registrationNumber} onChange = {(e) => handleInputChange(e)}>
+                        {registrationNoList.map((option) => (<option value={option.value}>{option.label}</option>))}
+                    </select>
+                </div>
+                <div className='col-md-4'>
+                    <label className="form_label" for="semester">Semester </label><br></br>
+                        <select className="form-control" id="semester" value={semester} onChange = {(e) => handleInputChange(e)}>
+                            <option value={"0"}>-Select-</option>
+                            <option value={"I"}>Semester 1</option>
+                            <option value={"II"}>Semester 2</option>
+                            <option value={"III"}>Semester 3</option>
+                            <option value={"IV"}>Semester 4</option>
+                            <option value={"V"}>Semester 5</option>
+                            <option value={"VI"}>Semester 6</option>
+                            <option value={"VII"}>Semester 7</option>
+                            <option value={"VIII"}>Semester 8</option>
+                        </select>
+                </div>
+                <div className='col-md-4'>
+                    <label className="form_label" for="courseName">Course Name </label><br></br>
+                    <select className="form-control" id="courseName" value={courseName} onChange = {(e) => handleInputChange(e)}>
+                        {courseNameList.map((option) => (<option value={option.value}>{option.label}</option>))}
+                    </select>
+                </div>
+            </div>
+            <br></br>
+            <Table responsive bordered hover variant="light">
+                <thead>
+                    <tr>
+                        <th>Course Code</th>
+                        <th>Course Name</th>
+                        <th>Marks</th>
                     </tr>
-                )}
-            </tbody>
-        </Table>
+                </thead>
+                <tbody>
+                    {gridData.map(d =>
+                        <tr key = {d.id}>
+                            <td>{d.courseCode}</td>
+                            <td>{d.courseName}</td>
+                            <td>{d.mark}</td>
+                        </tr>
+                    )}
+                </tbody>
+            </Table>
         </div>
         </div>
     )
