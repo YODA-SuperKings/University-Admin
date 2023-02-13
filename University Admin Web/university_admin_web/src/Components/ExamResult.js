@@ -48,7 +48,7 @@ function ExamResult(){
     
     return(
         <div className="form-evaluation">
-        <div><h1 className='evaluation_header'>Exam Results</h1></div>
+        <div><h1 className='document_header'>Exam Results</h1></div>
         <div className="form-evaluation-body">
             <div className='row'>
                 <div className='col-md-4'>

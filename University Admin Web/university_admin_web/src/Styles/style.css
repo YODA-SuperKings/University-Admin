@@ -326,7 +326,7 @@ main{
   background-color: white;
   border-radius: 5px;
   width: 96% !important;
-  margin: 0px auto;
+  margin: 46px 0px 0px 32px;
   padding: 20px;
   padding-left: 50px;
 }
@@ -738,7 +738,7 @@ width:100%;
 .registrationpnl{
   background-color: white;
   width: 787px;
-  height: 706px;
+  height: 686px;
   border-radius: var(--bs-border-radius);
   margin: 89px 8px 5px 460px;
 }

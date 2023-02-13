@@ -118,11 +118,6 @@ const menuItem = [
     },
      /*------------------Examination End--------------------------*/
   /*------------------Downloads--------------------------*/
-  {
-    path: "/HallTicketDownload",
-    name: "Hall Ticket Download",
-    icon: <TiTicket/>
-    },
     {
       path: "/Download",
       name: "Download",

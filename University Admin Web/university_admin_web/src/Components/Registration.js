@@ -182,7 +182,7 @@ function Registration(){
     
     return(
         <div className="registrationpnl">
-            <p className='form_label' style={{margin:"0px 0px 21px 326px",paddingTop:"3%",fontSize: "x-large"}}>Registration</p>
+            <h1  className='document_header'>Registration</h1>
             <div className="form-registration-body">
                 <div className='row'>
                     <div className='col-md-6'>

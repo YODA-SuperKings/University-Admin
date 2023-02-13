@@ -1,18 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
-import { AiOutlineDownload } from 'react-icons/ai';
 import Table from 'react-bootstrap/Table';
 import { FcApproval } from 'react-icons/fc';
 function StudentModelPaper(){
-    const navigate = useNavigate();
-     const [gridData, setGridData] = useState([]);
-    const gridVals = [{id: 1, SNo:1, Subject: "Engg Chemistry-I", ModelPaper: "Engg Chemistry-I Model paper",},
-    {id: 2, SNo:2, Subject: "Engg Graphics", ModelPaper: "Engg Graphics Model paper",},
-    {id: 3, SNo:3, Subject: "Mathematics-I", ModelPaper: "Mathematics-I Model paper",},
-    {id: 4, SNo:4, Subject: "Engg Physics-I", ModelPaper: "Engg Physics-I Model paper",}
- 
-]
-
+  const navigate = useNavigate();
+  const [gridData, setGridData] = useState([]);
 
 const downloadModelPaper = (Subject) => {
  
@@ -29,7 +21,7 @@ const downloadModelPaper = (Subject) => {
     }
 
     const getModelPaperGridData  = (e) => {
-        fetch('', 
+        fetch('https://localhost:44343/api/Syllabus/GetSyllabusByID?semesterType=I', 
         { 
             method: 'GET',
             withCredentials: true, 
@@ -50,40 +42,27 @@ const downloadModelPaper = (Subject) => {
     }
 
     useEffect(() => {
-        //getModelPaperGridData();
-        setGridData(gridVals);
+       getModelPaperGridData();
      }, [])
-     const [image, setIamge] = useState([]);
-     const [imageUrl, setImageUrl] = useState('');
-  
-   
     
     return(
         <div className="form-payment">
-            <div><h1 className='payment_header'>Model Paper</h1></div>
+            <div><h1 className='document_header'>Model Paper</h1></div>
             <div className="form-payment-body">
              <Table responsive bordered hover variant="light">
                 <thead>
                     <tr>
-                        <th>Sl No</th>
+                        <th>S No</th>
                         <th>Subject</th>
-                        <th>Model Paper</th>
-                         </tr>
-                                       
+                     </tr>
                 </thead>
                 <tbody>
-                    {gridData.map(d =>
+                    {
+                    gridData.map((d, index )=>
                         <tr key = {d.id}>
-                            <td>{d.SNo}</td>
-                            <td>{d.Subject}</td>
-                            <td>
-                            <span style={{fontSize: "large", cursor: 'pointer', color: '#785fa0'}}> {d.ModelPaper}<FcApproval onClick={() => downloadModelPaper(d.Subject)}/></span>
-                           
-                                </td>
-                            
+                            <td>{index + 1}</td>
+                            <td><span style={{fontSize: "large", cursor: 'pointer', color: '#785fa0'}}> {d.courseTitle}<FcApproval onClick={() => downloadModelPaper(d.courseTitle)}/></span>                            </td>
                         </tr>
-                        
-                        
                     )}
                 </tbody>
             </Table>
