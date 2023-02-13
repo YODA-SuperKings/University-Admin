@@ -98,7 +98,6 @@ function ExamResult(){
                         <th>Course Code</th>
                         <th>Course Name</th>
                         <th>Marks</th>
-                        <th>Is Published</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -107,7 +106,6 @@ function ExamResult(){
                             <td>{d.courseCode}</td>
                             <td>{d.courseName}</td>
                             <td>{d.mark}</td>
-                            <td>{d.isPublishedResults}</td>
                         </tr>
                     )}
                 </tbody>
