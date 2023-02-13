@@ -76,7 +76,7 @@ const downloadDocument = (DocumentType) => {
     useEffect(() => {
         //getModelPaperGridData();
         setGridData(gridVals);
-        fetch('https://localhost:44343/api/Student/GetStudentByUserID?registrationNo=' + registrationNumber, 
+        fetch('https://localhost:44343/api/Users/GetStudentByUserID?registrationNo=' + registrationNumber, 
         { 
             method: 'GET',
             withCredentials: true, 
