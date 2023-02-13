@@ -12,7 +12,6 @@ function Evaluation(){
     const [studentList, setStudentList] = useState([]);
     const [registrationNoList, setRegistrationNoList] = useState([]);
     const [courseNameList, setCourseNameList] = useState([]);
-    let arry = [];
     
     const handleInputChange = (e) => {
         const {id , value} = e.target;
@@ -45,6 +44,7 @@ function Evaluation(){
     }
 
     const getCourseData = (semester) => {
+        debugger;
         fetch('https://localhost:44343/api/Syllabus/GetSyllabusByID?semesterType=' + semester, 
         { 
             method: 'GET',
@@ -56,14 +56,6 @@ function Evaluation(){
         }) 
         .then((res) => res.json())
         .then((data) => {
-            debugger;
-            const tempData =[];
-            data.find((item) =>{
-                if (item.semesterType === semester)
-                {
-                    tempData.push(item); 
-                } 
-            });
             setCourseNameList(data);
         })
         .catch((error) => {
@@ -123,7 +115,7 @@ function Evaluation(){
                 <div className='col-md-4'>
                     <label className="form_label" for="courseName">Course Name </label><br></br>
                     <select className="form-control" id="courseName" value={courseName} onChange = {(e) => handleInputChange(e)}>
-                        {courseNameList.map((option) => (<option value={option.value}>{option.label}</option>))}
+                        {courseNameList.map((option) => (<option value={option.courseCode}>{option.courseTitle}</option>))}
                     </select>
                 </div>
             </div>
