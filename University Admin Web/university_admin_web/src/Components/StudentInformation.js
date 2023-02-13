@@ -59,7 +59,7 @@ function StudentInformation(){
                     <tr>
                         <th>Student Name</th>
                         <th>Registration Number</th>
-                        <th>College Name</th>
+                        <th>College Code</th>
                         <th>DOB</th>
                         <th>Gender</th>
                         <th>Email</th>
