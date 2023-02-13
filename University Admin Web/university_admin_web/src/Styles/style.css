@@ -513,6 +513,24 @@ main{
   font-size: xx-large;
   color: #785fa0;
 }
+
+.btn_add_marks{
+  height: 35px;
+  width: 10%;
+  background-color: #785fa0;
+  color: white;
+  font-size: large;
+  text-align: center;
+}
+
+.btn_save_marks{
+  height: 35px;
+  width: 10%;
+  background-color: #785fa0;
+  color: white;
+  font-size: large;
+  text-align: center;
+}
 /*Evaluation - End*/
 /*Department - Start*/
 .form-department{

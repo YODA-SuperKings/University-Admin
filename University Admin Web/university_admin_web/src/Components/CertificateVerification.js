@@ -201,12 +201,12 @@ function CertificateVerfication(){
                             <td>{d.status}</td>
                             <td>
                                 <button variant="primary" onClick={() => rowData(d.id, d.registrationNo, d.candidateName, d.course, d.graduatedYear)} type="submit" class="btn_certificateVerification_view">View</button>
-                                <ViewCertificateVerificationModal show={modalShow} onHide={() => setModalShow(false)} />
                             </td>
                         </tr>
                     )}
                 </tbody>
             </Table>
+            <ViewCertificateVerificationModal show={modalShow} onHide={() => setModalShow(false)} />
             </div>
             </div>
     )

@@ -124,14 +124,14 @@ const menuItem = [
     icon: <TiTicket/>
     },
     {
-        path: "/MarkSheetDownload",
-        name: "Download",
-        icon: <FaRegNewspaper/>
+      path: "/Download",
+      name: "Download",
+      icon: <FaRegNewspaper/>
     },
     {
-        path: "/ConductUs",
-        name: "Conduct Us",
-        icon: <FcBusinessContact/>
+       path: "/ConductUs",
+       name: "Conduct Us",
+       icon: <FcBusinessContact/>
     },
  /*------------------Downloads End--------------------------*/
     {

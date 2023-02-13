@@ -23,6 +23,9 @@ import FeeStructure from './Components/FeeStructure';
 import StudentAttendance from './Components/StudentAttendance';
 import HolidayCalendar from './Components/HolidayCalendar';
 import ExamTimeTable from './Components/ExamTimeTable';
+import StudentModelPaper from './Components/StudentModelPaper';
+import Download from './Components/Download';
+import ExamResult from './Components/ExamResult';
 import ConductUs from './Components/ConductUs';
 import StudentProfile from './Components/StudentProfile';
 
@@ -58,6 +61,9 @@ function App() {
             <Route path="StudentAttendance" element={<StudentAttendance />} />
             <Route path="HolidayCalendar" element={<HolidayCalendar />} />
             <Route path="ExamTimeTable" element={<ExamTimeTable />} />
+            <Route path="ExamResult" element={<ExamResult />} />
+            <Route path="StudentModelPaper" element={<StudentModelPaper />} />
+            <Route path="Download" element={<Download />} />
             <Route path="ConductUs" element={<ConductUs />} />
             <Route path="LogOut" element={<LogOut />} />
           </Routes>
