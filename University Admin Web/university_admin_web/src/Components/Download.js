@@ -5,6 +5,8 @@ import Table from 'react-bootstrap/Table';
 import { FcApproval } from 'react-icons/fc';
 function Download(){
     const navigate = useNavigate();
+    const [registrationNumber, setRegistrationNumber] = useState(localStorage.getItem('RegistrationNumber'));
+    const [studentName, setStudentName] = useState(null);
      const [gridData, setGridData] = useState([]);
      const [semesterGridData, setSemesterGridData] = useState([]);
      const [semesterType, setsemesterType] = useState([]);
@@ -28,7 +30,6 @@ const getStudentData  = (e) => {
     }) 
     .then((res) => res.json())
     .then((data) => {
-        debugger;
         setRegistrationNumber(registrationNumber);
         setStudentName(data.firstName + ' ' + data.lastName);
         
@@ -75,6 +76,23 @@ const downloadDocument = (DocumentType) => {
     useEffect(() => {
         //getModelPaperGridData();
         setGridData(gridVals);
+        fetch('https://localhost:44343/api/Student/GetStudentByUserID?registrationNo=' + registrationNumber, 
+        { 
+            method: 'GET',
+            withCredentials: true, 
+            crossorigin: true,
+            headers: {
+            Accept: 'application/json','Content-Type': 'application/json'
+            },
+        }) 
+        .then((res) => res.json())
+        .then((data) => {
+            setStudentName(data.firstName + ' ' + data.lastName)
+            console.log(data);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
        // setSyllabus('I');
        // getSyllabus('I');
      }, [])
@@ -121,9 +139,6 @@ const downloadDocument = (DocumentType) => {
     
      const [image, setIamge] = useState([]);
      const [imageUrl, setImageUrl] = useState('');
-  
-     const [studentName, setStudentName] = useState(null);
-    const [registrationNumber, setRegistrationNumber] = useState(localStorage.getItem('RegistrationNumber'));
     const [syllabus, setSyllabus] = useState([]);
    
     return(
