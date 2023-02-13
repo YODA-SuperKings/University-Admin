@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
 import { AiOutlineDownload } from 'react-icons/ai';
 import Table from 'react-bootstrap/Table';
-import { FcApproval } from 'react-icons/fc';
 function Download(){
     const navigate = useNavigate();
      const [gridData, setGridData] = useState([]);
@@ -51,84 +50,27 @@ const downloadDocument = (DocumentType) => {
          })
      })
     }
-    const getModelPaperGridData  = (e) => {
-        fetch('', 
-        { 
-            method: 'GET',
-            withCredentials: true, 
-            crossorigin: true,
-            headers: {
-            Accept: 'application/json','Content-Type': 'application/json'
-            },
-        }) 
-        .then((res) => res.json())
-        .then((data) => {
-            setGridData(data);
-            console.log(data);
-           
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-    }
-
+   
     useEffect(() => {
-        //getModelPaperGridData();
         setGridData(gridVals);
-       // setSyllabus('I');
-       // getSyllabus('I');
+        getStudentData();
      }, [])
-     const getSemesterGridData  = (e) => {
-        fetch('', 
-        { 
-            method: 'GET',
-            withCredentials: true, 
-            crossorigin: true,
-            headers: {
-            Accept: 'application/json','Content-Type': 'application/json'
-            },
-        }) 
-        .then((res) => res.json())
-        .then((data) => {
-            setGridData(data);
-            console.log(data);
-           
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-    }
 
-    useEffect(() => {
-        //getSemesterGridData();
-        
-       // setSyllabus('I');
-       // getSyllabus('I');
-     }, [])
+
      const handleInputChange = (e) => {
         debugger;
          const {id , value} = e.target;
-       // if(id === "syllabus")
-        //{
-            setSyllabus(value);
+           setSyllabus(value);
            setsemesterType(value);
-          setSemesterGridData(gridSemsterGridVals);
-       // }
+           setSemesterGridData(gridSemsterGridVals);
      }
-    
-    
-
-    
-     const [image, setIamge] = useState([]);
-     const [imageUrl, setImageUrl] = useState('');
-  
-     const [studentName, setStudentName] = useState(null);
+    const [studentName, setStudentName] = useState(null);
     const [registrationNumber, setRegistrationNumber] = useState(localStorage.getItem('RegistrationNumber'));
     const [syllabus, setSyllabus] = useState([]);
    
     return(
         <div className="form-payment">
-            <div><h1 className='payment_header'>Downloads</h1></div>
+            <div><h1 className='document_header'>Downloads</h1></div>
             <div className="form-payment-body">
             <div className='row'>
                         
@@ -182,6 +124,7 @@ const downloadDocument = (DocumentType) => {
                         </select>
                 </div>
             </div>
+            <br/>
             <Table responsive bordered hover variant="light">
                 <thead>
                     <tr>
@@ -192,6 +135,7 @@ const downloadDocument = (DocumentType) => {
                                        
                 </thead>
                 <tbody>
+                   
                     {semesterGridData.map(d =>
                         <tr key = {d.id}>
                             <td>{d.SNo}</td>
@@ -199,7 +143,6 @@ const downloadDocument = (DocumentType) => {
                             <td>
                             <span style={{fontSize: "large", cursor: 'pointer', color: '#785fa0'}}> <AiOutlineDownload onClick={() => downloadDocument(d.DocumentType)}/></span>
                              </td>
-                            
                         </tr>
                         
                         

@@ -114,19 +114,19 @@ function Payment(){
                     <div className='row'>
                         <div className='col-md-4'>
                             <label className="form_label" for="feeDescription">Fee Description </label><br></br>
-                            <input className="form_input" type="text" id="feeDescription" value={feeDescription} onChange = {(e) => handleInputChange(e)} placeholder="Fee Description"/>
+                            <input className="form-control" type="text" id="feeDescription" value={feeDescription} onChange = {(e) => handleInputChange(e)} placeholder="Fee Description"/>
                         </div>
                     </div>
                     <div className='row'>
                         <div className='col-md-4'>
                             <label className="form_label" for="academicYear">Academic Year </label><br></br>
-                            <input className="form_input" style={{backgroundColor:'lightgrey'}} type="text" id="academicYear" value={academicYear} readOnly />
+                            <input className="form-control" style={{backgroundColor:'lightgrey'}} type="text" id="academicYear" value={academicYear} readOnly />
                         </div>
                     </div>
                     <div className='row'>
                         <div className='col-md-4'>
                             <label className="form_label" for="amount">Amount </label><br></br>
-                            <input className="form_input" style={{backgroundColor:'lightgrey'}} type="text" id="amount" value={amount} readOnly/>
+                            <input className="form-control" style={{backgroundColor:'lightgrey'}} type="text" id="amount" value={amount} readOnly/>
                         </div>
                     </div>
                 </div>

@@ -6,7 +6,8 @@ import { FcApproval } from 'react-icons/fc';
 function StudentInformation(){
     const [gridData, setGridData] = useState([]);
     const getStudentsGridData  = (e) => {
-        fetch('https://localhost:44343/api/Student/GetStudent', 
+        debugger;
+        fetch('https://localhost:44343/api/Student/GetStudentByID?userName='+ localStorage.getItem("UserName"), 
         { 
             method: 'GET',
             withCredentials: true, 

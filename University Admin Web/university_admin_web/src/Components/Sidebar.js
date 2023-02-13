@@ -157,20 +157,19 @@ function Sidebar({children}){
     tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Department","Exam Time Table","Exam Result","Registration","Contact Us","Log In"]
     if(loginType === "1")
     {
-        tempmenu = ["Home","College Info","Student Details","Certificate Verfication","Model Papers",
-        "Payment","Exam Result","Log Out"]
+        tempmenu = ["College Info","Student Details","Certificate Verfication","Model Papers","Exam Result","Log Out"]
     }
     else  if(loginType === "2")
     {
-        tempmenu = ["Home","Student Details","Certificate Verfication","Student Attendance","Model Papers","Exam Evaluation","Payment","Exam Result","Log Out"]
+        tempmenu = ["Student Details","Certificate Verfication","Student Attendance","Model Papers","Exam Evaluation","Payment","Exam Result","Log Out"]
     }
     else  if(loginType === "3")
     {
-        tempmenu = ["Home","Student Details","Student Attendance","Model Papers","Exam Evaluation","Log Out"]
+        tempmenu = ["Student Details","Student Attendance","Model Papers","Exam Evaluation","Log Out"]
     }
     else  if(loginType === "4")
     {
-        tempmenu = ["Home","Document","Payment","Model Papers","Exam Time Table","Exam Result","Hall Ticket Download","Download","Log Out"]
+        tempmenu = ["Document","Payment","Model Papers","Exam Time Table","Exam Result","Hall Ticket Download","Download","Log Out"]
     }
     
     menuItem.forEach(mi => {

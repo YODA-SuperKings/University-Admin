@@ -31,11 +31,16 @@ function Login(props){
         }) 
         .then((res) => res.json())
         .then((data) => {
+            debugger;
             if (data !== 0) {
                 toast(<><b style={{ color: 'Green' }}>Login Succesfully.</b></>, { position: 'top-right' });
                 setauthenticated(true)
                 localStorage.setItem("authenticated", true);
                 localStorage.setItem('LoginType', data);
+                if(data === 2 || data === 3){
+                    localStorage.setItem('UserName', UserName);
+                }
+                
                 if(data === 4)
                     localStorage.setItem('RegistrationNumber', UserName);
                 navigate("/Home");

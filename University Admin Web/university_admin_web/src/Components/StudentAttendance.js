@@ -10,9 +10,9 @@ function StudentAttendance(){
     const [candidateName, setCandidateName] = useState(null);
     const [courseBranch, setCourseBranch] = useState(null);
     const [monthAndYearOfPassing, setMonthAndYearOfPassing] = useState(null);
-    const gridVals = [{id: 1, RegistratioNumber: "KEC12457885", StudentName: "Jim", SEM1_Sub:25,  SEM2_Sub:21, SEM3_Sub:23, SEM4_Sub:15 ,SEM5_Sub:25 ,SEM6_Sub:25 ,Total:134,AttendancePercent:"74%" },
-    {id: 1, RegistratioNumber: "KEC12457886", StudentName: "Jim", SEM1_Sub:30,  SEM2_Sub:25, SEM3_Sub:25, SEM4_Sub:21 ,SEM5_Sub:20 ,SEM6_Sub:30 ,Total:151,AttendancePercent:"83%" }]
-
+    const gridVals = [{id: 1, RegistratioNumber: "10122023", StudentName: "Jim Carey", SEM1_Sub:25,  SEM2_Sub:21, SEM3_Sub:23, SEM4_Sub:15 ,SEM5_Sub:25 ,SEM6_Sub:25 ,Total:134,AttendancePercent:"74%" },
+    {id: 2, RegistratioNumber: "10122024", StudentName: " Ram Bala", SEM1_Sub:30,  SEM2_Sub:25, SEM3_Sub:25, SEM4_Sub:21 ,SEM5_Sub:20 ,SEM6_Sub:30 ,Total:151,AttendancePercent:"83%" }]
+   
       useEffect(() => {
         //getCertificateVerificationGridData();
         setGridData(gridVals);

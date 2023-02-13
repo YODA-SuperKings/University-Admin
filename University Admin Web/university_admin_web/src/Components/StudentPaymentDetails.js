@@ -48,7 +48,7 @@ function StudentPaymentDetails(){
             setStudentName(data.firstName + ' ' + data.lastName);
             setDeptCourse(data.courseAppliedType);
             setYear(data.graduatedYear);
-            console.log(data);
+            getPaymentHistoryGridData();
         })
         .catch((error) => {
             console.error(error);
@@ -57,7 +57,6 @@ function StudentPaymentDetails(){
 
     useEffect(() => {
         getStudentData();
-        getPaymentHistoryGridData();
      }, [])
      const downloadFeeReceipt = () => {
         fetch('FeeReceipt.pdf').then(response => {
