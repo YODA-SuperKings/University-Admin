@@ -122,7 +122,24 @@ function Evaluation(){
     }
 
     const Publish = () => {
-
+        fetch('https://localhost:44343/api/Examinations/UpdateExaminations', 
+        { 
+            method: 'POST',
+            withCredentials: true, 
+            crossorigin: true,
+            headers: {
+            Accept: 'application/json','Content-Type': 'application/json'
+            },
+        }) 
+        .then((res) => res.json())
+        .then((data) => {
+            toast(<><b style={{ color: 'Green' }}>{data}</b></>, { position: 'top-right' });
+            console.log(data);
+        })
+        .catch((error) => {
+            toast(<><b style={{ color: 'Red' }}>{error}</b></>, { position: 'top-right' });
+            console.error(error);
+        });
     }
 
     useEffect(() => {
