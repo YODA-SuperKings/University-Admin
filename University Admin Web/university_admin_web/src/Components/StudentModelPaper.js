@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
 import { AiOutlineDownload } from 'react-icons/ai';
 import Table from 'react-bootstrap/Table';
-
+import { FcApproval } from 'react-icons/fc';
 function StudentModelPaper(){
     const navigate = useNavigate();
      const [gridData, setGridData] = useState([]);
@@ -12,6 +12,21 @@ function StudentModelPaper(){
     {id: 4, SNo:4, Subject: "Engg Physics-I", ModelPaper: "Engg Physics-I Model paper",}
  
 ]
+
+
+const downloadModelPaper = (Subject) => {
+ 
+   fetch('ModelPaper ' + Subject +'.pdf')
+   .then(response => {
+        response.blob().then(blob => {
+            const fileURL = window.URL.createObjectURL(blob);
+            let alink = document.createElement('a');
+            alink.href = fileURL;
+            alink.download = 'ModelPaper ' + Subject  +'.pdf';
+            alink.click();
+        })
+    })
+    }
 
     const getModelPaperGridData  = (e) => {
         fetch('', 
@@ -61,7 +76,10 @@ function StudentModelPaper(){
                         <tr key = {d.id}>
                             <td>{d.SNo}</td>
                             <td>{d.Subject}</td>
-                            <td><a href="#" class="row-link">{d.ModelPaper}</a></td>
+                            <td>
+                            <span style={{fontSize: "large", cursor: 'pointer', color: '#785fa0'}}> {d.ModelPaper}<FcApproval onClick={() => downloadModelPaper(d.Subject)}/></span>
+                           
+                                </td>
                             
                         </tr>
                         
