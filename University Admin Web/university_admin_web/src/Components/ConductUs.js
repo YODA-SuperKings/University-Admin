@@ -3,6 +3,7 @@ const ConductUs = () => {
 return (
 	<div>
    <div class="form-department">
+        <h1 className="contactusheader" style={{marginLeft: "10%"}}>How To Reach Us</h1>
         <div className="row">
           <div className="col">
           <h3 class="elementor-image-box-title">Address</h3>

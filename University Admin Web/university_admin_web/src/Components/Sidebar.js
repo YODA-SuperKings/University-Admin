@@ -125,7 +125,7 @@ const menuItem = [
     },
     {
        path: "/ConductUs",
-       name: "Conduct Us",
+       name: "Contact Us",
        icon: <FcBusinessContact/>
     },
  /*------------------Downloads End--------------------------*/
@@ -154,10 +154,10 @@ function Sidebar({children}){
     let tempmenu = []
     let loginType = localStorage.getItem("LoginType");
     
-    tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Department","Exam Time Table","Exam Result","Registration","Conduct Us","Log In"]
+    tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Department","Exam Time Table","Exam Result","Registration","Contact Us","Log In"]
     if(loginType === "1")
     {
-        tempmenu = ["Home","College Info","Student Details","Certificate Verfication","Student Attendance","Model Papers","Exam Evaluation","Student Profile",
+        tempmenu = ["Home","College Info","Student Details","Certificate Verfication","Model Papers",
         "Payment","Exam Result","Log Out"]
     }
     else  if(loginType === "2")
@@ -170,7 +170,7 @@ function Sidebar({children}){
     }
     else  if(loginType === "4")
     {
-        tempmenu = ["Home","Student Profile","Document","Payment","Model Papers","Exam Time Table","Exam Result","Hall Ticket Download","Download","Log Out"]
+        tempmenu = ["Home","Document","Payment","Model Papers","Exam Time Table","Exam Result","Hall Ticket Download","Download","Log Out"]
     }
     
     menuItem.forEach(mi => {
