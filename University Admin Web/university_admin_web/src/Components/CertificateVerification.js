@@ -108,7 +108,7 @@ function CertificateVerfication(){
                     <label className="form_label" for="registrationNumber">Registration Number </label><br></br>
                 </div>
                 <div className='col-md-4'>
-                    <input className="form_input" style={{backgroundColor:'lightgrey'}} type="text" id="registrationNumber" readOnly value={registrationNumber}/>
+                    <input className="textbox" type="text" id="registrationNumber" readOnly value={registrationNumber}/>
                 </div>
                 <div className='col-md-4'></div>
               </div>
@@ -118,7 +118,7 @@ function CertificateVerfication(){
                     <label className="form_label" for="candidateName">Candidate Name</label><br></br>
                 </div>
                 <div className='col-md-4'>
-                    <input className="form_input" style={{backgroundColor:'lightgrey'}} type="text" id="candidateName" readOnly value={candidateName}/>
+                    <input className="textbox" type="text" id="candidateName" readOnly value={candidateName}/>
                 </div>
                 <div className='col-md-4'></div>
               </div>
@@ -128,7 +128,7 @@ function CertificateVerfication(){
                     <label className="form_label" for="courseBranch">Course / Branch</label><br></br>
                 </div>
                 <div className='col-md-4'>
-                    <input className="form_input" style={{backgroundColor:'lightgrey'}} type="text" id="courseBranch" readOnly value={courseBranch}/>
+                    <input className="textbox" type="text" id="courseBranch" readOnly value={courseBranch}/>
                 </div>
                 <div className='col-md-4'></div>
               </div>
@@ -138,7 +138,7 @@ function CertificateVerfication(){
                     <label className="form_label" for="monthAndYearOfPassing">Month / Year Of Passing</label><br></br>
                 </div>
                 <div className='col-md-4'>
-                    <input className="form_input" style={{backgroundColor:'lightgrey'}} type="text" id="monthAndYearOfPassing" readOnly value={monthAndYearOfPassing}/>
+                    <input className="textbox" type="text" id="monthAndYearOfPassing" readOnly value={monthAndYearOfPassing}/>
                 </div>
                 <div className='col-md-4'></div>
               </div>

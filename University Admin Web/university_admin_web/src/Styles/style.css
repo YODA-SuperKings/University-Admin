@@ -938,3 +938,10 @@ footer {
   color: #785fa0;
   text-transform: uppercase;
 }
+
+.textbox{
+  background-color: #f8f9fa;
+  border-style: none;
+  height: 30px !important;
+  width: 100% !important;
+}
