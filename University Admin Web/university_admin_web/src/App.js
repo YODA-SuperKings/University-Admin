@@ -24,7 +24,7 @@ import StudentAttendance from './Components/StudentAttendance';
 import HolidayCalendar from './Components/HolidayCalendar';
 import ExamTimeTable from './Components/ExamTimeTable';
 import StudentModelPaper from './Components/StudentModelPaper';
-
+import Download from './Components/Download';
 function App() {
   const reloadPage = () => {
     window.location.reload();
@@ -57,6 +57,7 @@ function App() {
             <Route path="HolidayCalendar" element={<HolidayCalendar />} />
             <Route path="ExamTimeTable" element={<ExamTimeTable />} />
             <Route path="StudentModelPaper" element={<StudentModelPaper />} />
+            <Route path="Download" element={<Download />} />
             <Route path="LogOut" element={<LogOut />} />
           </Routes>
         </Sidebar>
