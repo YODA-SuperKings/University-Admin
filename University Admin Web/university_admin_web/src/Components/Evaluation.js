@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from 'react';
+import toast from 'react-simple-toasts';
 import Table from 'react-bootstrap/Table';
 
 function Evaluation(){
     const [gridData, setGridData] = useState([]);
     const [registrationNumber, setRegistrationNumber] = useState(null);
-    const [studentName, setStudentName] = useState(null);
-    const [courseCode, setCourseCode] = useState(null);
     const [semester, setSemester] = useState(null);
     const [courseName, setCourseName] = useState(null);
     const [mark, setMark] = useState(null);
@@ -15,11 +14,15 @@ function Evaluation(){
     
     const handleInputChange = (e) => {
         const {id , value} = e.target;
+        if(id === "registrationNumber")
+            setRegistrationNumber(value);
         if(id === "semester" && value !== 0)
         {
             setSemester(value);
             getCourseData(value);
         }
+        if(id === "courseName")
+            setCourseName(value);
         if(id === "mark")
             setMark(value);
     }
@@ -63,8 +66,8 @@ function Evaluation(){
         });
     }
 
-    const getExamMarksGridData = (id) => {
-        fetch('https://localhost:44343/api/Examinations/GetExaminationsBySemesterID?semesterType=' + id, 
+    const getExamMarksGridData = (regno, semesterId) => {
+        fetch('https://localhost:44343/api/Examinations/GetExaminationsByRegistrationID?registrationNo=' + regno + '&semesterType=' + semesterId, 
         { 
             method: 'GET',
             withCredentials: true, 
@@ -81,10 +84,46 @@ function Evaluation(){
             console.error(error);
         });
     }
-      useEffect(() => {
+
+    const SaveMark = () => {
+        debugger;
+        let toastColor = '';
+        const postBody = {
+            RegistrationNo: registrationNumber,
+            CourseCode: courseName,
+            Mark: mark,
+            IsPublishedResults: "Not Published"
+        }
+        fetch('https://localhost:44343/api/Examinations/CreateExaminations', 
+        { 
+            method: 'POST',
+            body: JSON.stringify(postBody),
+            withCredentials: true, 
+            crossorigin: true,
+            headers: {
+            Accept: 'application/json','Content-Type': 'application/json'
+            },
+        }) 
+        .then((res) => res.json())
+        .then((data) => {
+            debugger;
+            if(data === "Mark already exists.")
+                toastColor = 'Red';
+            else{
+                toastColor = 'Green';
+                getExamMarksGridData(registrationNumber,semester);
+            }
+            toast(<><b style={{ color: toastColor }}>{data}</b></>, { position: 'top-right' });
+            console.log(data);
+        })
+        .catch((error) => {
+            toast(<><b style={{ color: 'Red' }}>{error}</b></>, { position: 'top-right' });
+            console.error(error);
+        });
+    }
+
+    useEffect(() => {
             getStudentsData();
-           
-            getExamMarksGridData("I");
      }, [])
     
     return(
@@ -92,13 +131,13 @@ function Evaluation(){
         <div><h1 className='evaluation_header'>Exam Evaluation</h1></div>
         <div className="form-evaluation-body">
             <div className='row'>
-                <div className='col-md-4'>
+                <div className='col-md-4' style={{width: "20%"}}>
                     <label className="form_label" for="registrationNumber">Registration Number </label><br></br>
                     <select className="form-control" id="registrationNumber" value={registrationNumber} onChange = {(e) => handleInputChange(e)}>
                         {registrationNoList.map((option) => (<option value={option.value}>{option.label}</option>))}
                     </select>
                 </div>
-                <div className='col-md-4'>
+                <div className='col-md-4' style={{width: "20%"}}>
                     <label className="form_label" for="semester">Semester </label><br></br>
                         <select className="form-control" id="semester" value={semester} onChange = {(e) => handleInputChange(e)}>
                             <option value={"0"}>-Select-</option>
@@ -112,11 +151,18 @@ function Evaluation(){
                             <option value={"VIII"}>Semester 8</option>
                         </select>
                 </div>
-                <div className='col-md-4'>
+                <div className='col-md-4'style={{width: "20%"}}>
                     <label className="form_label" for="courseName">Course Name </label><br></br>
                     <select className="form-control" id="courseName" value={courseName} onChange = {(e) => handleInputChange(e)}>
                         {courseNameList.map((option) => (<option value={option.courseCode}>{option.courseTitle}</option>))}
                     </select>
+                </div>
+                <div className='col-md-4' style={{width: "20%"}}>
+                    <label className="form_label" for="mark">Mark </label><br></br>
+                    <input  type="text" name="" id="mark" className="form-control" value={mark} onChange = {(e) => handleInputChange(e)} placeholder="Mark"/>
+                </div>
+                <div className='col-md-4' style={{width: "20%", paddingTop: "25px"}}>
+                    <button variant="primary" onClick={(e)=>SaveMark(e)} type="submit" class="btn_add_document">Save Mark</button>
                 </div>
             </div>
             <br></br>
