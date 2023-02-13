@@ -7,6 +7,7 @@ function Download(){
      const [gridData, setGridData] = useState([]);
      const [semesterGridData, setSemesterGridData] = useState([]);
      const [semesterType, setsemesterType] = useState([]);
+     const [paymentStatus, setpaymentStatus] = useState(false);
     const gridVals = [{id: 1, SNo:1, DocumentType: "HallTicket"},
     {id: 2, SNo:2, DocumentType: "CCCeritificate",},
     {id: 3, SNo:3, DocumentType: "DegreeCerificate",},
@@ -30,7 +31,7 @@ const getStudentData  = (e) => {
         debugger;
         setRegistrationNumber(registrationNumber);
         setStudentName(data.firstName + ' ' + data.lastName);
-        
+        setpaymentStatus(data.paymentStatus);
         console.log(data);
     })
     .catch((error) => {
@@ -88,6 +89,7 @@ const downloadDocument = (DocumentType) => {
                     <tr>
                         <th>Sl No</th>
                         <th>Document Type</th>
+                        <th>Fee Status</th>
                         <th>Download</th>
                          </tr>
                                        
@@ -97,13 +99,10 @@ const downloadDocument = (DocumentType) => {
                         <tr key = {d.id}>
                             <td>{d.SNo}</td>
                             <td>{d.DocumentType}</td>
-                            <td>
-                            <span style={{fontSize: "large", cursor: 'pointer', color: '#785fa0'}}> <AiOutlineDownload onClick={() => downloadDocument(d.DocumentType)}/></span>
+                            <td>{paymentStatus? "Paid":"Not Paid"}</td>
+                            <td>{paymentStatus? <span style={{fontSize: "large", cursor: 'pointer', color: '#785fa0'}}> <AiOutlineDownload onClick={() => downloadDocument(d.DocumentType)}/></span>:""}                      
                              </td>
-                            
                         </tr>
-                        
-                        
                     )}
                 </tbody>
             </Table>
@@ -141,7 +140,7 @@ const downloadDocument = (DocumentType) => {
                             <td>{d.SNo}</td>
                             <td>{d.DocumentType}</td>
                             <td>
-                            <span style={{fontSize: "large", cursor: 'pointer', color: '#785fa0'}}> <AiOutlineDownload onClick={() => downloadDocument(d.DocumentType)}/></span>
+                            {paymentStatus? <span style={{fontSize: "large", cursor: 'pointer', color: '#785fa0'}}> <AiOutlineDownload onClick={() => downloadDocument(d.DocumentType)}/></span>:""} 
                              </td>
                         </tr>
                         
