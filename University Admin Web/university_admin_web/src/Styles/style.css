@@ -927,7 +927,14 @@ footer {
 
 .li_icon{
   margin-left: 3%;
-  color: rgb(251 255 0);
+  color: #e7261d;
   font-size: 31px;
   font-weight: bold;
+}
+
+.contactusheader{
+  text-align: left;
+  font-size: xx-large;
+  color: #785fa0;
+  text-transform: uppercase;
 }

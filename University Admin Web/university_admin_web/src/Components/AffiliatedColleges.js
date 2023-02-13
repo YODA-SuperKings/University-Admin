@@ -35,9 +35,9 @@ function AffiliatedColleges()
                 <thead>
                     <tr>
                         <th>District</th>
-                        <th>Government Colleges</th>
-                        <th>Aided Colleges</th>
-                        <th>SelfFinanced Colleges</th>
+                        <th>Government</th>
+                        <th>Aided</th>
+                        <th>Self Financed</th>
                         <th>Total</th>
                     </tr>
                 </thead>
