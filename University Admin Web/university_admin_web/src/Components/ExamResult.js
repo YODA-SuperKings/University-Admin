@@ -34,6 +34,7 @@ function ExamResult(){
         .then((res) => res.json())
         .then((data) => {
             setRegistrationNoList(data);
+            setRegistrationNumber(data[0].value);
         })
         .catch((error) => {
             console.error(error);
