@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { FaBars, FaTh, FaUserAlt, FaUserGraduate, FaSignOutAlt,FaDiscourse,FaUniversity,FaRegRegistered,FaRegCalendarTimes,FaRegNewspaper,FaRegHandPointRight,FaSchool } from 'react-icons/fa';
-import { MdOutlinePayment,MdLibraryBooks,MdOutlineHolidayVillage,MdCastForEducation } from 'react-icons/md';
+import { MdOutlinePayment,MdLibraryBooks,MdOutlineHolidayVillage,MdCastForEducation, MdPublic } from 'react-icons/md';
 import { HiDocumentDuplicate } from 'react-icons/hi';
 import { AiOutlineLogin } from 'react-icons/ai';
 import { BiDollar } from 'react-icons/bi';
@@ -112,6 +112,11 @@ const menuItem = [
         icon: <FaRegCalendarTimes/>
     },
     {
+        path: "/Evaluation",
+        name: "Publish Exam",
+        icon: <MdPublic/>
+    },
+    {
         path: "/ExamResult",
         name: "Exam Result",
         icon: <MdCastForEducation/>
@@ -157,7 +162,7 @@ function Sidebar({children}){
     tempmenu = ["Home","Admission","Programs Offered","Affiliated Colleges","Syllabus","Fee Structure","Holiday Calendar","Department","Exam Time Table","Exam Result","Registration","Contact Us","Log In"]
     if(loginType === "1")
     {
-        tempmenu = ["College Info","Student Details","Certificate Verfication","Model Papers","Exam Result","Log Out"]
+        tempmenu = ["College Info","Student Details","Certificate Verfication","Model Papers","Publish Exam","Exam Result","Log Out"]
     }
     else  if(loginType === "2")
     {
